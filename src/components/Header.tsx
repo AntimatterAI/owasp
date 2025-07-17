@@ -18,46 +18,46 @@ export default function Header() {
           </Link>
           
           <div className="absolute box-border flex flex-row gap-10 items-center justify-start p-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="box-border flex flex-row gap-1 h-10 items-center justify-start p-0 relative shrink-0 cursor-pointer hover:opacity-80 transition-opacity">
+            <Link href="/projects" className="box-border flex flex-row gap-1 h-10 items-center justify-start p-0 relative shrink-0 cursor-pointer hover:opacity-80 transition-opacity">
               <div className="font-['Poppins'] text-white text-sm text-center">
                 Projects
               </div>
               <div className="flex h-5 items-center justify-center relative shrink-0 w-5">
-                <div className="relative size-3">
-                  <Image src={chevronIcon} alt="" width={12} height={12} className="opacity-60 rotate-90" />
+                <div className="relative size-2">
+                  <Image src={chevronIcon} alt="" width={8} height={8} className="opacity-60 rotate-90" />
                 </div>
               </div>
-            </div>
-            <div className="box-border flex flex-row gap-1 h-10 items-center justify-start p-0 relative shrink-0 cursor-pointer hover:opacity-80 transition-opacity">
+            </Link>
+            <Link href="/chapters" className="box-border flex flex-row gap-1 h-10 items-center justify-start p-0 relative shrink-0 cursor-pointer hover:opacity-80 transition-opacity">
               <div className="font-['Poppins'] text-white text-sm text-center">
                 Chapters
               </div>
               <div className="flex h-5 items-center justify-center relative shrink-0 w-5">
-                <div className="relative size-3">
-                  <Image src={chevronIcon} alt="" width={12} height={12} className="opacity-60 rotate-90" />
+                <div className="relative size-2">
+                  <Image src={chevronIcon} alt="" width={8} height={8} className="opacity-60 rotate-90" />
                 </div>
               </div>
-            </div>
-            <div className="box-border flex flex-row gap-1 h-10 items-center justify-start p-0 relative shrink-0 cursor-pointer hover:opacity-80 transition-opacity">
+            </Link>
+            <Link href="/events" className="box-border flex flex-row gap-1 h-10 items-center justify-start p-0 relative shrink-0 cursor-pointer hover:opacity-80 transition-opacity">
               <div className="font-['Poppins'] text-white text-sm text-center">
                 Events
               </div>
               <div className="flex h-5 items-center justify-center relative shrink-0 w-5">
-                <div className="relative size-3">
-                  <Image src={chevronIcon} alt="" width={12} height={12} className="opacity-60 rotate-90" />
+                <div className="relative size-2">
+                  <Image src={chevronIcon} alt="" width={8} height={8} className="opacity-60 rotate-90" />
                 </div>
               </div>
-            </div>
-            <div className="box-border flex flex-row gap-1 h-10 items-center justify-start p-0 relative shrink-0 cursor-pointer hover:opacity-80 transition-opacity">
+            </Link>
+            <Link href="/about" className="box-border flex flex-row gap-1 h-10 items-center justify-start p-0 relative shrink-0 cursor-pointer hover:opacity-80 transition-opacity">
               <div className="font-['Poppins'] text-white text-sm text-center">
                 About
               </div>
               <div className="flex h-5 items-center justify-center relative shrink-0 w-5">
-                <div className="relative size-3">
-                  <Image src={chevronIcon} alt="" width={12} height={12} className="opacity-60 rotate-90" />
+                <div className="relative size-2">
+                  <Image src={chevronIcon} alt="" width={8} height={8} className="opacity-60 rotate-90" />
                 </div>
               </div>
-            </div>
+            </Link>
             <button className="flex items-center justify-center relative shrink-0 size-10 hover:opacity-100 transition-opacity opacity-80">
               <div className="relative size-6">
                 <Image src={searchIcon} alt="Search" width={24} height={24} />
