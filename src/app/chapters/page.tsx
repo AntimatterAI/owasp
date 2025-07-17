@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
@@ -165,8 +166,12 @@ export default function ChaptersPage() {
               and network with fellow security professionals from around the world.
             </p>
             <div className="flex gap-4">
-              <Button text="Start a Chapter" variant="light-blue" size="56" />
-              <Button text="Chapter Leader Guide" variant="ghost-white" size="56" />
+              <Link href="/chapter-starter-kit">
+                <Button text="Start a Chapter" variant="light-blue" size="56" />
+              </Link>
+              <Link href="/chapter-starter-kit">
+                <Button text="Chapter Leader Guide" variant="ghost-white" size="56" />
+              </Link>
             </div>
           </div>
         </div>
@@ -281,8 +286,12 @@ export default function ChaptersPage() {
             support, and guidance to help you get started.
           </p>
           <div className="flex gap-4 justify-center">
-            <Button text="Chapter Starter Kit" variant="ghost-white" size="48" />
-            <Button text="Apply to Start" variant="light-blue" size="48" />
+            <Link href="/chapter-starter-kit">
+              <Button text="Chapter Starter Kit" variant="ghost-white" size="48" />
+            </Link>
+            <Link href="/chapter-starter-kit">
+              <Button text="Apply to Start" variant="light-blue" size="48" />
+            </Link>
           </div>
         </div>
       </div>

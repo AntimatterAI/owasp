@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Button from './Button';
 
 export default function QuestionSection() {
@@ -25,7 +26,9 @@ export default function QuestionSection() {
                     Take advantage of our resources and let it grow with OWASP. Join our community of developers building the future of application security.
                   </div>
                 </div>
-                <Button text="Start a Project" variant="primary" size="56" className="z-10" />
+                <Link href="/submit-project" className="z-10">
+              <Button text="Start a Project" variant="primary" size="56" className="z-10" />
+            </Link>
               </div>
             </div>
           </div>

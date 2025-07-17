@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
@@ -173,8 +174,12 @@ export default function EventsPage() {
               and workshops. Learn from experts, share knowledge, and build your security skills.
             </p>
             <div className="flex gap-4">
-              <Button text="Host an Event" variant="light-blue" size="56" />
-              <Button text="Find Local Chapter" variant="ghost-white" size="56" />
+              <Link href="/submit-project">
+                <Button text="Host an Event" variant="light-blue" size="56" />
+              </Link>
+              <Link href="/chapters">
+                <Button text="Find Local Chapter" variant="ghost-white" size="56" />
+              </Link>
             </div>
           </div>
         </div>

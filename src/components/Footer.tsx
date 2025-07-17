@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Button from './Button';
 
 export default function Footer() {
@@ -35,7 +36,9 @@ export default function Footer() {
               <Image src="/images/sponsors/atlassian-logo.svg" alt="Atlassian" width={194} height={24} className="block max-w-none size-full" />
             </div>
           </div>
-          <Button text="Become a Corporate Supporter" variant="ghost-white" size="48" />
+                      <Link href="/corporate-support">
+              <Button text="Become a Corporate Supporter" variant="ghost-white" size="48" />
+            </Link>
         </div>
       </div>
       <div className="bg-[#101820] box-border content-stretch flex flex-col gap-16 items-center justify-center px-[120px] py-16 relative shrink-0 w-full">

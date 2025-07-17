@@ -1,8 +1,21 @@
+'use client'
+
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 const pulseIcon = "/images/icons/pulse.svg";
 
 export default function HeroSection() {
+  const router = useRouter();
+
+  const handleJoinCommunity = () => {
+    router.push('/join-community');
+  };
+
+  const handleSecureMyApp = () => {
+    router.push('/secure-my-app');
+  };
+
   return (
     <div className="bg-[#101820] relative w-full">
       <div className="overflow-clip relative w-full">
@@ -33,10 +46,16 @@ export default function HeroSection() {
                   </p>
                 </div>
                 <div className="flex flex-row gap-4 items-center">
-                  <button className="h-14 px-8 border-2 border-[#757575] text-white font-['Poppins'] font-semibold text-base hover:bg-white/10 hover:border-white/60 transition-all duration-300 rounded-sm">
+                  <button 
+                    onClick={handleJoinCommunity}
+                    className="h-14 px-8 border-2 border-[#757575] text-white font-['Poppins'] font-semibold text-base hover:bg-white/10 hover:border-white/60 transition-all duration-300 rounded-sm cursor-pointer"
+                  >
                     Join the Community
                   </button>
-                  <button className="h-14 px-8 bg-[#003594] text-white font-['Poppins'] font-semibold text-base hover:bg-[#004bbb] transition-all duration-300 rounded-sm shadow-lg hover:shadow-xl">
+                  <button 
+                    onClick={handleSecureMyApp}
+                    className="h-14 px-8 bg-[#003594] text-white font-['Poppins'] font-semibold text-base hover:bg-[#004bbb] transition-all duration-300 rounded-sm shadow-lg hover:shadow-xl cursor-pointer"
+                  >
                     Secure My App
                   </button>
                 </div>

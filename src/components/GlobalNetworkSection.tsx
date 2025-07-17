@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Button from './Button';
 
 const markerIcon = "/images/icons/marker.svg";
@@ -69,8 +70,12 @@ export default function GlobalNetworkSection() {
                 </div>
                 
                 <div className="flex flex-row gap-4 items-start">
-                  <Button text="Register Now" variant="primary" size="56" className="min-w-[180px] shadow-lg" />
-                  <Button text="More Info" variant="ghost-white" size="56" className="min-w-[180px]" />
+                  <Link href="/events">
+                    <Button text="Register Now" variant="primary" size="56" className="min-w-[180px] shadow-lg" />
+                  </Link>
+                  <Link href="/events">
+                    <Button text="More Info" variant="ghost-white" size="56" className="min-w-[180px]" />
+                  </Link>
                 </div>
               </div>
               

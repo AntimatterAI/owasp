@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Button from './Button';
 
 // Local resource images
@@ -82,7 +83,9 @@ export default function HighlightedResourcesSection() {
                 Explore powerful security tools developed by the OWASP community. Each resource provides unique capabilities to strengthen your application security posture.
               </p>
             </div>
-            <Button text="See All Resources" variant="ghost-white" size="48" />
+            <Link href="/resources">
+              <Button text="See All Resources" variant="ghost-white" size="48" />
+            </Link>
           </div>
           <div className="box-border flex flex-row gap-8 items-start justify-start p-0 relative w-full">
             {resources.map((resource, index) => (

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
@@ -78,8 +79,12 @@ export default function AboutPage() {
               and organizations can make informed decisions.
             </p>
             <div className="flex gap-4">
-              <Button text="Join Our Mission" variant="light-blue" size="56" />
-              <Button text="Annual Report" variant="ghost-white" size="56" />
+              <Link href="/join-community">
+                <Button text="Join Our Mission" variant="light-blue" size="56" />
+              </Link>
+              <Link href="/annual-report">
+                <Button text="Annual Report" variant="ghost-white" size="56" />
+              </Link>
             </div>
           </div>
         </div>
