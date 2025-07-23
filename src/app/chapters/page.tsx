@@ -6,6 +6,9 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
+import AfricaChapters from '@/components/AfricaChapters';
+import AsiaChapters from '@/components/AsiaChapters';
+import CentralAmericaChapters from '@/components/CentralAmericaChapters';
 
 interface Chapter {
   name: string;
@@ -307,14 +310,16 @@ export default function ChaptersPage() {
         {/* Chapters List - Collapsed View */}
         <div className="space-y-0">
           {regions.map((region, regionIndex) => (
-            <div key={regionIndex} className="border-b border-[#D7D7D7]">
+            <div key={regionIndex} className="">
               <button
                 onClick={() => toggleRegion(region)}
-                className="w-full flex items-center justify-between py-6 text-left hover:bg-[#F4F4F4] transition-colors duration-200"
+                className="w-full flex items-center py-6 text-left hover:bg-[#F4F4F4] transition-colors duration-200"
               >
                 <h3 className="font-['Barlow'] font-medium text-[20px] text-[#101820] leading-[24px]">
                   {region}
                 </h3>
+                {/* Horizontal line between text and icon */}
+                <div className="flex-1 border-b border-[#D7D7D7] mx-4"></div>
                 <svg 
                   className={`w-5 h-5 text-[#757575] transition-transform duration-200 ${
                     expandedRegions.has(region) ? 'rotate-180' : ''
@@ -329,53 +334,61 @@ export default function ChaptersPage() {
               
               {expandedRegions.has(region) && (
                 <div className="pb-6 pl-0">
-                  <div className="space-y-6">
-                    {displayedData
-                      .filter(countryData => {
-                        // Simple region mapping - you might want to make this more sophisticated
-                        const countryToRegion: { [key: string]: string } = {
-                          "United States": "North America",
-                          "Canada": "North America",
-                          "Mexico": "Central America",
-                          "United Kingdom": "Europe",
-                          "Germany": "Europe",
-                          "France": "Europe",
-                          "Netherlands": "Europe",
-                          "Spain": "Europe",
-                          "Italy": "Europe",
-                          "Poland": "Europe",
-                          "Australia": "Oceania",
-                          "India": "Asia",
-                          "Japan": "Asia",
-                          "Singapore": "Asia",
-                          "Turkey": "Asia",
-                          "Russia": "Asia",
-                          "Israel": "Asia",
-                          "Brazil": "South America",
-                          "Argentina": "South America",
-                          "South Africa": "Africa"
-                        };
-                        return countryToRegion[countryData.country] === region;
-                      })
-                      .map((countryData, countryIndex) => (
-                        <div key={countryIndex} className="border-b border-[#F4F4F4] pb-4">
-                          <h4 className="font-['Barlow'] font-medium text-[16px] text-[#101820] leading-[20px] mb-3">
-                            {countryData.country}
-                          </h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2">
-                            {countryData.chapters.map((chapter, chapterIndex) => (
-                              <Link
-                                key={chapterIndex}
-                                href={chapter.url || '#'}
-                                className="font-['Poppins'] text-[14px] text-[#003594] hover:text-[#00A7E1] transition-colors duration-200 hover:underline"
-                              >
-                                {chapter.name}
-                              </Link>
-                            ))}
+                  {region === "Africa" ? (
+                    <AfricaChapters />
+                  ) : region === "Asia" ? (
+                    <AsiaChapters />
+                  ) : region === "Central America" ? (
+                    <CentralAmericaChapters />
+                  ) : (
+                    <div className="space-y-6">
+                      {displayedData
+                        .filter(countryData => {
+                          // Simple region mapping - you might want to make this more sophisticated
+                          const countryToRegion: { [key: string]: string } = {
+                            "United States": "North America",
+                            "Canada": "North America",
+                            "Mexico": "Central America",
+                            "United Kingdom": "Europe",
+                            "Germany": "Europe",
+                            "France": "Europe",
+                            "Netherlands": "Europe",
+                            "Spain": "Europe",
+                            "Italy": "Europe",
+                            "Poland": "Europe",
+                            "Australia": "Oceania",
+                            "India": "Asia",
+                            "Japan": "Asia",
+                            "Singapore": "Asia",
+                            "Turkey": "Asia",
+                            "Russia": "Asia",
+                            "Israel": "Asia",
+                            "Brazil": "South America",
+                            "Argentina": "South America",
+                            "South Africa": "Africa"
+                          };
+                          return countryToRegion[countryData.country] === region;
+                        })
+                        .map((countryData, countryIndex) => (
+                          <div key={countryIndex} className="border-b border-[#F4F4F4] pb-4">
+                            <h4 className="font-['Barlow'] font-medium text-[16px] text-[#101820] leading-[20px] mb-3">
+                              {countryData.country}
+                            </h4>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2">
+                              {countryData.chapters.map((chapter, chapterIndex) => (
+                                <Link
+                                  key={chapterIndex}
+                                  href={chapter.url || '#'}
+                                  className="font-['Poppins'] text-[14px] text-[#003594] hover:text-[#00A7E1] transition-colors duration-200 hover:underline"
+                                >
+                                  {chapter.name}
+                                </Link>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                  </div>
+                        ))}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
