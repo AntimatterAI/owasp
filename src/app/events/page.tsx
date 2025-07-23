@@ -163,24 +163,119 @@ export default function EventsPage() {
       <Header />
       
       {/* Hero Section */}
-      <div className="bg-[#101820] relative">
-        <div className="max-w-[1440px] mx-auto px-[120px] py-24">
-          <div className="max-w-4xl">
-            <h1 className="font-['Barlow'] font-medium text-[56px] text-white leading-[56px] tracking-[-1.12px] mb-6">
-              OWASP Events
-            </h1>
-            <p className="font-['Poppins'] text-[#f4f4f4] text-lg leading-7 mb-8">
-              Connect with the global application security community through conferences, chapter meetings, training sessions, 
-              and workshops. Learn from experts, share knowledge, and build your security skills.
-            </p>
-            <div className="flex gap-4">
-              <Link href="/submit-project">
-                <Button text="Host an Event" variant="light-blue" size="56" />
-              </Link>
-              <Link href="/chapters">
-                <Button text="Find Local Chapter" variant="ghost-white" size="56" />
-              </Link>
+      <div className="bg-[#ffffff] box-border content-stretch flex flex-col gap-8 items-start justify-start pb-[164px] pt-20 px-[120px] relative w-full">
+        <div className="box-border content-stretch flex flex-col gap-16 items-center justify-center p-0 relative shrink-0 w-full">
+          <div className="box-border content-stretch flex flex-col gap-8 items-center justify-start p-0 relative shrink-0 w-full">
+            <div className="font-['Barlow'] font-medium leading-[64px] relative shrink-0 text-[#101820] text-[64px] text-left tracking-[-1.28px] w-[1200px] max-w-full">
+              <p className="block leading-[64px]">
+                Global and Regional Events
+              </p>
             </div>
+            <div className="box-border content-stretch flex flex-row font-['Poppins'] gap-20 items-start justify-start p-0 relative shrink-0 text-[#757575] text-[16px] text-left tracking-[-0.32px] w-full">
+              <div className="basis-0 grow min-h-px min-w-px relative shrink-0">
+                <p className="block leading-[24px]">
+                  Ever wanted to network and learn along with other AppSec
+                  professionals? We host nearly a dozen events each year varying
+                  in format to week long trainings and conferences, to single day
+                  programs.
+                </p>
+              </div>
+              <div className="basis-0 grow min-h-px min-w-px relative shrink-0">
+                <p className="block leading-[24px]">
+                  Although some events have corporate sponsors, all content
+                  remains vendor neutral, and speakers are carefully selected to
+                  deliver a valuable experience.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="box-border content-stretch flex flex-row gap-8 items-start justify-start p-0 relative shrink-0 w-full">
+            <div className="basis-0 box-border content-stretch flex flex-col gap-4 grow items-start justify-start min-h-px min-w-px p-0 relative shrink-0">
+              <div className="box-border content-stretch flex flex-row gap-4 items-start justify-start p-0 relative shrink-0 w-full">
+                <div className="basis-0 bg-[#f1f6fe] box-border content-stretch flex flex-col gap-4 grow h-[180px] items-start justify-start min-h-px min-w-px overflow-clip p-[24px] relative shrink-0">
+                  <div className="overflow-clip relative shrink-0 size-8">
+                    <div className="absolute bottom-[12.5%] left-[12.5%] right-[12.5%] top-[6.25%]">
+                      <Image src="/images/icons/check-figma.svg" alt="" width={28} height={28} className="block max-w-none size-full" />
+                    </div>
+                  </div>
+                  <div className="font-['Barlow'] font-medium leading-[32px] min-w-full relative shrink-0 text-[#182430] text-[24px] text-left tracking-[-0.48px]">
+                    <p className="block leading-[32px]">
+                      OWASP events are a<br />
+                      great way to:
+                    </p>
+                  </div>
+                </div>
+                <div className="basis-0 bg-[#041a41] box-border content-stretch flex flex-col grow h-[180px] items-start justify-between min-h-px min-w-px overflow-clip p-[24px] relative shrink-0">
+                  {/* Decorative ellipse element */}
+                  <div className="absolute flex h-[0px] items-center justify-center top-[-19.717px] translate-x-[-50%] w-[0px]" style={{ left: "calc(50% - 79.537px)" }}>
+                    <div className="flex-none rotate-[28deg] scale-y-[-100%]">
+                      <div className="h-[150.311px] relative w-[27.588px]">
+                        <div className="absolute bottom-[-33.264%] left-[-181.239%] right-[-181.239%] top-[-33.264%]">
+                          <Image src="/images/icons/ellipse-decoration.svg" alt="" fill className="block max-w-none size-full" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-[#13336d] box-border content-stretch flex flex-row gap-2.5 items-center justify-center p-[12px] relative shrink-0">
+                    <div className="overflow-clip relative shrink-0 size-6">
+                      <Image src="/images/icons/briefcase-figma.svg" alt="" width={24} height={24} className="block max-w-none size-full filter brightness-0 invert" />
+                    </div>
+                  </div>
+                  <div className="font-['Barlow'] font-medium leading-[24px] min-w-full relative shrink-0 text-[#ffffff] text-[20px] text-left tracking-[-0.4px]">
+                    <p className="block leading-[24px]">
+                      Improve your career skills
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="box-border content-stretch flex flex-row gap-4 items-start justify-start p-0 relative shrink-0 w-full">
+                <div className="basis-0 bg-[#041a41] box-border content-stretch flex flex-col grow h-[180px] items-start justify-between min-h-px min-w-px overflow-clip p-[24px] relative shrink-0">
+                  {/* Decorative ellipse element */}
+                  <div className="absolute flex h-[0px] items-center justify-center top-[-19.717px] translate-x-[-50%] w-[0px]" style={{ left: "calc(50% - 79.537px)" }}>
+                    <div className="flex-none rotate-[28deg] scale-y-[-100%]">
+                      <div className="h-[150.311px] relative w-[27.588px]">
+                        <div className="absolute bottom-[-33.264%] left-[-181.239%] right-[-181.239%] top-[-33.264%]">
+                          <Image src="/images/icons/ellipse-decoration.svg" alt="" fill className="block max-w-none size-full" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-[#13336d] box-border content-stretch flex flex-row gap-2.5 items-center justify-center p-[12px] relative shrink-0">
+                    <div className="overflow-clip relative shrink-0 size-6">
+                      <Image src="/images/icons/users-figma.svg" alt="" width={24} height={24} className="block max-w-none size-full filter brightness-0 invert" />
+                    </div>
+                  </div>
+                  <div className="font-['Barlow'] font-medium leading-[24px] min-w-full relative shrink-0 text-[#ffffff] text-[20px] text-left tracking-[-0.4px]">
+                    <p className="block leading-[24px]">
+                      Build your professional network
+                    </p>
+                  </div>
+                </div>
+                <div className="basis-0 bg-[#041a41] box-border content-stretch flex flex-col grow h-[180px] items-start justify-between min-h-px min-w-px overflow-clip p-[24px] relative shrink-0">
+                  {/* Decorative ellipse element */}
+                  <div className="absolute flex h-[0px] items-center justify-center top-[-19.717px] translate-x-[-50%] w-[0px]" style={{ left: "calc(50% - 79.537px)" }}>
+                    <div className="flex-none rotate-[28deg] scale-y-[-100%]">
+                      <div className="h-[150.311px] relative w-[27.588px]">
+                        <div className="absolute bottom-[-33.264%] left-[-181.239%] right-[-181.239%] top-[-33.264%]">
+                          <Image src="/images/icons/ellipse-decoration.svg" alt="" fill className="block max-w-none size-full" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-[#13336d] box-border content-stretch flex flex-row gap-2.5 items-center justify-center p-[12px] relative shrink-0">
+                    <div className="overflow-clip relative shrink-0 size-6">
+                      <Image src="/images/icons/chart-projector-figma.svg" alt="" width={24} height={24} className="block max-w-none size-full filter brightness-0 invert" />
+                    </div>
+                  </div>
+                  <div className="font-['Barlow'] font-medium leading-[24px] min-w-full relative shrink-0 text-[#ffffff] text-[20px] text-left tracking-[-0.4px]">
+                    <p className="block leading-[24px]">
+                      Learn about new trends in the industry
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="basis-0 bg-center bg-cover bg-no-repeat grow min-h-px min-w-px self-stretch shrink-0 rounded-lg" style={{ backgroundImage: "url('/images/events/figma-hero-image.png')" }} />
           </div>
         </div>
       </div>

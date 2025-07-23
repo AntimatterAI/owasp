@@ -132,6 +132,43 @@ const projectData: { [key: string]: ProjectData } = {
       'Configure vulnerability data sources',
       'Set up policies and notifications'
     ]
+  },
+  'owasp-application-security-verification-standard-asvs': {
+    slug: 'owasp-application-security-verification-standard-asvs',
+    title: 'OWASP Application Security Verification Standard (ASVS)',
+    description: 'A framework of security requirements that focus on normalizing the functional and non-functional security controls required when designing, developing and testing modern web applications.',
+    longDescription: 'The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development. The primary aim of the OWASP Application Security Verification Standard (ASVS) Project is to normalize the range of coverage and level of rigor available in the market when it comes to performing Web application security verification using a commercially-workable open standard.',
+    category: 'Documentation',
+    status: 'Flagship',
+    image: '/images/tools/dependency-track.png',
+    githubUrl: 'https://github.com/OWASP/ASVS',
+    websiteUrl: 'https://owasp.org/www-project-application-security-verification-standard/',
+    documentation: 'https://github.com/OWASP/ASVS/tree/master/4.0',
+    version: 'v4.0.3',
+    downloads: '500K+',
+    lastUpdate: '2024-01-15',
+    contributors: 67,
+    features: [
+      'Three levels of security verification (L1, L2, L3)',
+      'Comprehensive security requirements framework',
+      'Application security architecture guidance',
+      'Cryptographic controls and key management',
+      'Data protection and privacy requirements',
+      'Communications security standards',
+      'Malicious code detection guidelines',
+      'Business logic verification controls'
+    ],
+    requirements: [
+      'Understanding of web application security principles',
+      'Familiarity with security testing methodologies',
+      'Knowledge of common vulnerability classes'
+    ],
+    gettingStarted: [
+      'Download the latest ASVS standard document',
+      'Identify your application security verification level (L1/L2/L3)',
+      'Map your security requirements to ASVS controls',
+      'Implement verification testing based on chosen level'
+    ]
   }
 };
 
@@ -181,7 +218,11 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                 </span>
               </div>
               
-              <h1 className="font-['Barlow'] font-medium text-[56px] text-white leading-[56px] tracking-[-1.12px] mb-6">
+              <h1 className={`font-['Barlow'] font-medium text-white mb-6 ${
+                project.slug === 'owasp-application-security-verification-standard-asvs' 
+                  ? 'text-[48px] leading-[56px] tracking-[-0.96px]' 
+                  : 'text-[56px] leading-[56px] tracking-[-1.12px]'
+              }`}>
                 {project.title}
               </h1>
               

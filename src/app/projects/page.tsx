@@ -125,6 +125,15 @@ function ProjectsContent() {
       status: "Flagship" as const,
       websiteUrl: "https://owasp.org/www-project-juice-shop/",
       githubUrl: "https://github.com/juice-shop/juice-shop"
+    },
+    {
+      title: "OWASP Application Security Verification Standard (ASVS)",
+      description: "A framework of security requirements that focus on normalizing the functional and non-functional security controls required when designing, developing and testing modern web applications.",
+      image: "/images/tools/dependency-track.png",
+      category: "Documentation",
+      status: "Flagship" as const,
+      websiteUrl: "https://owasp.org/www-project-application-security-verification-standard/",
+      githubUrl: "https://github.com/OWASP/ASVS"
     }
   ];
 

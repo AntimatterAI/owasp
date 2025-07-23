@@ -74,6 +74,7 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedResult, setSelectedResult] = useState(-1);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigationItems: NavigationItem[] = [
     { href: '/', label: 'Home' },
@@ -185,15 +186,15 @@ export default function Header() {
   return (
     <header className="backdrop-blur-[5px] backdrop-filter bg-[#101820]/95 h-20 sticky top-0 w-full z-50 border-b border-white/10 shadow-sm">
       <div className="flex flex-row items-center h-full">
-        <div className="box-border flex flex-row h-20 items-center justify-between px-16 py-0 relative w-full max-w-[1440px] mx-auto">
+        <div className="box-border flex flex-row h-20 items-center justify-between px-4 sm:px-8 lg:px-16 py-0 relative w-full max-w-[1440px] mx-auto">
           
           {/* Logo */}
           <Link href="/" className="h-10 relative shrink-0 w-[132.894px] hover:opacity-90 transition-opacity">
             <Image src={logo} alt="OWASP Logo" fill className="object-contain" />
           </Link>
           
-          {/* Main Navigation */}
-          <nav className="absolute box-border flex flex-row items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          {/* Main Navigation - Hidden on Mobile */}
+          <nav className="hidden lg:flex absolute box-border flex-row items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="flex flex-row items-center bg-white/5 rounded-lg p-1 backdrop-blur-sm border border-white/10">
               {navigationItems.map((item) => {
                 const isActive = isActiveTab(item.href);
@@ -221,7 +222,7 @@ export default function Header() {
               })}
             </div>
             
-            {/* Search - Separated from navigation */}
+            {/* Search - Hidden on Mobile */}
             <div className="ml-6 relative">
               <div className={`
                 flex items-center justify-center h-10 w-10 rounded-lg transition-all duration-300
@@ -243,37 +244,142 @@ export default function Header() {
             </div>
           </nav>
           
-          {/* Action Buttons */}
+          {/* Action Buttons and Mobile Menu */}
           <div className="box-border flex flex-row gap-3 items-center justify-start p-0 relative shrink-0">
-            <Link href="/join-community">
-              <button className="
-                border-2 border-[#757575] h-10 px-4 text-white font-['Poppins'] font-semibold text-sm 
+            {/* Action Buttons - Hidden on Small Screens */}
+            <div className="hidden md:flex flex-row gap-3">
+              <Link href="/join-community">
+                <button className="
+                  border-2 border-[#757575] h-10 px-4 text-white font-['Poppins'] font-semibold text-sm 
+                  hover:border-[#00A7E1]/60 hover:bg-[#00A7E1]/10 hover:text-[#00A7E1] 
+                  transition-all duration-300 rounded-lg backdrop-blur-sm
+                  relative overflow-hidden group
+                ">
+                  <span className="relative z-10">Join the Community</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#00A7E1]/0 via-[#00A7E1]/10 to-[#00A7E1]/0 
+                               translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                </button>
+              </Link>
+              <Link href="/secure-my-app">
+                <button className="
+                  bg-gradient-to-r from-[#003594] to-[#004bbb] h-10 px-4 text-white font-['Poppins'] font-semibold text-sm 
+                  hover:from-[#004bbb] hover:to-[#0056cc] hover:shadow-lg hover:shadow-[#003594]/30
+                  transition-all duration-300 rounded-lg
+                  relative overflow-hidden group
+                ">
+                  <span className="relative z-10">Secure My App</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                               translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                </button>
+              </Link>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden flex items-center justify-center h-10 w-10 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+              aria-label="Toggle mobile menu"
+            >
+              <div className="w-6 h-5 relative flex flex-col justify-between">
+                <div className={`w-6 h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                <div className={`w-6 h-0.5 bg-white transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+                <div className={`w-6 h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`
+        fixed inset-y-0 right-0 w-full max-w-sm bg-[#101820]/95 backdrop-blur-lg border-l border-white/10
+        transform transition-transform duration-300 ease-in-out z-40
+        ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
+      `}>
+        <div className="h-20 flex items-center justify-end px-4 border-b border-white/10">
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+            aria-label="Close mobile menu"
+          >
+            <div className="w-5 h-5 relative">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-4 h-0.5 bg-white/60 rotate-45" />
+                <div className="w-4 h-0.5 bg-white/60 -rotate-45" />
+              </div>
+            </div>
+          </button>
+        </div>
+        
+        <div className="p-4">
+          {/* Mobile Search */}
+          <div className="mb-6">
+            <div className="flex items-center bg-white/5 rounded-lg p-2 gap-2">
+              <Image src={searchIcon} alt="" width={18} height={18} className="opacity-60" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search OWASP projects..."
+                className="w-full bg-transparent text-white placeholder:text-white/50 text-sm outline-none"
+              />
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="space-y-2">
+            {navigationItems.map((item) => {
+              const isActive = isActiveTab(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`
+                    block w-full px-4 py-3 rounded-lg transition-all duration-300
+                    ${isActive 
+                      ? 'bg-[#003594] text-white' 
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
+                    }
+                  `}
+                >
+                  <span className="font-['Poppins'] text-sm font-medium">
+                    {item.label}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Mobile Action Buttons */}
+          <div className="mt-6 space-y-3 md:hidden">
+            <Link href="/join-community" onClick={() => setMobileMenuOpen(false)}>
+              <button className="w-full border-2 border-[#757575] h-10 px-4 text-white font-['Poppins'] font-semibold text-sm 
                 hover:border-[#00A7E1]/60 hover:bg-[#00A7E1]/10 hover:text-[#00A7E1] 
-                transition-all duration-300 rounded-lg backdrop-blur-sm
-                relative overflow-hidden group
-              ">
-                <span className="relative z-10">Join the Community</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00A7E1]/0 via-[#00A7E1]/10 to-[#00A7E1]/0 
-                             translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                transition-all duration-300 rounded-lg backdrop-blur-sm">
+                Join the Community
               </button>
             </Link>
-            <Link href="/secure-my-app">
-              <button className="
-                bg-gradient-to-r from-[#003594] to-[#004bbb] h-10 px-4 text-white font-['Poppins'] font-semibold text-sm 
-                hover:from-[#004bbb] hover:to-[#0056cc] hover:shadow-lg hover:shadow-[#003594]/30
-                transition-all duration-300 rounded-lg
-                relative overflow-hidden group
-              ">
-                <span className="relative z-10">Secure My App</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
-                             translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+            <Link href="/secure-my-app" onClick={() => setMobileMenuOpen(false)}>
+              <button className="w-full bg-gradient-to-r from-[#003594] to-[#004bbb] h-10 px-4 text-white font-['Poppins'] font-semibold text-sm 
+                hover:from-[#004bbb] hover:to-[#0056cc] 
+                transition-all duration-300 rounded-lg">
+                Secure My App
               </button>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Search Modal */}
+      {/* Overlay for Mobile Menu */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Search Modal - Keep existing code */}
       {searchOpen && (
         <div 
           className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] flex items-start justify-center pt-20"

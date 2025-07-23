@@ -4,6 +4,7 @@ import GlobalNetworkSection from "@/components/GlobalNetworkSection";
 import FeaturedSection from "@/components/FeaturedSection";
 import WhatsOnDeckSection from "@/components/WhatsOnDeckSection";
 import UpcomingEventsSection from "@/components/UpcomingEventsSection";
+import NewsSection from "@/components/NewsSection";
 import HighlightedResourcesSection from "@/components/HighlightedResourcesSection";
 import QuestionSection from "@/components/QuestionSection";
 import Footer from "@/components/Footer";
@@ -19,6 +20,7 @@ export default function Home() {
         <WhatsOnDeckSection />
         <UpcomingEventsSection />
         <HighlightedResourcesSection />
+        <NewsSection />
         <QuestionSection />
       </main>
       <Footer />

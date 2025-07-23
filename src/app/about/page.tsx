@@ -5,60 +5,26 @@ import Footer from '@/components/Footer';
 import Button from '@/components/Button';
 
 export default function AboutPage() {
-  const stats = [
-    { number: "275+", label: "Global Chapters" },
-    { number: "50k+", label: "Community Members" },
-    { number: "200+", label: "Open Source Projects" },
-    { number: "20+", label: "Years of Impact" }
-  ];
-
-  const values = [
+    const values = [
     {
-      icon: "/images/icons/check.svg",
+      icon: "/images/icons/flag.svg",
       title: "Open",
       description: "Everything at OWASP is radically transparent from our finances to our code."
     },
     {
-      icon: "/images/icons/check.svg",
+      icon: "/images/icons/flag.svg",
       title: "Innovation",
       description: "We encourage and support innovation and experiments for solutions to software security challenges."
     },
     {
-      icon: "/images/icons/check.svg",
+      icon: "/images/icons/factory.svg",
       title: "Global",
       description: "Anyone around the world is encouraged to participate in the OWASP community."
     },
     {
-      icon: "/images/icons/check.svg",
+      icon: "/images/icons/egg.svg",
       title: "Integrity",
-      description: "We are honest and truthful in our interactions and outcomes."
-    }
-  ];
-
-  const leadership = [
-    {
-      name: "Vandana Verma Sehgal",
-      role: "Executive Director",
-      image: "/images/events/event-1.png",
-      bio: "Leading OWASP's mission to make software security visible and actionable."
-    },
-    {
-      name: "Grant Ongers",
-      role: "Global Board Chair",
-      image: "/images/events/event-2.png",
-      bio: "Driving strategic initiatives and global community engagement."
-    },
-    {
-      name: "Bil Corry",
-      role: "Vice Chair",
-      image: "/images/events/event-3.png",
-      bio: "Supporting board operations and community development."
-    },
-    {
-      name: "Matt Tesauro",
-      role: "Treasurer",
-      image: "/images/events/event-4.png",
-      bio: "Overseeing financial operations and transparency."
+      description: "Our community is respectful, supportive, truthful, and vendor neutral"
     }
   ];
 
@@ -67,80 +33,198 @@ export default function AboutPage() {
       <Header />
       
       {/* Hero Section */}
-      <div className="bg-[#101820] relative">
-        <div className="max-w-[1440px] mx-auto px-[120px] py-24">
-          <div className="max-w-4xl">
-            <h1 className="font-['Barlow'] font-medium text-[56px] text-white leading-[56px] tracking-[-1.12px] mb-6">
-              About OWASP
-            </h1>
-            <p className="font-['Poppins'] text-[#f4f4f4] text-xl leading-8 mb-8">
-              The Open Web Application Security Project (OWASP) is a nonprofit foundation that works to improve 
-              the security of software. Our mission is to make software security visible, so that individuals 
-              and organizations can make informed decisions.
-            </p>
-            <div className="flex gap-4">
-              <Link href="/join-community">
-                <Button text="Join Our Mission" variant="light-blue" size="56" />
-              </Link>
-              <Link href="/annual-report">
-                <Button text="Annual Report" variant="ghost-white" size="56" />
-              </Link>
+      <div className="bg-[#F1F6FE]">
+        <div className="max-w-[1440px] mx-auto px-[120px] pt-20 pb-[164px]">
+          <div className="flex flex-col gap-20 items-center justify-center w-full">
+            <div className="flex flex-col gap-12 items-center justify-start w-full">
+              <div className="flex flex-col gap-2 items-start justify-start w-full">
+                <div className="font-['Poppins'] font-semibold text-[#00A7E1] text-[16px] leading-[24px] tracking-[-0.32px] whitespace-nowrap">
+                  About OWASP
+                </div>
+                <h1 className="font-['Barlow'] font-medium text-[#101820] text-[64px] leading-[64px] tracking-[-1.28px] max-w-[1200px]">
+                  Securing Software Through Community
+                </h1>
+              </div>
+              <div className="flex flex-row gap-20 items-start justify-start w-full">
+                <div className="flex-1 min-w-0">
+                  <p className="font-['Poppins'] font-normal text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                    We are an open community helping organizations build and maintain secure, trusted applications. All OWASP projects, tools, and resources are free and open to everyone.
+                  </p>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-['Poppins'] font-normal text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                    Founded in 2001 and incorporated as a nonprofit in 2004, OWASP has been supported for over two decades by a global community of companies, developers, and volunteers.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="w-full aspect-[1626/532] relative">
+              <Image 
+                src="/images/about-hero.png" 
+                alt="OWASP Community collaboration" 
+                fill 
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Mission Statement */}
-      <div className="max-w-[1440px] mx-auto px-[120px] py-20">
-        <div className="text-center mb-16">
-          <h2 className="font-['Barlow'] font-medium text-[48px] text-[#101820] leading-[48px] tracking-[-0.96px] mb-6">
-            Our Mission
-          </h2>
-          <p className="font-['Poppins'] text-[#757575] text-lg leading-8 max-w-4xl mx-auto">
-            OWASP is a nonprofit foundation that works to improve the security of software. Through community-led 
-            open source software projects, hundreds of local chapters worldwide, tens of thousands of members, 
-            and leading educational and training conferences, the OWASP Foundation is the source for developers 
-            and technologists to secure the web.
-          </p>
+      {/* Inside OWASP Section */}
+      <div className="bg-[#101820] relative">
+        {/* Top Stats Cards */}
+        <div className="absolute left-[120px] top-[-84px] w-[1200px]">
+          <div className="grid grid-cols-4 gap-4">
+            <div className="bg-[#182430] border border-white p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
+              <div className="bg-[#101820] p-3 mb-6 w-fit">
+                <Image src="/images/icons/book-open.svg" alt="" width={24} height={24} className="w-6 h-6" />
+              </div>
+              <p className="font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                Community-led open source projects
+              </p>
+            </div>
+            <div className="bg-[#182430] border border-white p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
+              <div className="bg-[#101820] p-3 mb-6 w-fit">
+                <Image src="/images/icons/globe.svg" alt="" width={24} height={24} className="w-6 h-6" />
+              </div>
+              <p className="font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                Over 250+ local chapters worldwide
+              </p>
+            </div>
+            <div className="bg-[#182430] border border-white p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
+              <div className="bg-[#101820] p-3 mb-6 w-fit">
+                <Image src="/images/icons/users.svg" alt="" width={24} height={24} className="w-6 h-6" />
+              </div>
+              <p className="font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                Tens of thousands of members
+              </p>
+            </div>
+            <div className="bg-[#182430] border border-white p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
+              <div className="bg-[#101820] p-3 mb-6 w-fit">
+                <Image src="/images/icons/chart-projector.svg" alt="" width={24} height={24} className="w-6 h-6" />
+              </div>
+              <p className="font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                Industry-leading educational and training conferences
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="font-['Barlow'] font-medium text-[56px] text-[#003594] leading-[56px] tracking-[-1.12px] mb-2">
-                {stat.number}
+        <div className="max-w-[1440px] mx-auto px-[120px] pt-[164px] pb-20">
+          {/* Vision/Mission Section */}
+          <div className="flex flex-row gap-[120px] items-start justify-start mb-20">
+            <div className="flex-1 flex flex-col gap-12">
+              {/* Vision */}
+              <div className="flex flex-row gap-2.5 items-center pt-12 border-t border-white/60">
+                <div className="flex flex-row gap-20 items-center w-full">
+                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-[20px] leading-[24px] tracking-[-0.4px] w-8">
+                    01
+                  </div>
+                  <div className="font-['Barlow'] font-medium text-[#FFD476] text-[20px] leading-[24px] tracking-[-0.4px] w-[100px]">
+                    Our Vision
+                  </div>
+                  <div className="flex-1 font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                    No more insecure software.
+                  </div>
+                </div>
               </div>
-              <div className="font-['Poppins'] text-[#757575] text-base">
-                {stat.label}
+              {/* Mission */}
+              <div className="flex flex-row gap-2.5 items-start pt-12 border-t border-white/60">
+                <div className="flex flex-row gap-20 items-start w-full">
+                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-[20px] leading-[24px] tracking-[-0.4px] w-8">
+                    02
+                  </div>
+                  <div className="font-['Barlow'] font-medium text-[#FFD476] text-[20px] leading-[24px] tracking-[-0.4px] w-[100px]">
+                    Our Mission
+                  </div>
+                  <div className="flex-1 font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                    To be the global open community that powers secure software through education, tools, and collaboration.
+                  </div>
+                </div>
               </div>
             </div>
-          ))}
+            <div className="font-['Barlow'] font-medium text-white text-[48px] leading-[48px] tracking-[-0.96px] whitespace-nowrap">
+              Inside OWASP
+            </div>
+          </div>
+
+          {/* What OWASP Does Section */}
+          <div className="flex flex-row gap-[120px] items-start justify-start">
+            <div className="flex-1 font-['Barlow'] font-medium text-white text-[32px] leading-[40px] tracking-[-0.64px]">
+              As the world's largest non-profit organization concerned with software security, OWASP:
+            </div>
+            <div className="flex-1 flex flex-col gap-12">
+              {/* Item 1 */}
+              <div className="flex flex-row gap-2.5 items-center pt-12 border-t border-white/60">
+                <div className="flex flex-row gap-20 items-center w-full">
+                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-[20px] leading-[24px] tracking-[-0.4px] w-8">
+                    01
+                  </div>
+                  <div className="flex-1 font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                    Supports the building of impactful{' '}
+                    <Link href="/projects" className="underline">
+                      projects
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              {/* Item 2 */}
+              <div className="flex flex-row gap-2.5 items-start pt-12 border-t border-white/60">
+                <div className="flex flex-row gap-20 items-start w-full">
+                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-[20px] leading-[24px] tracking-[-0.4px] w-8">
+                    02
+                  </div>
+                  <div className="flex-1 font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                    Develops & nurtures communities through{' '}
+                    <Link href="/events" className="underline">
+                      events
+                    </Link>
+                    {' '}and{' '}
+                    <Link href="/chapters" className="underline">
+                      chapter meetings
+                    </Link>
+                    {' '}worldwide
+                  </div>
+                </div>
+              </div>
+              {/* Item 3 */}
+              <div className="flex flex-row gap-2.5 items-center pt-12 border-t border-white/60">
+                <div className="flex flex-row gap-20 items-center w-full">
+                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-[20px] leading-[24px] tracking-[-0.4px] w-8">
+                    03
+                  </div>
+                  <div className="flex-1 font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                    Provides{' '}
+                    <Link href="/resources" className="underline">
+                      educational publications & resources
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Values Section */}
-      <div className="bg-[#f8f9fa]">
+      {/* Core Values Section */}
+      <div className="bg-white">
         <div className="max-w-[1440px] mx-auto px-[120px] py-20">
           <div className="text-center mb-16">
             <h2 className="font-['Barlow'] font-medium text-[48px] text-[#101820] leading-[48px] tracking-[-0.96px] mb-6">
-              Our Core Values
+              Core Values
             </h2>
-            <p className="font-['Poppins'] text-[#757575] text-lg leading-8 max-w-3xl mx-auto">
-              These principles guide everything we do at OWASP, from our projects and events to our community interactions.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-sm text-center">
-                <div className="w-16 h-16 bg-[#003594] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Image src={value.icon} alt="" width={24} height={24} className="filter brightness-0 invert" />
+              <div key={index} className="bg-white p-8 border border-[#f4f4f4] shadow-[0px_12px_32px_-8px_rgba(0,0,0,0.1)]">
+                <div className="bg-[#D9E5FA] p-3 mb-6 w-fit">
+                  <Image src={value.icon} alt="" width={24} height={24} className="w-6 h-6" />
                 </div>
-                <h3 className="font-['Barlow'] font-medium text-[24px] text-[#101820] mb-4">
+                <h3 className="font-['Barlow'] font-medium text-[24px] text-[#101820] leading-[32px] tracking-[-0.48px] mb-2">
                   {value.title}
                 </h3>
-                <p className="font-['Poppins'] text-[#757575] text-sm leading-6">
+                <p className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px]">
                   {value.description}
                 </p>
               </div>
@@ -149,116 +233,212 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* History Section */}
-      <div className="max-w-[1440px] mx-auto px-[120px] py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="font-['Barlow'] font-medium text-[48px] text-[#101820] leading-[48px] tracking-[-0.96px] mb-6">
-              Our Story
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-['Barlow'] font-medium text-[20px] text-[#003594] mb-2">2001 - Founded</h3>
-                <p className="font-['Poppins'] text-[#757575] text-base leading-6">
-                  OWASP was founded by Mark Curphey to raise awareness about application security and provide 
-                  practical guidance to developers and organizations.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-['Barlow'] font-medium text-[20px] text-[#003594] mb-2">2003 - First Top 10</h3>
-                <p className="font-['Poppins'] text-[#757575] text-base leading-6">
-                  The OWASP Top 10 was first released, becoming the de facto standard for web application 
-                  security awareness worldwide.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-['Barlow'] font-medium text-[20px] text-[#003594] mb-2">2004 - Nonprofit Status</h3>
-                <p className="font-['Poppins'] text-[#757575] text-base leading-6">
-                  OWASP became a 501(c)(3) nonprofit organization, establishing our commitment to vendor neutrality 
-                  and open source principles.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-['Barlow'] font-medium text-[20px] text-[#003594] mb-2">Today - Global Impact</h3>
-                <p className="font-['Poppins'] text-[#757575] text-base leading-6">
-                  With hundreds of projects, thousands of members, and global reach, OWASP continues to lead 
-                  the charge in making software security accessible to all.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="relative h-[500px] rounded-lg overflow-hidden">
-            <Image src="/images/events/gsoc-1.png" alt="OWASP History" fill className="object-cover" />
-          </div>
-        </div>
-      </div>
-
-      {/* Leadership Section */}
-      <div className="bg-[#f8f9fa]">
+      {/* Contact Us Section */}
+      <div className="bg-[#F1F6FE]">
         <div className="max-w-[1440px] mx-auto px-[120px] py-20">
-          <div className="text-center mb-16">
-            <h2 className="font-['Barlow'] font-medium text-[48px] text-[#101820] leading-[48px] tracking-[-0.96px] mb-6">
-              Leadership Team
-            </h2>
-            <p className="font-['Poppins'] text-[#757575] text-lg leading-8 max-w-3xl mx-auto">
-              Our dedicated team of volunteers and staff members who guide OWASP's mission and operations.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {leadership.map((leader, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm">
-                <div className="relative h-64">
-                  <Image src={leader.image} alt={leader.name} fill className="object-cover" />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-['Barlow'] font-medium text-[20px] text-[#101820] mb-1">
-                    {leader.name}
-                  </h3>
-                  <p className="font-['Poppins'] text-[#003594] text-sm font-medium mb-3">
-                    {leader.role}
+          <div className="flex flex-row gap-20 items-start justify-start mb-20">
+            {/* Left Column - Contact Info */}
+            <div className="flex-1 flex flex-col justify-between">
+              <div className="flex flex-col gap-12 mb-16">
+                <div>
+                  <h2 className="font-['Barlow'] font-medium text-[56px] text-[#101820] leading-[56px] tracking-[-1.12px] mb-6">
+                    Contact Us
+                  </h2>
+                  <p className="font-['Poppins'] text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px] mb-6">
+                    Questions, feedback, or collaboration ideas?<br />
+                    We'd love to hear from you!
                   </p>
-                  <p className="font-['Poppins'] text-[#757575] text-sm leading-6">
-                    {leader.bio}
+                  <div className="bg-[#003594] h-14 flex items-center justify-center px-8">
+                    <span className="font-['Poppins'] font-semibold text-white text-[16px] leading-[24px] tracking-[-0.32px]">
+                      Contact Us
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Address Information */}
+              <div className="flex flex-row gap-12">
+                {/* Global Address */}
+                <div className="flex-1 flex flex-col gap-3">
+                  <h3 className="font-['Barlow'] font-medium text-[#101820] text-[20px] leading-[24px] tracking-[-0.4px]">
+                    Global Address
+                  </h3>
+                  <div className="font-['Poppins'] text-[#101820] text-[14px] leading-[20px]">
+                    <p>The OWASP Foundation Inc.</p>
+                    <p>300 Delaware Ave</p>
+                    <p>Ste 210 #384</p>
+                    <p>Wilmington, DE 19801</p>
+                  </div>
+                  <p className="font-['Poppins'] text-[#101820] text-[14px] leading-[20px]">
+                    +1 951-692-7703
+                  </p>
+                </div>
+
+                {/* European Address */}
+                <div className="flex-1 flex flex-col gap-3">
+                  <h3 className="font-['Barlow'] font-medium text-[#101820] text-[20px] leading-[24px] tracking-[-0.4px]">
+                    European Address
+                  </h3>
+                  <div className="font-['Poppins'] text-[#101820] text-[14px] leading-[20px]">
+                    <p>OWASP Europe VZW</p>
+                    <p>c/o Sr Fiduciarire Cv</p>
+                    <p>Steenvoordestraat 184</p>
+                    <p>9070 Destelbergen, Belgium</p>
+                  </div>
+                  <p className="font-['Poppins'] text-[#101820] text-[14px] leading-[20px]">
+                    VAT: BE 0836743279
                   </p>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Right Column - Contact Cards */}
+            <div className="flex-1 flex flex-col gap-4">
+              {/* Membership Support */}
+              <div className="bg-white border border-[#D9E5FA] p-6 flex flex-col gap-6">
+                <div className="bg-[#F1F6FE] p-3 w-fit">
+                  <Image src="/images/icons/users.svg" alt="" width={24} height={24} className="w-6 h-6" />
+                </div>
+                <div className="flex flex-row gap-0.5 items-start">
+                  <h3 className="font-['Barlow'] font-medium text-[#003594] text-[20px] leading-[24px] tracking-[-0.4px] flex-1">
+                    Membership Support
+                  </h3>
+                  <Image src="/images/icons/arrow-upright.svg" alt="" width={24} height={24} className="w-6 h-6" />
+                </div>
+              </div>
+
+              {/* Chapter Support */}
+              <div className="bg-white border border-[#D9E5FA] p-6 flex flex-col gap-6">
+                <div className="bg-[#F1F6FE] p-3 w-fit">
+                  <Image src="/images/icons/book-open.svg" alt="" width={24} height={24} className="w-6 h-6" />
+                </div>
+                <div className="flex flex-row gap-0.5 items-start">
+                  <h3 className="font-['Barlow'] font-medium text-[#003594] text-[20px] leading-[24px] tracking-[-0.4px] flex-1">
+                    Chapter Support
+                  </h3>
+                  <Image src="/images/icons/arrow-upright.svg" alt="" width={24} height={24} className="w-6 h-6" />
+                </div>
+              </div>
+
+              {/* Corporate Sponsorships */}
+              <div className="bg-white border border-[#D9E5FA] p-6 flex flex-col gap-6">
+                <div className="bg-[#F1F6FE] p-3 w-fit">
+                  <Image src="/images/icons/handshake.svg" alt="" width={24} height={24} className="w-6 h-6" />
+                </div>
+                <div className="flex flex-row gap-0.5 items-start">
+                  <h3 className="font-['Barlow'] font-medium text-[#003594] text-[20px] leading-[24px] tracking-[-0.4px] flex-1">
+                    Corporate Sponsorships
+                  </h3>
+                  <Image src="/images/icons/arrow-upright.svg" alt="" width={24} height={24} className="w-6 h-6" />
+                </div>
+              </div>
+
+              {/* Partnership marketing */}
+              <div className="bg-white border border-[#D9E5FA] p-6 flex flex-col gap-6">
+                <div className="bg-[#F1F6FE] p-3 w-fit">
+                  <Image src="/images/icons/megaphone-contact.svg" alt="" width={24} height={24} className="w-6 h-6" />
+                </div>
+                <div className="flex flex-row gap-0.5 items-start">
+                  <h3 className="font-['Barlow'] font-medium text-[#003594] text-[20px] leading-[24px] tracking-[-0.4px] flex-1">
+                    Partnership marketing
+                  </h3>
+                  <Image src="/images/icons/arrow-upright.svg" alt="" width={24} height={24} className="w-6 h-6" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section - Ethical Behavior and Licensing */}
+          <div className="flex flex-row gap-20 items-start">
+            {/* Ethical Behavior */}
+            <div className="flex-1 flex flex-col gap-1.5">
+              <h3 className="font-['Poppins'] font-medium text-[#101820] text-[14px] leading-[20px]">
+                Ethical Behavior
+              </h3>
+              <p className="font-['Poppins'] text-[#757575] text-[12px] leading-[16px] tracking-[-0.24px]">
+                The activities, programs, and events of the Foundation conform to a number of policies set forth in our{' '}
+                <Link href="/policies" className="text-[#757575] hover:underline">
+                  Policies & Procedures
+                </Link>
+                {' '}and the{' '}
+                <Link href="/code-of-conduct" className="text-[#757575] hover:underline">
+                  Code of Conduct
+                </Link>
+                . Additionally we expect our Board Members, Leaders, Staff, and volunteers to model the upmost in integrity, honesty, and patience with supporting our extended communities.
+              </p>
+            </div>
+
+            {/* Licensing */}
+            <div className="flex-1 flex flex-col gap-1.5">
+              <h3 className="font-['Poppins'] font-medium text-[#101820] text-[14px] leading-[20px]">
+                Licensing
+              </h3>
+              <p className="font-['Poppins'] text-[#757575] text-[12px] leading-[16px] tracking-[-0.24px]">
+                All OWASP materials are available under an OSI-approved{' '}
+                <Link href="https://opensource.org/licenses/category" className="text-[#757575] underline hover:no-underline">
+                  Open Source License
+                </Link>
+                {' '}or{' '}
+                <Link href="https://creativecommons.org/licenses/by-sa/4.0/" className="text-[#757575] underline hover:no-underline">
+                  one of the latest Creative Commons licenses
+                </Link>
+                {' '}for most documentation projects. This website is (C) OWASP and licensed under the{' '}
+                <Link href="https://creativecommons.org/licenses/by-sa/4.0/" className="text-[#757575] underline hover:no-underline">
+                  Creative Commons Attribution-ShareAlike 4.0 International license (CC-BY-SA 4.0)
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Get Involved Section */}
-      <div className="max-w-[1440px] mx-auto px-[120px] py-20">
-        <div className="bg-gradient-to-r from-[#003594] to-[#0056d6] rounded-2xl p-16 text-center text-white">
-          <h2 className="font-['Barlow'] font-medium text-[48px] leading-[48px] tracking-[-0.96px] mb-6">
-            Get Involved
-          </h2>
-          <p className="font-['Poppins'] text-white/90 text-lg leading-8 mb-12 max-w-3xl mx-auto">
-            Join our global community of security professionals, developers, and advocates working together 
-            to make the web a safer place for everyone.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="font-['Barlow'] font-medium text-[24px] mb-4">Contribute</h3>
-              <p className="font-['Poppins'] text-white/80 text-sm mb-6">
-                Help improve our projects, documentation, and tools that millions of developers rely on.
-              </p>
-              <Button text="Start Contributing" variant="ghost-white" size="40" />
+      {/* Have an Idea for a Project Section */}
+      <div className="bg-[#F1F6FE]">
+        <div className="max-w-[1440px] mx-auto px-[120px] py-16">
+          <div className="bg-gradient-to-b from-black via-[#000000] to-[#13346d] relative overflow-hidden p-16 w-full">
+            {/* Large Background Logo */}
+            <div className="absolute top-[-150px] left-1/2 transform -translate-x-1/2 w-[480px] h-[480px] opacity-20">
+              <Image 
+                src="/images/logos/owasp-logo-large-bg.svg" 
+                alt="" 
+                fill 
+                className="object-contain"
+              />
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="font-['Barlow'] font-medium text-[24px] mb-4">Join a Chapter</h3>
-              <p className="font-['Poppins'] text-white/80 text-sm mb-6">
-                Connect with local security professionals and attend events in your area.
-              </p>
-              <Button text="Find Chapters" variant="ghost-white" size="40" />
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="font-['Barlow'] font-medium text-[24px] mb-4">Support Us</h3>
-              <p className="font-['Poppins'] text-white/80 text-sm mb-6">
-                Help fund our mission through corporate sponsorship or individual donations.
-              </p>
-              <Button text="Make a Donation" variant="light-blue" size="40" />
+            
+            {/* Content */}
+            <div className="relative z-10 flex flex-col gap-16 items-center justify-center w-full">
+              <div className="flex flex-col gap-6 items-center justify-center w-full">
+                {/* Small OWASP Logo */}
+                <div className="w-[41px] h-10">
+                  <Image 
+                    src="/images/logos/owasp-logo-small-white.svg" 
+                    alt="OWASP" 
+                    width={41} 
+                    height={40}
+                    className="w-full h-full"
+                  />
+                </div>
+                
+                {/* Heading */}
+                <h2 className="font-['Barlow'] font-medium text-white text-[48px] leading-[48px] tracking-[-0.96px] text-center">
+                  Have an <span className="text-[#00A7E1]">Idea</span> for a Project?
+                </h2>
+                
+                {/* Description */}
+                <p className="font-['Poppins'] text-white text-[16px] leading-[24px] tracking-[-0.32px] text-center">
+                  Take advantage of our resources and let it grow with OWASP.
+                </p>
+              </div>
+              
+              {/* Button */}
+              <div className="bg-[#003594] h-14 flex items-center justify-center px-8">
+                <Link href="/submit-project">
+                  <span className="font-['Poppins'] font-semibold text-white text-[16px] leading-[24px] tracking-[-0.32px] whitespace-nowrap">
+                    Start a Project
+                  </span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
