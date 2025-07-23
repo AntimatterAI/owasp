@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function CentralAmericaChapters() {
+export default function NorthAmericaChapters() {
   const [expandedCountries, setExpandedCountries] = useState<Set<string>>(new Set());
 
   const toggleCountry = (country: string) => {
@@ -15,33 +15,28 @@ export default function CentralAmericaChapters() {
     setExpandedCountries(newExpanded);
   };
 
-  const centralAmericaCountries = [
+  const northAmericaCountries = [
     {
-      flag: "🇸🇻",
-      country: "El Salvador",
-      chapters: ["San Salvador"]
+      flag: "🇨🇦",
+      country: "Canada",
+      chapters: ["Edmonton", "Halifax", "OWASP® Montreal", "Oshawa", "Ottawa", "Quebec City", "Toronto", "University of Guelph", "Vancouver", "Victoria", "Waterloo", "Winnipeg"]
     },
     {
-      flag: "🇬🇹",
-      country: "Guatemala",
-      chapters: ["Guatemala City"]
+      flag: "🇲🇽", 
+      country: "Mexico",
+      chapters: ["Hermosillo", "Mexico City", "Querétaro", "Riviera Maya"]
     },
     {
-      flag: "🇭🇳",
-      country: "Honduras",
-      chapters: ["San Pedro Sula"]
-    },
-    {
-      flag: "🇳🇮",
-      country: "Nicaragua",
-      chapters: ["Managua Chapter"]
+      flag: "🇺🇸",
+      country: "USA", 
+      chapters: ["Albuquerque", "Atlanta", "Austin", "Bay Area", "Boise", "Bonita Springs", "Boston", "Boulder", "Charlotte", "Chicago", "Cincinnati", "Cleveland", "Colorado Springs", "Columbus", "Dallas", "Delaware", "Denver", "Des Plaines", "Edmond", "Harrisburg", "Houston", "Indianapolis", "Jacksonville", "Kansas City", "King of Prussia", "Knoxville", "Las Vegas", "Los Angeles", "Madison", "Maui", "Memphis", "Minneapolis/St. Paul", "Nashville", "New York City", "Northern Virginia", "Oakland County", "Orange County", "Orlando", "Philadelphia", "Phoenix", "Pittsburgh", "Portland", "Portland, Maine", "Princeton", "Sacramento", "Salt Lake City", "San Antonio", "San Diego", "Santa Barbara", "Seattle", "Somerset", "South Florida", "Spokane", "Syracuse", "Tampa", "Triangle-NC", "Washington-DC"]
     }
   ];
 
   // Group countries into rows of 3
   const groupedCountries = [];
-  for (let i = 0; i < centralAmericaCountries.length; i += 3) {
-    groupedCountries.push(centralAmericaCountries.slice(i, i + 3));
+  for (let i = 0; i < northAmericaCountries.length; i += 3) {
+    groupedCountries.push(northAmericaCountries.slice(i, i + 3));
   }
 
   return (
@@ -79,7 +74,7 @@ export default function CentralAmericaChapters() {
                       </div>
                     </div>
                   ))}
-                  
+
                   {/* Show additional chapters if expanded */}
                   {expandedCountries.has(country.country) && country.chapters.slice(5).map((chapter, chapterIndex) => (
                     <div key={chapterIndex + 5} className="box-border content-stretch flex flex-row gap-0.5 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full">
@@ -99,7 +94,7 @@ export default function CentralAmericaChapters() {
                       </div>
                     </div>
                   ))}
-                  
+
                   {/* Show "Show X more" button if there are more than 5 chapters */}
                   {country.chapters.length > 5 && (
                     <button
@@ -110,8 +105,8 @@ export default function CentralAmericaChapters() {
                       <div className="w-1.5 shrink-0"></div>
                       <div className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#757575] text-[16px] text-left tracking-[-0.32px] max-w-full">
                         <p className="block leading-[24px] break-words">
-                          {expandedCountries.has(country.country) 
-                            ? "Show less" 
+                          {expandedCountries.has(country.country)
+                            ? "Show less"
                             : `Show ${country.chapters.length - 5} more`
                           }
                           <svg 

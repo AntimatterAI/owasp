@@ -285,25 +285,24 @@ export default function AsiaChapters() {
             
             <button
               onClick={() => toggleCountry('India')}
-              className="box-border content-stretch flex flex-row gap-0.5 items-center justify-start pl-0 pr-0 py-0 relative shrink-0 w-full cursor-pointer"
+              className="box-border content-stretch flex flex-row gap-0.5 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full hover:bg-[#F4F4F4] transition-colors duration-200 rounded-sm"
             >
               <div className="w-6 shrink-0"></div>
               <div className="w-1.5 shrink-0"></div>
-              <div className="font-['Poppins'] leading-[0] not-italic relative shrink-0 text-[#757575] text-[14px] text-left text-nowrap">
-                <p className="block leading-[20px] whitespace-pre">Show {expandedCountries.has('India') ? 'less' : '64 more'}</p>
-              </div>
-              <div className="flex h-[20px] items-center justify-center relative shrink-0 w-[16px] ml-1">
-                <div className={`flex-none ${expandedCountries.has('India') ? 'rotate-[-90deg]' : 'rotate-[90deg]'} transition-transform duration-200`}>
-                  <div className="overflow-clip relative w-4 h-4">
-                    <Image
-                      alt=""
-                      className="w-full h-full"
-                      src="/images/icons/chevron-figma.svg"
-                      width={16}
-                      height={16}
-                    />
-                  </div>
-                </div>
+              <div className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#757575] text-[16px] text-left tracking-[-0.32px] max-w-full">
+                <p className="block leading-[24px] break-words">
+                  {expandedCountries.has('India') ? 'Show less' : 'Show 64 more'}
+                  <svg 
+                    className={`inline w-3 h-3 ml-1 transition-transform duration-200 ${
+                      expandedCountries.has('India') ? 'rotate-180' : ''
+                    }`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </p>
               </div>
             </button>
           </div>
@@ -472,25 +471,24 @@ export default function AsiaChapters() {
             
             <button
               onClick={() => toggleCountry('Japan')}
-              className="box-border content-stretch flex flex-row gap-0.5 items-center justify-start pl-0 pr-0 py-0 relative shrink-0 w-full cursor-pointer"
+              className="box-border content-stretch flex flex-row gap-0.5 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full hover:bg-[#F4F4F4] transition-colors duration-200 rounded-sm"
             >
               <div className="w-6 shrink-0"></div>
               <div className="w-1.5 shrink-0"></div>
-              <div className="font-['Poppins'] leading-[0] not-italic relative shrink-0 text-[#757575] text-[14px] text-left text-nowrap">
-                <p className="block leading-[20px] whitespace-pre">Show {expandedCountries.has('Japan') ? 'less' : '3 more'}</p>
-              </div>
-              <div className="flex h-[20px] items-center justify-center relative shrink-0 w-[16px] ml-1">
-                <div className={`flex-none ${expandedCountries.has('Japan') ? 'rotate-[-90deg]' : 'rotate-[90deg]'} transition-transform duration-200`}>
-                  <div className="overflow-clip relative w-4 h-4">
-                    <Image
-                      alt=""
-                      className="w-full h-full"
-                      src="/images/icons/chevron-figma.svg"
-                      width={16}
-                      height={16}
-                    />
-                  </div>
-                </div>
+              <div className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#757575] text-[16px] text-left tracking-[-0.32px] max-w-full">
+                <p className="block leading-[24px] break-words">
+                  {expandedCountries.has('Japan') ? 'Show less' : 'Show 3 more'}
+                  <svg 
+                    className={`inline w-3 h-3 ml-1 transition-transform duration-200 ${
+                      expandedCountries.has('Japan') ? 'rotate-180' : ''
+                    }`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </p>
               </div>
             </button>
           </div>
@@ -996,25 +994,24 @@ export default function AsiaChapters() {
             
             <button
               onClick={() => toggleCountry('Turkey')}
-              className="box-border content-stretch flex flex-row gap-0.5 items-center justify-start pl-0 pr-0 py-0 relative shrink-0 w-full cursor-pointer"
+              className="box-border content-stretch flex flex-row gap-0.5 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full hover:bg-[#F4F4F4] transition-colors duration-200 rounded-sm"
             >
               <div className="w-6 shrink-0"></div>
               <div className="w-1.5 shrink-0"></div>
-              <div className="font-['Poppins'] leading-[0] not-italic relative shrink-0 text-[#757575] text-[14px] text-left text-nowrap">
-                <p className="block leading-[20px] whitespace-pre">Show {expandedCountries.has('Turkey') ? 'less' : '2 more'}</p>
-              </div>
-              <div className="flex h-[20px] items-center justify-center relative shrink-0 w-[16px] ml-1">
-                <div className={`flex-none ${expandedCountries.has('Turkey') ? 'rotate-[-90deg]' : 'rotate-[90deg]'} transition-transform duration-200`}>
-                  <div className="overflow-clip relative w-4 h-4">
-                    <Image
-                      alt=""
-                      className="w-full h-full"
-                      src="/images/icons/chevron-figma.svg"
-                      width={16}
-                      height={16}
-                    />
-                  </div>
-                </div>
+              <div className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#757575] text-[16px] text-left tracking-[-0.32px] max-w-full">
+                <p className="block leading-[24px] break-words">
+                  {expandedCountries.has('Turkey') ? 'Show less' : 'Show 2 more'}
+                  <svg 
+                    className={`inline w-3 h-3 ml-1 transition-transform duration-200 ${
+                      expandedCountries.has('Turkey') ? 'rotate-180' : ''
+                    }`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </p>
               </div>
             </button>
           </div>

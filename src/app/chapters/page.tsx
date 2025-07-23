@@ -9,6 +9,10 @@ import Button from '@/components/Button';
 import AfricaChapters from '@/components/AfricaChapters';
 import AsiaChapters from '@/components/AsiaChapters';
 import CentralAmericaChapters from '@/components/CentralAmericaChapters';
+import EuropeChapters from '@/components/EuropeChapters';
+import NorthAmericaChapters from '@/components/NorthAmericaChapters';
+import OceaniaChapters from '@/components/OceaniaChapters';
+import SouthAmericaChapters from '@/components/SouthAmericaChapters';
 
 interface Chapter {
   name: string;
@@ -576,6 +580,14 @@ export default function ChaptersPage() {
                     <AsiaChapters />
                   ) : region === "Central America" ? (
                     <CentralAmericaChapters />
+                  ) : region === "Europe" ? (
+                    <EuropeChapters />
+                  ) : region === "North America" ? (
+                    <NorthAmericaChapters />
+                  ) : region === "Oceania" ? (
+                    <OceaniaChapters />
+                  ) : region === "South America" ? (
+                    <SouthAmericaChapters />
                   ) : (
                     <div className="space-y-6">
                       {displayedData

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function CentralAmericaChapters() {
+export default function EuropeChapters() {
   const [expandedCountries, setExpandedCountries] = useState<Set<string>>(new Set());
 
   const toggleCountry = (country: string) => {
@@ -14,34 +14,193 @@ export default function CentralAmericaChapters() {
     }
     setExpandedCountries(newExpanded);
   };
-
-  const centralAmericaCountries = [
+  const europeanCountries = [
     {
-      flag: "🇸🇻",
-      country: "El Salvador",
-      chapters: ["San Salvador"]
+      flag: "🇦🇹",
+      country: "Austria",
+      chapters: ["Klagenfurt"]
     },
     {
-      flag: "🇬🇹",
-      country: "Guatemala",
-      chapters: ["Guatemala City"]
+      flag: "🇧🇪",
+      country: "Belgium",
+      chapters: ["Belgium"]
     },
     {
-      flag: "🇭🇳",
-      country: "Honduras",
-      chapters: ["San Pedro Sula"]
+      flag: "🇧🇦",
+      country: "Bosnia & Herzegovina",
+      chapters: ["Banja Luka Chapter"]
     },
     {
-      flag: "🇳🇮",
-      country: "Nicaragua",
-      chapters: ["Managua Chapter"]
+      flag: "🇧🇬",
+      country: "Bulgaria",
+      chapters: ["Sofia"]
+    },
+    {
+      flag: "🇭🇷",
+      country: "Croatia",
+      chapters: ["Croatia"]
+    },
+    {
+      flag: "🇨🇾",
+      country: "Cyprus",
+      chapters: ["Limassol"]
+    },
+    {
+      flag: "🇨🇿",
+      country: "Czech Republic",
+      chapters: ["Czech Republic"]
+    },
+    {
+      flag: "🇩🇰",
+      country: "Denmark",
+      chapters: ["Aarhus", "Copenhagen"]
+    },
+    {
+      flag: "🇪🇪",
+      country: "Estonia",
+      chapters: ["Tallinn"]
+    },
+    {
+      flag: "🇫🇴",
+      country: "Faroe Islands",
+      chapters: ["Torshavn"]
+    },
+    {
+      flag: "🇫🇮",
+      country: "Finland",
+      chapters: ["Helsinki"]
+    },
+    {
+      flag: "🇫🇷",
+      country: "France",
+      chapters: ["France"]
+    },
+    {
+      flag: "🇩🇪",
+      country: "Germany",
+      chapters: ["Augsburg", "Berlin", "Cologne", "Frankfurt", "Germany", "Heilbronn", "Ruhrpott", "Stuttgart"]
+    },
+    {
+      flag: "🇬🇷",
+      country: "Greece",
+      chapters: ["Athens"]
+    },
+    {
+      flag: "🇭🇺",
+      country: "Hungary",
+      chapters: ["Hungary"]
+    },
+    {
+      flag: "🇮🇪",
+      country: "Ireland",
+      chapters: ["Dublin"]
+    },
+    {
+      flag: "🇮🇱",
+      country: "Israel",
+      chapters: ["Israel"]
+    },
+    {
+      flag: "🇮🇹",
+      country: "Italy",
+      chapters: ["Italy"]
+    },
+    {
+      flag: "🇱🇻",
+      country: "Latvia",
+      chapters: ["Riga"]
+    },
+    {
+      flag: "🇱🇹",
+      country: "Lithuania",
+      chapters: ["Vilnius"]
+    },
+    {
+      flag: "🇱🇺",
+      country: "Luxembourg",
+      chapters: ["Luxembourg City"]
+    },
+    {
+      flag: "🇳🇱",
+      country: "Netherlands",
+      chapters: ["Netherlands"]
+    },
+    {
+      flag: "🇲🇰",
+      country: "North Macedonia",
+      chapters: ["Skopje"]
+    },
+    {
+      flag: "🇳🇴",
+      country: "Norway",
+      chapters: ["Bergen", "Oslo", "Stavanger"]
+    },
+    {
+      flag: "🇵🇱",
+      country: "Poland",
+      chapters: ["Poland"]
+    },
+    {
+      flag: "🇵🇹",
+      country: "Portugal",
+      chapters: ["Beja", "Coimbra", "Leiria", "Lisboa", "Porto"]
+    },
+    {
+      flag: "🇷🇴",
+      country: "Romania",
+      chapters: ["Timisoara"]
+    },
+    {
+      flag: "🇷🇺",
+      country: "Russia",
+      chapters: ["Moscow"]
+    },
+    {
+      flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+      country: "Scotland",
+      chapters: ["Scotland"]
+    },
+    {
+      flag: "🇸🇮",
+      country: "Slovenia",
+      chapters: ["Ljubljana", "Maribor"]
+    },
+    {
+      flag: "🇪🇸",
+      country: "Spain",
+      chapters: ["Barcelona", "Logroño", "Sevilla"]
+    },
+    {
+      flag: "🇸🇪",
+      country: "Sweden",
+      chapters: ["Gothenburg", "JKPG", "Stockholm"]
+    },
+    {
+      flag: "🇨🇭",
+      country: "Switzerland",
+      chapters: ["Switzerland"]
+    },
+    {
+      flag: "🇹🇷",
+      country: "Turkiye",
+      chapters: ["Diyarbakır", "Izmir"]
+    },
+    {
+      flag: "🇺🇦",
+      country: "Ukraine",
+      chapters: ["Kharkiv", "Kyiv", "Lviv", "Zhytomyr"]
+    },
+    {
+      flag: "🇬🇧",
+      country: "United Kingdom",
+      chapters: ["Belfast", "Birmingham, UK", "Bristol, UK", "Cambridge", "Dorset", "Leeds, UK", "London", "Manchester", "Newcastle (UK)", "Peterborough", "Reading", "Suffolk", "Warwick"]
     }
   ];
 
   // Group countries into rows of 3
   const groupedCountries = [];
-  for (let i = 0; i < centralAmericaCountries.length; i += 3) {
-    groupedCountries.push(centralAmericaCountries.slice(i, i + 3));
+  for (let i = 0; i < europeanCountries.length; i += 3) {
+    groupedCountries.push(europeanCountries.slice(i, i + 3));
   }
 
   return (
