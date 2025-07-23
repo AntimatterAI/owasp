@@ -20,6 +20,38 @@ interface CountryChapters {
   chapters: Chapter[];
 }
 
+// Button component from Figma
+interface ButtonProps {
+  text?: string;
+  type?: "Primary" | "Ghost White" | "Ghost Dark" | "Light Blue";
+  size?: "40" | "48" | "56";
+}
+
+function FigmaButton({
+  text = "Join Now",
+  type = "Primary",
+  size = "40",
+}: ButtonProps) {
+  if (type === "Ghost White" && size === "56") {
+    return (
+      <div
+        className="box-border content-stretch flex flex-row gap-10 items-center justify-center px-8 py-0 relative h-14"
+        data-name="Type=Ghost White, Size=56"
+      >
+        <div className="absolute border border-[#757575] border-solid inset-0 pointer-events-none" />
+        <div
+          className="font-['Poppins'] font-semibold leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[16px] text-center text-nowrap tracking-[-0.32px]"
+        >
+          <p className="block leading-[24px] whitespace-pre">
+            {text}
+          </p>
+        </div>
+      </div>
+    );
+  }
+  return null;
+}
+
 export default function ChaptersPage() {
   const [expandedRegions, setExpandedRegions] = useState<Set<string>>(new Set());
 
@@ -234,56 +266,260 @@ export default function ChaptersPage() {
       <Header />
       
       {/* Hero Section */}
-      <div className="relative bg-[#101820] overflow-hidden">
-        {/* World Map Background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="relative w-full h-full flex items-center justify-center">
-            <svg width="800" height="400" viewBox="0 0 800 400" className="max-w-none">
-              {/* Simplified world map dots representing chapters */}
-              <circle cx="150" cy="180" r="3" fill="#00A7E1" />
-              <circle cx="180" cy="160" r="3" fill="#00A7E1" />
-              <circle cx="200" cy="200" r="3" fill="#00A7E1" />
-              <circle cx="320" cy="150" r="3" fill="#00A7E1" />
-              <circle cx="340" cy="170" r="3" fill="#00A7E1" />
-              <circle cx="360" cy="140" r="3" fill="#00A7E1" />
-              <circle cx="380" cy="160" r="3" fill="#00A7E1" />
-              <circle cx="450" cy="180" r="3" fill="#00A7E1" />
-              <circle cx="480" cy="200" r="3" fill="#00A7E1" />
-              <circle cx="520" cy="160" r="3" fill="#00A7E1" />
-              <circle cx="550" cy="190" r="3" fill="#00A7E1" />
-              <circle cx="600" cy="220" r="3" fill="#00A7E1" />
-              <circle cx="650" cy="240" r="3" fill="#00A7E1" />
-              <circle cx="700" cy="200" r="3" fill="#00A7E1" />
-              {/* Additional dots for visual effect */}
-              <circle cx="120" cy="220" r="2" fill="#FFB81B" />
-              <circle cx="250" cy="240" r="2" fill="#FFB81B" />
-              <circle cx="300" cy="180" r="2" fill="#FFB81B" />
-              <circle cx="420" cy="220" r="2" fill="#FFB81B" />
-              <circle cx="580" cy="170" r="2" fill="#FFB81B" />
-              <circle cx="620" cy="180" r="2" fill="#FFB81B" />
-            </svg>
+      <div
+        className="bg-[#101820] box-border content-stretch flex flex-col gap-8 items-start justify-start px-[120px] py-20 relative w-full min-h-[500px] overflow-hidden"
+        data-name="Hero"
+      >
+        <div
+          className="absolute h-[402px] top-0 w-[480px]"
+          data-name="Ray"
+          style={{ left: "calc(25% + 120px)" }}
+        >
+          <div className="absolute bottom-[-49.751%] left-[-124.166%] right-[-123.939%] top-[-218.905%]">
+            <Image 
+              alt="" 
+              className="block max-w-none size-full" 
+              src="/images/ray.svg"
+              width={480}
+              height={402}
+            />
           </div>
         </div>
-        
-        <div className="relative max-w-[1440px] mx-auto px-[120px] py-24">
-          <div className="max-w-4xl">
-            <h1 className="font-['Barlow'] font-medium text-[64px] text-white leading-[64px] tracking-[-1.28px] mb-6">
-              OWASP Local Chapters
-            </h1>
-            <p className="font-['Poppins'] text-[#f4f4f4] text-[16px] leading-[24px] mb-8 max-w-2xl">
-              Connect with your local OWASP community. Join a chapter near you to attend meetings, participate in projects, 
-              and network with fellow security professionals from around the world.
-            </p>
-            <div className="flex gap-4">
-              <Button text="Find Chapter Near You" variant="light-blue" size="56" />
-              <Button text="Start a New Chapter" variant="ghost-white" size="56" />
+        <div
+          className="box-border content-stretch flex flex-row gap-20 items-start justify-start p-0 relative shrink-0 w-full"
+          data-name="Container"
+        >
+          <div
+            className="basis-0 box-border content-stretch flex flex-col grow items-start justify-between min-h-px min-w-px p-0 relative self-stretch shrink-0"
+          >
+            <div
+              className="box-border content-stretch flex flex-col gap-8 items-start justify-center leading-[0] p-0 relative shrink-0 text-left w-full"
+            >
+              <div
+                className="font-['Barlow'] font-medium not-italic relative shrink-0 text-[#ffffff] text-[64px] tracking-[-1.28px] w-full"
+              >
+                <p className="block leading-[64px]">OWASP Local Chapters</p>
+              </div>
+              <div
+                className="font-['Poppins'] relative shrink-0 text-[#f4f4f4] text-[16px] tracking-[-0.32px] w-full"
+                style={{
+                  fontVariationSettings: "'CTGR' 0, 'wdth' 100, 'wght' 400",
+                }}
+              >
+                <p className="block leading-[24px]">
+                  OWASP Local Chapters bring application security professionals
+                  together around the world. Meetings are free and open to
+                  everyone, members and non‑members alike.
+                  <br />
+                  <br />
+                  Local meetings include training to build your skills, talks on
+                  relevant topics, and opportunities to connect with others in the
+                  field.
+                </p>
+              </div>
+            </div>
+            <div
+              className="box-border content-stretch flex flex-row gap-10 h-14 items-center justify-start px-0 py-0 relative shrink-0"
+              data-name="Button"
+            >
+              <FigmaButton
+                text="RSVP for Local Meetings"
+                type="Ghost White"
+                size="56"
+              />
+            </div>
+          </div>
+          <div
+            className="h-[500px] relative shrink-0 w-[560px]"
+            data-name="Map"
+          >
+            <div
+              className="absolute bg-[#9fbef4] blur-[150px] filter left-[70px] opacity-60 rounded-[2571.43px] size-[640px] top-10"
+              data-name="Blur"
+            />
+            <div
+              className="absolute left-[30px] overflow-clip rounded-[2571.43px] size-[720px] top-0"
+              data-name="Circle Globe"
+              style={{
+                backgroundImage:
+                  "url('data:image/svg+xml;utf8,<svg viewBox=\\\'0 0 720 720\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\' preserveAspectRatio=\\\'none\\\'><rect x=\\\'0\\\' y=\\\'0\\\' height=\\\'100%\\\' width=\\\'100%\\\' fill=\\\'url(%23grad)\\\' opacity=\\\'1\\\'/><defs><radialGradient id=\\\'grad\\\' gradientUnits=\\\'userSpaceOnUse\\\' cx=\\\'0\\\' cy=\\\'0\\\' r=\\\'10\\\' gradientTransform=\\\'matrix(-32.9 -37.25 -133.41 117.83 453 451.5)\\\'><stop stop-color=\\\'rgba(0,0,0,1)\\\' offset=\\\'0\\\'/><stop stop-color=\\\'rgba(4,6,8,1)\\\' offset=\\\'0.125\\\'/><stop stop-color=\\\'rgba(8,12,16,1)\\\' offset=\\\'0.25\\\'/><stop stop-color=\\\'rgba(16,24,33,1)\\\' offset=\\\'0.5\\\'/><stop stop-color=\\\'rgba(32,48,65,1)\\\' offset=\\\'1\\\'/></radialGradient></defs></svg>')",
+              }}
+            >
+              <div
+                className="absolute h-[637.714px] left-[-136.494px] top-[41.143px] w-[992.989px]"
+                data-name="World Map"
+              >
+                <Image
+                  alt=""
+                  className="block max-w-none size-full"
+                  src="/images/world-map.svg"
+                  width={993}
+                  height={638}
+                />
+              </div>
+            </div>
+
+            {/* Egypt Pin */}
+            <div className="absolute contents left-[408px] top-[373px]" data-name="Egypt">
+              <div className="absolute h-[55px] left-[408px] top-[373px] w-[42px]" data-name="Pin">
+                <Image alt="" className="block max-w-none size-full" src="/images/icons/pin.svg" width={42} height={55} />
+              </div>
+              <div className="absolute bg-[#336639] left-[412px] overflow-clip rounded-[200px] size-[34px] top-[377px]" data-name="Flag">
+                <div className="absolute bg-[#ffffff] h-[34px] left-[-5.667px] overflow-clip top-0 w-[45.333px]" data-name="EG - Egypt">
+                  <div className="absolute contents top-1/2 translate-x-[-50%] translate-y-[-50%]" data-name="flag" style={{ left: "calc(50% + 0.001px)" }}>
+                    <div className="absolute h-[34px] top-1/2 translate-x-[-50%] translate-y-[-50%] w-[45.333px]" data-name="contents" style={{ left: "calc(50% + 0.001px)" }}>
+                      <Image alt="" className="block max-w-none size-full" src="/images/flags/egypt.svg" width={45} height={34} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Malaysia Pin */}
+            <div className="absolute contents left-[614px] top-[402px]" data-name="Malaysia">
+              <div className="absolute h-[55px] left-[614px] top-[402px] w-[42px]" data-name="Pin">
+                <Image alt="" className="block max-w-none size-full" src="/images/icons/pin.svg" width={42} height={55} />
+              </div>
+              <div className="absolute bg-[#336639] left-[618px] overflow-clip rounded-[200px] size-[34px] top-[406px]" data-name="Flag">
+                <div className="absolute bg-[#ffffff] h-[34px] left-[-5.667px] overflow-clip top-0 w-[45.333px]" data-name="MY - Malaysia">
+                  <div className="absolute contents top-1/2 translate-x-[-50%] translate-y-[-50%]" data-name="flag" style={{ left: "calc(50% + 0.412px)" }}>
+                    <div className="absolute h-[34px] top-1/2 translate-x-[-50%] translate-y-[-50%] w-[45.492px]" data-name="contents" style={{ left: "calc(50% + 0.412px)" }}>
+                      <Image alt="" className="block max-w-none size-full" src="/images/flags/malaysia.svg" width={45} height={34} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* India Pin */}
+            <div className="absolute contents left-[554px] top-[387px]" data-name="India">
+              <div className="absolute h-[55px] left-[554px] top-[387px] w-[42px]" data-name="Pin">
+                <Image alt="" className="block max-w-none size-full" src="/images/icons/pin.svg" width={42} height={55} />
+              </div>
+              <div className="absolute bg-[#336639] left-[558px] overflow-clip rounded-[200px] size-[34px] top-[391px]" data-name="Flag">
+                <div className="absolute bg-[#ffffff] h-[34px] left-[-5.667px] overflow-clip top-0 w-[45.333px]" data-name="IN - India">
+                  <div className="absolute contents top-1/2 translate-x-[-50%] translate-y-[-50%]" data-name="flag" style={{ left: "calc(50% + 0.333px)" }}>
+                    <div className="absolute h-[34px] top-1/2 translate-x-[-50%] translate-y-[-50%] w-[45.333px]" data-name="contents" style={{ left: "calc(50% + 0.333px)" }}>
+                      <Image alt="" className="block max-w-none size-full" src="/images/flags/india.svg" width={45} height={34} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Finland Pin */}
+            <div className="absolute contents left-[368px] top-[230px]" data-name="Finland">
+              <div className="absolute h-[55px] left-[368px] top-[230px] w-[42px]" data-name="Pin">
+                <Image alt="" className="block max-w-none size-full" src="/images/icons/pin.svg" width={42} height={55} />
+              </div>
+              <div className="absolute bg-[#336639] left-[372px] overflow-clip rounded-[200px] size-[34px] top-[234px]" data-name="Flag">
+                <div className="absolute bg-[#ffffff] h-[34px] left-[-5.667px] overflow-clip top-0 w-[45.333px]" data-name="FI - Finland">
+                  <div className="absolute contents top-1/2 translate-x-[-50%] translate-y-[-50%]" data-name="flag" style={{ left: "calc(50% + 0.333px)" }}>
+                    <div className="absolute h-[34px] top-1/2 translate-x-[-50%] translate-y-[-50%] w-[45.333px]" data-name="contents" style={{ left: "calc(50% + 0.333px)" }}>
+                      <Image alt="" className="block max-w-none size-full" src="/images/flags/finland.svg" width={45} height={34} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Germany Pin */}
+            <div className="absolute contents left-[392px] top-[275px]" data-name="Germany">
+              <div className="absolute h-[55px] left-[392px] top-[275px] w-[42px]" data-name="Pin">
+                <Image alt="" className="block max-w-none size-full" src="/images/icons/pin.svg" width={42} height={55} />
+              </div>
+              <div className="absolute bg-[#336639] left-[396px] overflow-clip rounded-[200px] size-[34px] top-[279px]" data-name="Flag">
+                <div className="absolute bg-[#ffffff] h-[34px] overflow-clip top-1/2 translate-x-[-50%] translate-y-[-50%] w-[45.333px]" data-name="DE - Germany" style={{ left: "calc(50% - 0.333px)" }}>
+                  <div className="absolute contents top-1/2 translate-x-[-50%] translate-y-[-50%]" data-name="flag" style={{ left: "calc(50% + 0.333px)" }}>
+                    <div className="absolute h-[34px] top-1/2 translate-x-[-50%] translate-y-[-50%] w-[45.333px]" data-name="contents" style={{ left: "calc(50% + 0.333px)" }}>
+                      <Image alt="" className="block max-w-none size-full" src="/images/flags/germany.svg" width={45} height={34} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* France Pin */}
+            <div className="absolute contents left-[349px] top-[294px]" data-name="France">
+              <div className="absolute h-[55px] left-[349px] top-[294px] w-[42px]" data-name="Pin">
+                <Image alt="" className="block max-w-none size-full" src="/images/icons/pin.svg" width={42} height={55} />
+              </div>
+              <div className="absolute bg-[#336639] left-[353px] overflow-clip rounded-[200px] size-[34px] top-[298px]" data-name="Flag">
+                <div className="absolute bg-[#ffffff] h-[34px] left-[-5.667px] overflow-clip top-0 w-[45.333px]" data-name="FR - France">
+                  <div className="absolute contents top-1/2 translate-x-[-50%] translate-y-[-50%]" data-name="flag" style={{ left: "calc(50% + 0.334px)" }}>
+                    <div className="absolute h-[34px] top-1/2 translate-x-[-50%] translate-y-[-50%] w-[45.334px]" data-name="contents" style={{ left: "calc(50% + 0.334px)" }}>
+                      <Image alt="" className="block max-w-none size-full" src="/images/flags/france.svg" width={45} height={34} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* USA Pin */}
+            <div className="absolute contents left-[67px] top-[296px]" data-name="USA">
+              <div className="absolute h-[55px] left-[67px] top-[296px] w-[42px]" data-name="Pin">
+                <Image alt="" className="block max-w-none size-full" src="/images/icons/pin.svg" width={42} height={55} />
+              </div>
+              <div className="absolute bg-[#336639] left-[71px] overflow-clip rounded-[200px] size-[34px] top-[300px]" data-name="Flag">
+                <div className="absolute bg-[#ffffff] h-[34px] overflow-clip top-0 translate-x-[-50%] w-[45.333px]" data-name="US - United States" style={{ left: "calc(50% - 4.333px)" }}>
+                  <div className="absolute contents top-1/2 translate-x-[-50%] translate-y-[-50%]" data-name="flag" style={{ left: "calc(50% + 0.333px)" }}>
+                    <div className="absolute h-[34px] top-1/2 translate-x-[-50%] translate-y-[-50%] w-[45.333px]" data-name="contents" style={{ left: "calc(50% + 0.333px)" }}>
+                      <Image alt="" className="block max-w-none size-full" src="/images/flags/usa.svg" width={45} height={34} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Canada Pin */}
+            <div className="absolute contents left-[41px] top-[219px]" data-name="Canada">
+              <div className="absolute h-[55px] left-[41px] top-[219px] w-[42px]" data-name="Pin">
+                <Image alt="" className="block max-w-none size-full" src="/images/icons/pin.svg" width={42} height={55} />
+              </div>
+              <div className="absolute bg-[#336639] left-[45px] overflow-clip rounded-[200px] size-[34px] top-[223px]" data-name="Flag">
+                <div className="absolute bg-[#ffffff] h-[34px] left-[-5.667px] overflow-clip top-0 w-[45.333px]" data-name="CA - Canada">
+                  <Image alt="" className="block max-w-none size-full" src="/images/flags/canada.svg" width={45} height={34} />
+                </div>
+              </div>
+            </div>
+
+            {/* Mexico Pin */}
+            <div className="absolute contents left-[45px] top-[370px]" data-name="Mexico">
+              <div className="absolute h-[55px] left-[45px] top-[370px] w-[42px]" data-name="Pin">
+                <Image alt="" className="block max-w-none size-full" src="/images/icons/pin.svg" width={42} height={55} />
+              </div>
+              <div className="absolute bg-[#336639] left-[49px] overflow-clip rounded-[200px] size-[34px] top-[374px]" data-name="Flag">
+                <div className="absolute bg-[#ffffff] h-[34px] overflow-clip top-0 translate-x-[-50%] w-[45.333px]" data-name="MX - Mexico" style={{ left: "calc(50% - 0.333px)" }}>
+                  <div className="absolute contents top-1/2 translate-x-[-50%] translate-y-[-50%]" data-name="flag" style={{ left: "calc(50% + 0.334px)" }}>
+                    <div className="absolute h-[34px] top-1/2 translate-x-[-50%] translate-y-[-50%] w-[45.334px]" data-name="contents" style={{ left: "calc(50% + 0.334px)" }}>
+                      <Image alt="" className="block max-w-none size-full" src="/images/flags/mexico.svg" width={45} height={34} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Brazil Pin */}
+            <div className="absolute contents left-52 top-[482px]" data-name="Brazil">
+              <div className="absolute h-[55px] left-52 top-[482px] w-[42px]" data-name="Pin">
+                <Image alt="" className="block max-w-none size-full" src="/images/icons/pin.svg" width={42} height={55} />
+              </div>
+              <div className="absolute bg-[#336639] left-[212px] overflow-clip rounded-[200px] size-[34px] top-[486px]" data-name="Flag">
+                <div className="absolute bg-[#ffffff] h-[34px] left-[-5.667px] overflow-clip top-0 w-[45.333px]" data-name="BR - Brazil">
+                  <div className="absolute contents top-1/2 translate-x-[-50%] translate-y-[-50%]" data-name="flag" style={{ left: "calc(50% + 0.333px)" }}>
+                    <div className="absolute h-[34px] top-1/2 translate-x-[-50%] translate-y-[-50%] w-[45.333px]" data-name="contents" style={{ left: "calc(50% + 0.333px)" }}>
+                      <Image alt="" className="block max-w-none size-full" src="/images/flags/brazil.svg" width={45} height={34} />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Chapter Listing Section */}
-      <div className="max-w-[1440px] mx-auto px-[120px] py-16">
+      <div className="max-w-[1440px] mx-auto px-[120px] py-16 relative z-10 bg-white">
         {/* Section Header with Search */}
         <div className="flex items-center justify-between mb-12">
           <div>
