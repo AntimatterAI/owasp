@@ -55,7 +55,10 @@ export default function OceaniaChapters() {
                     <div key={chapterIndex} className="box-border content-stretch flex flex-row gap-0.5 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full">
                       <div className="w-6 shrink-0"></div>
                       <div className="w-1.5 shrink-0"></div>
-                      <div className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#003594] text-[20px] text-left tracking-[-0.4px] max-w-full">
+                      <Link 
+                        href={`/chapters/${chapter.toLowerCase().replace(/\s+/g, '-')}`}
+                        className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#003594] text-[20px] text-left tracking-[-0.4px] max-w-full hover:text-[#002d7a] transition-colors cursor-pointer"
+                      >
                         <p className="block leading-[24px] break-words">
                           {chapter}
                           <Image
@@ -66,7 +69,7 @@ export default function OceaniaChapters() {
                             height={12}
                           />
                         </p>
-                      </div>
+                      </Link>
                     </div>
                   ))}
 
@@ -75,7 +78,10 @@ export default function OceaniaChapters() {
                     <div key={chapterIndex + 5} className="box-border content-stretch flex flex-row gap-0.5 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full">
                       <div className="w-6 shrink-0"></div>
                       <div className="w-1.5 shrink-0"></div>
-                      <div className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#003594] text-[20px] text-left tracking-[-0.4px] max-w-full">
+                      <Link 
+                        href={`/chapters/${chapter.toLowerCase().replace(/\s+/g, '-')}`}
+                        className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#003594] text-[20px] text-left tracking-[-0.4px] max-w-full hover:text-[#002d7a] transition-colors cursor-pointer"
+                      >
                         <p className="block leading-[24px] break-words">
                           {chapter}
                           <Image
@@ -86,7 +92,7 @@ export default function OceaniaChapters() {
                             height={12}
                           />
                         </p>
-                      </div>
+                      </Link>
                     </div>
                   ))}
 

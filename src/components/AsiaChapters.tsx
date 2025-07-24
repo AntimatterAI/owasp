@@ -63,7 +63,10 @@ export default function AsiaChapters() {
               <div className="w-6 shrink-0"></div>
               <div className="w-1.5 shrink-0"></div>
               <div className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#003594] text-[20px] text-left tracking-[-0.4px] max-w-full">
-                <p className="block leading-[24px] break-words">
+                <Link 
+                  href={`/chapters/${`Baku`.toLowerCase()}`}
+                  className="block leading-[24px] break-words hover:underline"
+                >
                   Baku
                   <Image
                     alt=""
@@ -72,7 +75,7 @@ export default function AsiaChapters() {
                     width={12}
                     height={12}
                   />
-                </p>
+                </Link>
               </div>
             </div>
             <div className="box-border content-stretch flex flex-row gap-0.5 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full">

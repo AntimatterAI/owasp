@@ -643,22 +643,95 @@ export default function ChaptersPage() {
           ))}
         </div>
 
-                 {/* Call to Action */}
-        <div className="bg-[#F1F6FE] rounded-lg p-12 text-center mt-16">
-          <h3 className="font-['Barlow'] font-medium text-[32px] text-[#101820] leading-[40px] tracking-[-0.64px] mb-4">
-            Don't See a Chapter Near You?
-          </h3>
-          <p className="font-['Poppins'] text-[#757575] text-[16px] leading-[24px] mb-8 max-w-2xl mx-auto">
-            Start your own OWASP chapter and build a security community in your area. We provide resources, 
-            support, and guidance to help you get started.
-          </p>
-          <div className="flex gap-4 justify-center">
-            <Link href="/chapter-starter-kit">
-              <Button text="Chapter Starter Kit" variant="primary" size="48" />
-            </Link>
-            <Link href="/join-community">
-              <Button text="Join Our Community" variant="ghost-dark" size="48" />
-            </Link>
+                 {/* Important Links & OWASP Videos */}
+        <div className="bg-[#F1F6FE] rounded-lg p-16 mt-16">
+          <div className="flex flex-row gap-20 items-start justify-start w-full">
+            {/* Important Links Column */}
+            <div className="flex-1 flex flex-col gap-4 items-start justify-start">
+              <h3 className="font-['Barlow'] font-medium text-[20px] text-[#101820] leading-[24px] tracking-[-0.4px] w-full">
+                Important Links
+              </h3>
+              <div className="flex flex-col gap-6 items-start justify-start w-full">
+                <a 
+                  href="mailto:chapters@owasp.org" 
+                  className="flex flex-row gap-2 items-center justify-start group hover:opacity-80 transition-opacity"
+                >
+                  <span className="font-['Poppins'] font-medium text-[14px] text-[#003594] leading-[20px] whitespace-nowrap">
+                    Contact Us - Chapter Support
+                  </span>
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.5 8.5L8.5 3.5M8.5 3.5H3.5M8.5 3.5V8.5" stroke="#003594" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </a>
+                <a 
+                  href="https://owasp.org/leaders/" 
+                  className="flex flex-row gap-2 items-center justify-start group hover:opacity-80 transition-opacity"
+                >
+                  <span className="font-['Poppins'] font-medium text-[14px] text-[#003594] leading-[20px] whitespace-nowrap">
+                    All Chapter Leaders
+                  </span>
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.5 8.5L8.5 3.5M8.5 3.5H3.5M8.5 3.5V8.5" stroke="#003594" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </a>
+                <a 
+                  href="https://owasp.org/chapters/status/" 
+                  className="flex flex-row gap-2 items-center justify-start group hover:opacity-80 transition-opacity"
+                >
+                  <span className="font-['Poppins'] font-medium text-[14px] text-[#003594] leading-[20px] whitespace-nowrap">
+                    Chapter Status
+                  </span>
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.5 8.5L8.5 3.5M8.5 3.5H3.5M8.5 3.5V8.5" stroke="#003594" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {/* OWASP Videos Column */}
+            <div className="flex-1 flex flex-col gap-4 items-start justify-start">
+              <h3 className="font-['Barlow'] font-medium text-[20px] text-[#101820] leading-[24px] tracking-[-0.4px] w-full">
+                OWASP Videos
+              </h3>
+              <div className="flex flex-col gap-6 items-start justify-start w-full">
+                <a 
+                  href="https://www.youtube.com/user/OWASPGLOBAL" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-row gap-2 items-center justify-start group hover:opacity-80 transition-opacity"
+                >
+                  <span className="font-['Poppins'] font-medium text-[14px] text-[#003594] leading-[20px] whitespace-nowrap">
+                    OWASP GLOBAL YouTube Channel
+                  </span>
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.5 8.5L8.5 3.5M8.5 3.5H3.5M8.5 3.5V8.5" stroke="#003594" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </a>
+                <a 
+                  href="https://www.youtube.com/watch?v=example" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-row gap-2 items-center justify-start group hover:opacity-80 transition-opacity"
+                >
+                  <span className="font-['Poppins'] font-medium text-[14px] text-[#003594] leading-[20px] whitespace-nowrap">
+                    How to create the OWASP chapter page
+                  </span>
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.5 8.5L8.5 3.5M8.5 3.5H3.5M8.5 3.5V8.5" stroke="#003594" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

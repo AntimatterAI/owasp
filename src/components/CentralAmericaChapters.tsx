@@ -66,7 +66,10 @@ export default function CentralAmericaChapters() {
                       <div className="w-6 shrink-0"></div>
                       <div className="w-1.5 shrink-0"></div>
                       <div className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#003594] text-[20px] text-left tracking-[-0.4px] max-w-full">
-                        <p className="block leading-[24px] break-words">
+                        <Link 
+                          href={`/chapters/${chapter.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="block leading-[24px] break-words hover:underline"
+                        >
                           {chapter}
                           <Image
                             alt=""
@@ -75,7 +78,7 @@ export default function CentralAmericaChapters() {
                             width={12}
                             height={12}
                           />
-                        </p>
+                        </Link>
                       </div>
                     </div>
                   ))}
@@ -86,7 +89,10 @@ export default function CentralAmericaChapters() {
                       <div className="w-6 shrink-0"></div>
                       <div className="w-1.5 shrink-0"></div>
                       <div className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#003594] text-[20px] text-left tracking-[-0.4px] max-w-full">
-                        <p className="block leading-[24px] break-words">
+                        <Link 
+                          href={`/chapters/${chapter.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="block leading-[24px] break-words hover:underline"
+                        >
                           {chapter}
                           <Image
                             alt=""
@@ -95,7 +101,7 @@ export default function CentralAmericaChapters() {
                             width={12}
                             height={12}
                           />
-                        </p>
+                        </Link>
                       </div>
                     </div>
                   ))}

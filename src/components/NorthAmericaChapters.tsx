@@ -55,45 +55,51 @@ export default function NorthAmericaChapters() {
                   </div>
                 </div>
                 <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full">
-                  {/* Show first 5 chapters */}
-                  {country.chapters.slice(0, 5).map((chapter, chapterIndex) => (
-                    <div key={chapterIndex} className="box-border content-stretch flex flex-row gap-0.5 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full">
-                      <div className="w-6 shrink-0"></div>
-                      <div className="w-1.5 shrink-0"></div>
-                      <div className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#003594] text-[20px] text-left tracking-[-0.4px] max-w-full">
-                        <p className="block leading-[24px] break-words">
-                          {chapter}
-                          <Image
-                            alt=""
-                            className="inline w-3 h-3 ml-1"
-                            src="/images/icons/arrow-upright-figma.svg"
-                            width={12}
-                            height={12}
-                          />
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+                                           {/* Show first 5 chapters */}
+                         {country.chapters.slice(0, 5).map((chapter, chapterIndex) => (
+                           <div key={chapterIndex} className="box-border content-stretch flex flex-row gap-0.5 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full">
+                             <div className="w-6 shrink-0"></div>
+                             <div className="w-1.5 shrink-0"></div>
+                             <Link 
+                               href={`/chapters/${chapter.toLowerCase().replace(/\s+/g, '-')}`}
+                               className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#003594] text-[20px] text-left tracking-[-0.4px] max-w-full hover:text-[#002d7a] transition-colors cursor-pointer"
+                             >
+                               <p className="block leading-[24px] break-words">
+                                 {chapter}
+                                 <Image
+                                   alt=""
+                                   className="inline w-3 h-3 ml-1"
+                                   src="/images/icons/arrow-upright-figma.svg"
+                                   width={12}
+                                   height={12}
+                                 />
+                               </p>
+                             </Link>
+                           </div>
+                         ))}
 
-                  {/* Show additional chapters if expanded */}
-                  {expandedCountries.has(country.country) && country.chapters.slice(5).map((chapter, chapterIndex) => (
-                    <div key={chapterIndex + 5} className="box-border content-stretch flex flex-row gap-0.5 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full">
-                      <div className="w-6 shrink-0"></div>
-                      <div className="w-1.5 shrink-0"></div>
-                      <div className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#003594] text-[20px] text-left tracking-[-0.4px] max-w-full">
-                        <p className="block leading-[24px] break-words">
-                          {chapter}
-                          <Image
-                            alt=""
-                            className="inline w-3 h-3 ml-1"
-                            src="/images/icons/arrow-upright-figma.svg"
-                            width={12}
-                            height={12}
-                          />
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+                                           {/* Show additional chapters if expanded */}
+                         {expandedCountries.has(country.country) && country.chapters.slice(5).map((chapter, chapterIndex) => (
+                           <div key={chapterIndex + 5} className="box-border content-stretch flex flex-row gap-0.5 items-start justify-start pl-0 pr-0 py-0 relative shrink-0 w-full">
+                             <div className="w-6 shrink-0"></div>
+                             <div className="w-1.5 shrink-0"></div>
+                             <Link 
+                               href={`/chapters/${chapter.toLowerCase().replace(/\s+/g, '-')}`}
+                               className="font-['Barlow'] font-medium leading-[0] not-italic relative text-[#003594] text-[20px] text-left tracking-[-0.4px] max-w-full hover:text-[#002d7a] transition-colors cursor-pointer"
+                             >
+                               <p className="block leading-[24px] break-words">
+                                 {chapter}
+                                 <Image
+                                   alt=""
+                                   className="inline w-3 h-3 ml-1"
+                                   src="/images/icons/arrow-upright-figma.svg"
+                                   width={12}
+                                   height={12}
+                                 />
+                               </p>
+                             </Link>
+                           </div>
+                         ))}
 
                   {/* Show "Show X more" button if there are more than 5 chapters */}
                   {country.chapters.length > 5 && (
