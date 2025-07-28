@@ -534,7 +534,7 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
       <div className="h-1 bg-transparent" />
       <div 
         ref={menuRef}
-        className="bg-[#101820]/95 backdrop-blur-lg border-b border-white/10 shadow-2xl"
+        className="bg-[#101820] border-b border-white/10 shadow-2xl"
       >
         {menuType === 'events' && renderEventsMenu()}
         {menuType === 'projects' && renderProjectsMenu()}
