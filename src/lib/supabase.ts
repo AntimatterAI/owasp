@@ -14,7 +14,10 @@ export const createClientComponentClient = () => {
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   
   if (!url || !key) {
-    throw new Error('Missing Supabase environment variables')
+    console.error('Environment variables check:')
+    console.error('NEXT_PUBLIC_SUPABASE_URL:', url)
+    console.error('NEXT_PUBLIC_SUPABASE_ANON_KEY exists:', !!key)
+    throw new Error(`Missing Supabase environment variables: url=${!!url}, key=${!!key}`)
   }
   
   return createClient(url, key)
