@@ -61,10 +61,10 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
   if (!isOpen) return null
 
   const renderEventsMenu = () => (
-    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8">
+    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-7 lg:p-8">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 lg:gap-8">
         {/* Left Column - Event Categories */}
-        <div className="lg:col-span-4">
+        <div className="md:col-span-4">
           <h3 className="font-['Barlow'] font-medium text-lg text-white mb-6">Browse Events</h3>
           <div className="space-y-4">
             <Link 
@@ -126,8 +126,8 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
         </div>
 
         {/* Right Column - Upcoming Events */}
-        <div className="lg:col-span-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-2">
+        <div className="md:col-span-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 md:mb-6 gap-2">
             <h3 className="font-['Barlow'] font-medium text-lg text-white">Upcoming Events</h3>
             <Link 
               href="/events" 
@@ -176,10 +176,10 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
   )
 
   const renderProjectsMenu = () => (
-    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8">
+    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-7 lg:p-8">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 lg:gap-8">
         {/* Featured Projects */}
-        <div className="lg:col-span-8">
+        <div className="md:col-span-8">
           <h3 className="font-['Barlow'] font-medium text-lg text-white mb-6">Featured Projects</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Link 
@@ -253,7 +253,7 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
         </div>
 
         {/* Project Categories */}
-        <div className="lg:col-span-4">
+        <div className="md:col-span-4">
           <h3 className="font-['Barlow'] font-medium text-lg text-white mb-6">Browse by Category</h3>
           <div className="space-y-3">
             <Link 
@@ -313,10 +313,10 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
   )
 
   const renderChaptersMenu = () => (
-    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8">
+    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-7 lg:p-8">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 lg:gap-8">
         {/* Regional Chapters */}
-        <div className="lg:col-span-8">
+        <div className="md:col-span-8">
           <h3 className="font-['Barlow'] font-medium text-lg text-white mb-6">Chapters by Region</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div>
@@ -362,7 +362,7 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
         </div>
 
         {/* Chapter Resources */}
-        <div className="lg:col-span-4">
+        <div className="md:col-span-4">
           <h3 className="font-['Barlow'] font-medium text-lg text-white mb-6">Chapter Resources</h3>
           <div className="space-y-4">
             <Link 
@@ -413,10 +413,10 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
   )
 
   const renderAboutMenu = () => (
-    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8">
+    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-7 lg:p-8">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 lg:gap-8">
         {/* Organization Info */}
-        <div className="lg:col-span-8">
+        <div className="md:col-span-8">
           <h3 className="font-['Barlow'] font-medium text-lg text-white mb-6">About OWASP</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Link 
@@ -478,7 +478,7 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
         </div>
 
         {/* Quick Links */}
-        <div className="lg:col-span-4">
+        <div className="md:col-span-4">
           <h3 className="font-['Barlow'] font-medium text-lg text-white mb-6">Quick Links</h3>
           <div className="space-y-3">
             <Link 

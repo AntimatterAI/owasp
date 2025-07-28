@@ -240,9 +240,9 @@ export default function Header() {
             <Image src={logo} alt="OWASP Logo" fill className="object-contain" />
           </Link>
           
-          {/* Main Navigation - Hidden on Mobile/Tablet */}
+          {/* Main Navigation - Smart Responsive Breakpoint */}
           <div 
-            className="hidden xl:flex absolute box-border flex-row items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            className="hidden lg:flex absolute box-border flex-row items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             onMouseLeave={handleMegaMenuLeave}
           >
             <nav className="flex flex-row items-center bg-white/5 rounded-lg p-1 backdrop-blur-sm border border-white/10">
@@ -257,7 +257,7 @@ export default function Header() {
                     key={item.href}
                     href={item.href}
                     className={`
-                      relative flex flex-row items-center justify-center px-4 py-2 h-10
+                      relative flex flex-row items-center justify-center px-3 lg:px-4 py-2 h-10
                       rounded-md transition-all duration-300 group
                       ${isActive || isMenuOpen
                         ? 'bg-[#003594] text-white shadow-lg shadow-[#003594]/20' 
@@ -329,28 +329,28 @@ export default function Header() {
           
           {/* Action Buttons and Mobile Menu */}
           <div className="box-border flex flex-row gap-3 items-center justify-start p-0 relative shrink-0">
-            {/* Action Buttons - Hidden on Small Screens */}
-            <div className="hidden md:flex flex-row gap-3">
+            {/* Action Buttons - Progressive Reveal */}
+            <div className="hidden md:flex flex-row gap-2 lg:gap-3">
               <Link href="/join-community">
                 <button className="
-                  border-2 border-[#757575] h-10 px-4 text-white font-['Poppins'] font-semibold text-sm 
+                  border-2 border-[#757575] h-9 md:h-10 px-3 md:px-4 text-white font-['Poppins'] font-semibold text-xs md:text-sm 
                   hover:border-[#00A7E1]/60 hover:bg-[#00A7E1]/10 hover:text-[#00A7E1] 
                   transition-all duration-300 rounded-lg backdrop-blur-sm
                   relative overflow-hidden group
                 ">
-                  <span className="relative z-10">Join the Community</span>
+                  <span className="relative z-10 whitespace-nowrap">Join Community</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-[#00A7E1]/0 via-[#00A7E1]/10 to-[#00A7E1]/0 
                                translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                 </button>
               </Link>
               <Link href="/secure-my-app">
                 <button className="
-                  bg-gradient-to-r from-[#003594] to-[#004bbb] h-10 px-4 text-white font-['Poppins'] font-semibold text-sm 
+                  bg-gradient-to-r from-[#003594] to-[#004bbb] h-9 md:h-10 px-3 md:px-4 text-white font-['Poppins'] font-semibold text-xs md:text-sm 
                   hover:from-[#004bbb] hover:to-[#0056cc] hover:shadow-lg hover:shadow-[#003594]/30
                   transition-all duration-300 rounded-lg
                   relative overflow-hidden group
                 ">
-                  <span className="relative z-10">Secure My App</span>
+                  <span className="relative z-10 whitespace-nowrap">Secure My App</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
                                translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 </button>
@@ -360,7 +360,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden flex items-center justify-center h-10 w-10 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+              className="lg:hidden flex items-center justify-center h-10 w-10 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
               aria-label="Toggle mobile menu"
             >
               <div className="w-6 h-5 relative flex flex-col justify-between">
@@ -410,7 +410,7 @@ export default function Header() {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="space-y-2">
+          <div className="space-y-1 sm:space-y-2">
             {navigationItems.map((item) => {
               const isActive = isActiveTab(item.href);
               return (
@@ -419,14 +419,14 @@ export default function Header() {
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`
-                    block w-full px-4 py-3 rounded-lg transition-all duration-300
+                    block w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg transition-all duration-300
                     ${isActive 
-                      ? 'bg-[#003594] text-white' 
+                      ? 'bg-[#003594] text-white shadow-lg' 
                       : 'text-white/80 hover:text-white hover:bg-white/10'
                     }
                   `}
                 >
-                  <span className="font-['Poppins'] text-sm font-medium">
+                  <span className="font-['Poppins'] text-sm sm:text-base font-medium">
                     {item.label}
                   </span>
                 </Link>
@@ -437,15 +437,15 @@ export default function Header() {
           {/* Mobile Action Buttons */}
           <div className="mt-6 space-y-3 md:hidden">
             <Link href="/join-community" onClick={() => setMobileMenuOpen(false)}>
-              <button className="w-full border-2 border-[#757575] h-10 px-4 text-white font-['Poppins'] font-semibold text-sm 
+              <button className="w-full border-2 border-[#757575] h-11 sm:h-12 px-4 text-white font-['Poppins'] font-semibold text-sm 
                 hover:border-[#00A7E1]/60 hover:bg-[#00A7E1]/10 hover:text-[#00A7E1] 
                 transition-all duration-300 rounded-lg backdrop-blur-sm">
                 Join the Community
               </button>
             </Link>
             <Link href="/secure-my-app" onClick={() => setMobileMenuOpen(false)}>
-              <button className="w-full bg-gradient-to-r from-[#003594] to-[#004bbb] h-10 px-4 text-white font-['Poppins'] font-semibold text-sm 
-                hover:from-[#004bbb] hover:to-[#0056cc] 
+              <button className="w-full bg-gradient-to-r from-[#003594] to-[#004bbb] h-11 sm:h-12 px-4 text-white font-['Poppins'] font-semibold text-sm 
+                hover:from-[#004bbb] hover:to-[#0056cc] hover:shadow-lg
                 transition-all duration-300 rounded-lg">
                 Secure My App
               </button>

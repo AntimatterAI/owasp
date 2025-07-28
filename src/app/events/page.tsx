@@ -157,7 +157,7 @@ export default function EventsPage() {
         <ResponsiveContainer size="full" className="py-16 sm:py-20 lg:py-32">
           <div className="text-center space-y-8 lg:space-y-16">
             <div className="space-y-6 lg:space-y-8">
-              <h1 className="font-['Barlow'] font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-[#101820] tracking-[-0.64px] sm:tracking-[-0.8px] lg:tracking-[-1.28px] leading-tight lg:leading-[64px]">
+              <h1 className="font-['Barlow'] font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px] text-[#101820] tracking-[-0.48px] sm:tracking-[-0.64px] md:tracking-[-0.8px] xl:tracking-[-1.28px] leading-tight xl:leading-[64px]">
                 Global and Regional Events
               </h1>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 text-left lg:text-left">
@@ -194,7 +194,7 @@ export default function EventsPage() {
                       Featured Event
                     </span>
                   </div>
-                  <h2 className="font-['Barlow'] font-medium text-xl sm:text-2xl lg:text-[40px] text-white leading-tight lg:leading-[44px] tracking-[-0.4px] lg:tracking-[-0.8px] mb-3 sm:mb-4">
+                  <h2 className="font-['Barlow'] font-medium text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-[40px] text-white leading-tight xl:leading-[44px] tracking-[-0.36px] md:tracking-[-0.4px] xl:tracking-[-0.8px] mb-3 sm:mb-4">
                     {featuredEvent.title}
                   </h2>
                   <p className="font-['Poppins'] text-white/90 text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 mb-4 sm:mb-6">
@@ -285,7 +285,7 @@ export default function EventsPage() {
 
         {/* Newsletter Signup */}
         <div className="bg-[#f8f9fa] rounded-lg p-6 sm:p-8 lg:p-12 text-center">
-          <h3 className="font-['Barlow'] font-medium text-xl sm:text-2xl lg:text-[32px] text-[#101820] mb-3 sm:mb-4">
+          <h3 className="font-['Barlow'] font-medium text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-[32px] text-[#101820] mb-3 sm:mb-4">
             Stay Updated on Events
           </h3>
           <p className="font-['Poppins'] text-[#757575] text-sm sm:text-base mb-6 sm:mb-8 max-w-2xl mx-auto">
