@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
+import ResponsiveContainer from '@/components/ResponsiveContainer';
 import { createClientComponentClient } from '@/lib/supabase';
 import type { Event } from '@/lib/types';
 
@@ -144,38 +145,39 @@ export default function EventsPage() {
       <Header />
       
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 mx-[120px] mt-4 rounded">
-          {error}
-        </div>
+        <ResponsiveContainer size="full" className="mt-4">
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+            {error}
+          </div>
+        </ResponsiveContainer>
       )}
       
       {/* Hero Section */}
-      <div className="bg-[#ffffff] box-border content-stretch flex flex-col gap-8 items-start justify-start pb-[164px] pt-20 px-[120px] relative w-full">
-        <div className="box-border content-stretch flex flex-col gap-16 items-center justify-center p-0 relative shrink-0 w-full">
-          <div className="box-border content-stretch flex flex-col gap-8 items-center justify-start p-0 relative shrink-0 w-full">
-            <div className="font-['Barlow'] font-medium leading-[64px] relative shrink-0 text-[#101820] text-[64px] text-left tracking-[-1.28px] w-[1200px] max-w-full">
-              <p className="block leading-[64px]">
+      <div className="bg-white">
+        <ResponsiveContainer size="full" className="py-16 sm:py-20 lg:py-32">
+          <div className="text-center space-y-8 lg:space-y-16">
+            <div className="space-y-6 lg:space-y-8">
+              <h1 className="font-['Barlow'] font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-[#101820] tracking-[-0.64px] sm:tracking-[-0.8px] lg:tracking-[-1.28px] leading-tight lg:leading-[64px]">
                 Global and Regional Events
-              </p>
-            </div>
-            <div className="box-border content-stretch flex flex-row font-['Poppins'] gap-20 items-start justify-start p-0 relative shrink-0 text-[#757575] text-[16px] text-left tracking-[-0.32px] w-full">
-              <div className="basis-0 grow min-h-px min-w-px relative shrink-0">
-                <p className="block leading-[24px]">
-                  Ever wanted to network and learn along with other AppSec
-                  professionals? We host nearly a dozen events each year varying
-                  in format to week long trainings and conferences, to single day
-                  programs.
-                </p>
+              </h1>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 text-left lg:text-left">
+                <div>
+                  <p className="font-['Poppins'] text-[#757575] text-sm sm:text-base leading-6 sm:leading-7">
+                    Ever wanted to network and learn along with other AppSec
+                    professionals? We host nearly a dozen events each year varying
+                    in format to week long trainings and conferences, to single day
+                    programs.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-['Poppins'] text-[#757575] text-sm sm:text-base leading-6 sm:leading-7">
+                    Although some events have corporate sponsors, all content
+                    remains vendor neutral, and speakers are carefully selected to
+                    deliver a valuable experience.
+                  </p>
+                </div>
               </div>
-              <div className="basis-0 grow min-h-px min-w-px relative shrink-0">
-                <p className="block leading-[24px]">
-                  Although some events have corporate sponsors, all content
-                  remains vendor neutral, and speakers are carefully selected to
-                  deliver a valuable experience.
-                </p>
-              </div>
             </div>
-          </div>
           <div className="box-border content-stretch flex flex-row gap-8 items-start justify-start p-0 relative shrink-0 w-full">
             <div className="basis-0 box-border content-stretch flex flex-col gap-4 grow items-start justify-start min-h-px min-w-px p-0 relative shrink-0">
               <div className="box-border content-stretch flex flex-row gap-4 items-start justify-start p-0 relative shrink-0 w-full">
@@ -270,56 +272,56 @@ export default function EventsPage() {
       {/* Featured Event */}
       {featuredEvent && (
         <div className="bg-white">
-          <div className="max-w-[1440px] mx-auto px-[120px] py-20">
-            <div className="bg-gradient-to-r from-[#003594] to-[#0056d6] rounded-2xl overflow-hidden">
+          <ResponsiveContainer size="full" className="py-16 sm:py-20">
+            <div className="bg-gradient-to-r from-[#003594] to-[#0056d6] rounded-xl lg:rounded-2xl overflow-hidden">
               <div className="flex flex-col lg:flex-row">
-                <div className="flex-1 p-12">
-                  <div className="mb-6">
-                    <span className="px-4 py-2 bg-[#ffb81b] text-[#101820] rounded-full text-sm font-semibold">
+                <div className="flex-1 p-6 sm:p-8 lg:p-12">
+                  <div className="mb-4 sm:mb-6">
+                    <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#ffb81b] text-[#101820] rounded-full text-xs sm:text-sm font-semibold">
                       Featured Event
                     </span>
                   </div>
-                  <h2 className="font-['Barlow'] font-medium text-[40px] text-white leading-[44px] tracking-[-0.8px] mb-4">
+                  <h2 className="font-['Barlow'] font-medium text-xl sm:text-2xl lg:text-[40px] text-white leading-tight lg:leading-[44px] tracking-[-0.4px] lg:tracking-[-0.8px] mb-3 sm:mb-4">
                     {featuredEvent.title}
                   </h2>
-                  <p className="font-['Poppins'] text-white/90 text-lg leading-7 mb-6">
+                  <p className="font-['Poppins'] text-white/90 text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 mb-4 sm:mb-6">
                     {featuredEvent.description || 'Join security professionals for learning, networking, and inspiration.'}
                   </p>
-                  <div className="flex items-center gap-6 mb-8">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 mb-6 sm:mb-8">
                     <div className="flex items-center gap-2 text-white">
-                      <Image src="/images/icons/marker.svg" alt="" width={20} height={20} className="filter brightness-0 invert" />
-                      <span>{featuredEvent.location}</span>
+                      <Image src="/images/icons/marker.svg" alt="" width={16} height={16} className="filter brightness-0 invert" />
+                      <span className="text-sm sm:text-base">{featuredEvent.location}</span>
                     </div>
                     <div className="flex items-center gap-2 text-white">
-                      <span>{featuredEvent.month} {featuredEvent.date}, {featuredEvent.year}</span>
+                      <span className="text-sm sm:text-base">{featuredEvent.month} {featuredEvent.date}, {featuredEvent.year}</span>
                     </div>
                   </div>
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     {featuredEvent.registration_url && (
-                      <a href={featuredEvent.registration_url} target="_blank" rel="noopener noreferrer">
+                      <a href={featuredEvent.registration_url} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                         <Button text="Register Now" variant="light-blue" size="48" />
                       </a>
                     )}
                     <Button text="View Details" variant="ghost-white" size="48" />
                   </div>
                 </div>
-                <div className="w-full lg:w-1/3 relative h-80 lg:h-auto">
+                <div className="w-full lg:w-1/3 relative h-64 sm:h-80 lg:h-auto">
                   <Image src={featuredEvent.image} alt={featuredEvent.title} fill className="object-cover" />
                 </div>
               </div>
             </div>
-          </div>
+          </ResponsiveContainer>
         </div>
       )}
 
       {/* Filters Section */}
       <div className="bg-white border-b border-gray-200">
-        <div className="max-w-[1440px] mx-auto px-[120px] py-8">
-          <div className="flex flex-wrap gap-3">
+        <ResponsiveContainer size="full" className="py-6 sm:py-8">
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             {eventTypes.map((type, index) => (
               <button
                 key={index}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                   index === 0 
                     ? 'bg-[#003594] text-white' 
                     : 'bg-gray-100 text-[#757575] hover:bg-gray-200'
@@ -329,16 +331,16 @@ export default function EventsPage() {
               </button>
             ))}
           </div>
-        </div>
+        </ResponsiveContainer>
       </div>
 
       {/* Events Grid */}
-      <div className="max-w-[1440px] mx-auto px-[120px] py-20">
-        <div className="mb-12">
-          <h2 className="font-['Barlow'] font-medium text-[40px] text-[#101820] leading-[40px] tracking-[-0.8px] mb-4">
+      <ResponsiveContainer size="full" className="py-16 sm:py-20">
+        <div className="mb-8 sm:mb-12">
+          <h2 className="font-['Barlow'] font-medium text-2xl sm:text-3xl lg:text-[40px] text-[#101820] leading-tight lg:leading-[40px] tracking-[-0.48px] lg:tracking-[-0.8px] mb-3 sm:mb-4">
             Upcoming Events
           </h2>
-          <p className="font-['Poppins'] text-[#757575] text-base leading-6">
+          <p className="font-['Poppins'] text-[#757575] text-sm sm:text-base leading-6">
             Don't miss these opportunities to connect with the OWASP community.
           </p>
         </div>
@@ -369,24 +371,24 @@ export default function EventsPage() {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="bg-[#f8f9fa] rounded-lg p-12 text-center">
-          <h3 className="font-['Barlow'] font-medium text-[32px] text-[#101820] mb-4">
+        <div className="bg-[#f8f9fa] rounded-lg p-6 sm:p-8 lg:p-12 text-center">
+          <h3 className="font-['Barlow'] font-medium text-xl sm:text-2xl lg:text-[32px] text-[#101820] mb-3 sm:mb-4">
             Stay Updated on Events
           </h3>
-          <p className="font-['Poppins'] text-[#757575] text-base mb-8 max-w-2xl mx-auto">
+          <p className="font-['Poppins'] text-[#757575] text-sm sm:text-base mb-6 sm:mb-8 max-w-2xl mx-auto">
             Subscribe to our newsletter to receive notifications about upcoming events, early bird pricing, 
             and exclusive content from the OWASP community.
           </p>
-          <div className="flex gap-4 justify-center max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md mx-auto">
             <input 
               type="email" 
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-[#003594] focus:border-transparent"
+              className="flex-1 px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-[#003594] focus:border-transparent text-sm sm:text-base"
             />
             <Button text="Subscribe" variant="primary" size="48" />
           </div>
         </div>
-      </div>
+      </ResponsiveContainer>
 
       <Footer />
     </div>

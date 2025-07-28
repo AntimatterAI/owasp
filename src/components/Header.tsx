@@ -233,16 +233,16 @@ export default function Header() {
   return (
     <header className="backdrop-blur-[5px] backdrop-filter bg-[#101820]/95 sticky top-0 w-full z-50 border-b border-white/10 shadow-sm">
       <div className="flex flex-row items-center h-20">
-        <div className="box-border flex flex-row h-20 items-center justify-between px-4 sm:px-8 lg:px-16 py-0 relative w-full max-w-[1440px] mx-auto">
+        <div className="box-border flex flex-row h-20 items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-0 relative w-full max-w-[1440px] mx-auto">
           
           {/* Logo */}
           <Link href="/" className="h-10 relative shrink-0 w-[132.894px] hover:opacity-90 transition-opacity">
             <Image src={logo} alt="OWASP Logo" fill className="object-contain" />
           </Link>
           
-          {/* Main Navigation - Hidden on Mobile */}
+          {/* Main Navigation - Hidden on Mobile/Tablet */}
           <div 
-            className="hidden lg:flex absolute box-border flex-row items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            className="hidden xl:flex absolute box-border flex-row items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             onMouseLeave={handleMegaMenuLeave}
           >
             <nav className="flex flex-row items-center bg-white/5 rounded-lg p-1 backdrop-blur-sm border border-white/10">
@@ -360,7 +360,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden flex items-center justify-center h-10 w-10 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+              className="xl:hidden flex items-center justify-center h-10 w-10 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
               aria-label="Toggle mobile menu"
             >
               <div className="w-6 h-5 relative flex flex-col justify-between">
