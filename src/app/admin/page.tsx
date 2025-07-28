@@ -162,26 +162,26 @@ export default function AdminPage() {
       
       {/* Admin Dashboard */}
       <div className="bg-[#F1F6FE]">
-        <div className="max-w-[1440px] mx-auto px-[120px] pt-20 pb-[164px]">
-          <div className="flex flex-col gap-16 items-center justify-center w-full">
-            <div className="flex flex-col gap-8 items-center justify-start w-full">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] pt-12 sm:pt-16 lg:pt-20 pb-20 sm:pb-32 lg:pb-[164px]">
+          <div className="flex flex-col gap-12 lg:gap-16 items-center justify-center w-full">
+            <div className="flex flex-col gap-6 lg:gap-8 items-center justify-start w-full">
               <div className="flex flex-col gap-2 items-start justify-start w-full">
-                <div className="font-['Poppins'] font-semibold text-[#00A7E1] text-[16px] leading-[24px] tracking-[-0.32px]">
+                <div className="font-['Poppins'] font-semibold text-[#00A7E1] text-sm sm:text-base leading-6 tracking-[-0.32px]">
                   Admin Dashboard
                 </div>
-                <h1 className="font-['Barlow'] font-medium text-[#101820] text-[64px] leading-[64px] tracking-[-1.28px] max-w-[1200px]">
+                <h1 className="font-['Barlow'] font-medium text-[#101820] text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-tight xl:leading-[64px] tracking-[-0.64px] sm:tracking-[-0.8px] lg:tracking-[-1.12px] xl:tracking-[-1.28px] max-w-[1200px]">
                   Content Management
                 </h1>
               </div>
-              <div className="flex flex-row gap-20 items-start justify-start w-full">
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start justify-start w-full">
                 <div className="flex-1 min-w-0">
-                  <p className="font-['Poppins'] font-normal text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                  <p className="font-['Poppins'] font-normal text-[#757575] text-sm sm:text-base leading-6 tracking-[-0.28px] sm:tracking-[-0.32px]">
                     Manage OWASP website content including events, projects, and chapters. 
                     Use the tools below to keep the community informed and engaged.
                   </p>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-['Poppins'] font-normal text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                  <p className="font-['Poppins'] font-normal text-[#757575] text-sm sm:text-base leading-6 tracking-[-0.28px] sm:tracking-[-0.32px]">
                     All changes are logged and can be reviewed. Make sure to follow 
                     content guidelines when updating public-facing information.
                   </p>
@@ -190,18 +190,18 @@ export default function AdminPage() {
             </div>
 
             {/* Management Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="p-8">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-[#003594] p-3 rounded-lg">
+                <div className="p-4 sm:p-6 lg:p-8">
+                  <div className="flex items-center mb-4 sm:mb-6">
+                    <div className="bg-[#003594] p-2 sm:p-3 rounded-lg">
                       <Image src="/images/icons/megaphone.svg" alt="" width={24} height={24} className="filter brightness-0 invert" />
                     </div>
-                    <div className="ml-4">
-                      <h3 className="font-['Barlow'] font-medium text-[#101820] text-[20px] leading-[24px] tracking-[-0.4px]">
+                    <div className="ml-3 sm:ml-4">
+                      <h3 className="font-['Barlow'] font-medium text-[#101820] text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                         Events
                       </h3>
-                      <p className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px]">
+                      <p className="font-['Poppins'] text-[#757575] text-sm leading-[18px] sm:leading-[20px]">
                         Manage global and regional events
                       </p>
                     </div>
@@ -216,16 +216,16 @@ export default function AdminPage() {
               </div>
 
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden opacity-50">
-                <div className="p-8">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-gray-400 p-3 rounded-lg">
+                <div className="p-4 sm:p-6 lg:p-8">
+                  <div className="flex items-center mb-4 sm:mb-6">
+                    <div className="bg-gray-400 p-2 sm:p-3 rounded-lg">
                       <Image src="/images/icons/briefcase-figma.svg" alt="" width={24} height={24} className="filter brightness-0 invert" />
                     </div>
-                    <div className="ml-4">
-                      <h3 className="font-['Barlow'] font-medium text-[#101820] text-[20px] leading-[24px] tracking-[-0.4px]">
+                    <div className="ml-3 sm:ml-4">
+                      <h3 className="font-['Barlow'] font-medium text-[#101820] text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                         Projects
                       </h3>
-                      <p className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px]">
+                      <p className="font-['Poppins'] text-[#757575] text-sm leading-[18px] sm:leading-[20px]">
                         Coming Soon
                       </p>
                     </div>
@@ -241,16 +241,16 @@ export default function AdminPage() {
               </div>
 
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden opacity-50">
-                <div className="p-8">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-gray-400 p-3 rounded-lg">
+                <div className="p-4 sm:p-6 lg:p-8">
+                  <div className="flex items-center mb-4 sm:mb-6">
+                    <div className="bg-gray-400 p-2 sm:p-3 rounded-lg">
                       <Image src="/images/icons/globe.svg" alt="" width={24} height={24} className="filter brightness-0 invert" />
                     </div>
-                    <div className="ml-4">
-                      <h3 className="font-['Barlow'] font-medium text-[#101820] text-[20px] leading-[24px] tracking-[-0.4px]">
+                    <div className="ml-3 sm:ml-4">
+                      <h3 className="font-['Barlow'] font-medium text-[#101820] text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                         Chapters
                       </h3>
-                      <p className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px]">
+                      <p className="font-['Poppins'] text-[#757575] text-sm leading-[18px] sm:leading-[20px]">
                         Coming Soon
                       </p>
                     </div>
@@ -267,13 +267,13 @@ export default function AdminPage() {
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 w-full max-w-3xl">
-              <div className="flex justify-between items-center">
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 lg:p-8 w-full max-w-3xl">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0">
                 <div>
-                  <h3 className="font-['Barlow'] font-medium text-[#101820] text-[24px] leading-[28px] tracking-[-0.48px] mb-2">
+                  <h3 className="font-['Barlow'] font-medium text-[#101820] text-lg sm:text-xl lg:text-[24px] leading-tight lg:leading-[28px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] mb-2">
                     Quick Actions
                   </h3>
-                  <p className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px]">
+                  <p className="font-['Poppins'] text-[#757575] text-sm leading-[18px] sm:leading-[20px]">
                     Currently signed in as admin
                   </p>
                 </div>
