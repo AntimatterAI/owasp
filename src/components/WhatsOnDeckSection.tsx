@@ -8,7 +8,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ title, description }: ProjectCardProps) => (
-  <div className="bg-gradient-to-b from-[#000000] from-[31.806%] to-[#13346d] h-[200px] w-80 p-6 flex flex-col justify-between relative group hover:shadow-lg transition-all duration-300 hover:scale-105">
+  <div className="bg-gradient-to-b from-[#000000] from-[31.806%] to-[#13346d] h-[200px] w-full max-w-[320px] p-6 flex flex-col justify-between relative group hover:shadow-lg transition-all duration-300 hover:scale-105">
     <div className="relative size-6 shrink-0">
       <Image 
         src={checkIcon} 
@@ -64,43 +64,29 @@ export default function WhatsOnDeckSection() {
   return (
     <div className="bg-white relative w-full">
       <div className="flex flex-col items-center relative w-full">
-        <div className="box-border flex flex-col gap-16 items-center justify-start px-[120px] py-20 relative w-full max-w-[1440px]">
-          <div className="box-border flex flex-col gap-12 items-center justify-start p-0 relative w-full">
-            <div className="box-border flex flex-col gap-4 items-center justify-center p-0 relative w-full">
-              <div className="flex flex-col items-center justify-center relative w-full">
-                <div className="box-border flex flex-col gap-2 items-center justify-center p-0 relative w-full">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 w-full">
+          <div className="flex flex-col gap-12 lg:gap-16 items-center justify-start w-full">
+            <div className="flex flex-col gap-4 items-center justify-center w-full">
+              <div className="flex flex-col items-center justify-center w-full">
+                <div className="flex flex-col gap-2 items-center justify-center w-full">
                   <div className="font-['Poppins'] font-semibold text-[#00a7e1] text-base leading-6 tracking-[-0.32px]">
                     GSoC 2025
                   </div>
-                  <h2 className="font-['Barlow'] font-medium text-[#101820] text-[48px] leading-[48px] tracking-[-0.96px] text-center">
+                  <h2 className="font-['Barlow'] font-medium text-[#101820] text-[32px] sm:text-[40px] lg:text-[48px] leading-tight tracking-[-0.64px] lg:tracking-[-0.96px] text-center">
                     What's on Deck?
                   </h2>
                 </div>
               </div>
-              <p className="font-['Poppins'] text-[#757575] text-base leading-6 tracking-[-0.32px] text-center max-w-2xl">
+              <p className="font-['Poppins'] text-[#757575] text-sm sm:text-base leading-6 tracking-[-0.32px] text-center max-w-2xl">
                 Contributors will get hands-on experience improving and expanding some of OWASP's most vital tools:
               </p>
             </div>
             
-            <div className="box-border flex flex-col gap-6 items-center justify-start p-0 relative w-full">
-              {/* Row 1 - 2 cards centered */}
-              <div className="box-border flex flex-row gap-6 items-center justify-center p-0 relative w-full">
-                <ProjectCard {...projects[0]} />
-                <ProjectCard {...projects[1]} />
-              </div>
-              
-              {/* Row 2 - 3 cards */}
-              <div className="box-border flex flex-row gap-6 items-center justify-center p-0 relative w-full">
-                <ProjectCard {...projects[2]} />
-                <ProjectCard {...projects[3]} />
-                <ProjectCard {...projects[4]} />
-              </div>
-              
-              {/* Row 3 - 2 cards centered */}
-              <div className="box-border flex flex-row gap-6 items-center justify-center p-0 relative w-full">
-                <ProjectCard {...projects[5]} />
-                <ProjectCard {...projects[6]} />
-              </div>
+            {/* Responsive Grid Layout */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl justify-items-center">
+              {projects.map((project, index) => (
+                <ProjectCard key={index} {...project} />
+              ))}
             </div>
           </div>
         </div>

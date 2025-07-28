@@ -74,16 +74,16 @@ export default function ProjectInventorySection() {
               <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20">
         <div className="flex flex-col gap-16 items-center justify-start w-full">
           {/* Header Section */}
-          <div className="flex flex-row gap-8 items-end justify-center w-full">
-            <div className="flex-1 flex flex-col gap-8 items-start justify-start">
-              <div className="font-['Barlow'] font-medium text-[#101820] text-[56px] text-center text-nowrap tracking-[-1.12px] leading-[56px]">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-end justify-between w-full">
+            <div className="flex-1 flex flex-col gap-6 lg:gap-8 items-start justify-start">
+              <div className="font-['Barlow'] font-medium text-[#101820] text-[32px] sm:text-[40px] lg:text-[56px] text-left lg:text-center tracking-[-0.64px] lg:tracking-[-1.12px] leading-tight lg:leading-[56px]">
                 OWASP Project Inventory
               </div>
-              <div className="font-['Poppins'] text-[#757575] text-[16px] text-left tracking-[-0.32px] leading-[24px] w-full">
+              <div className="font-['Poppins'] text-[#757575] text-sm sm:text-[16px] text-left tracking-[-0.32px] leading-[20px] sm:leading-[24px] w-full">
                 Explore all OWASP tools, documentation, and code libraries, organized into three project tiers:
               </div>
             </div>
-            <div className="flex flex-row gap-10 h-12 items-center justify-center px-6 py-0 shrink-0">
+            <div className="flex flex-row gap-10 h-12 items-center justify-start lg:justify-center px-6 py-0 shrink-0">
               <Button text="See All Projects" type="Ghost Dark" size="48" />
             </div>
           </div>

@@ -102,31 +102,29 @@ export default function UpcomingEventsSection() {
   return (
     <div className="bg-[#f1f6fe] relative w-full">
       <div className="flex flex-col items-center relative w-full">
-        <div className="box-border flex flex-col gap-16 items-center justify-start px-[120px] py-20 relative w-full max-w-[1440px]">
-          <div className="box-border flex flex-row gap-8 items-end justify-between p-0 relative w-full">
-            <div className="basis-0 box-border flex flex-col gap-8 grow items-start justify-start min-h-px min-w-px p-0 relative">
-              <h2 className="font-['Barlow'] font-medium text-[56px] text-[#101820] leading-[56px] tracking-[-1.12px]">
-                Upcoming Events
-              </h2>
-              <p className="font-['Poppins'] text-[#757575] text-base tracking-[-0.32px] leading-6 max-w-2xl">
-                Stay connected with the global AppSec community through OWASP's
-                upcoming conferences, chapter meetups, and training sessions.
-              </p>
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 w-full">
+          <div className="flex flex-col gap-12 lg:gap-16 items-center justify-start w-full">
+            {/* Header Section */}
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-end justify-between w-full">
+              <div className="flex flex-col gap-6 lg:gap-8 items-start justify-start flex-1">
+                <h2 className="font-['Barlow'] font-medium text-[32px] sm:text-[40px] lg:text-[56px] text-[#101820] leading-tight lg:leading-[56px] tracking-[-0.64px] lg:tracking-[-1.12px]">
+                  Upcoming Events
+                </h2>
+                <p className="font-['Poppins'] text-[#757575] text-sm sm:text-base tracking-[-0.32px] leading-6 max-w-2xl">
+                  Stay connected with the global AppSec community through OWASP's
+                  upcoming conferences, chapter meetups, and training sessions.
+                </p>
+              </div>
+              <button className="h-12 px-6 border-2 border-[#757575] text-[#101820] font-['Poppins'] font-semibold text-sm hover:bg-white hover:border-gray-400 transition-all duration-300 rounded-sm shrink-0">
+                See All Events
+              </button>
             </div>
-            <button className="h-12 px-6 border-2 border-[#757575] text-[#101820] font-['Poppins'] font-semibold text-sm hover:bg-white hover:border-gray-400 transition-all duration-300 rounded-sm">
-              See All Events
-            </button>
-          </div>
-          <div className="box-border flex flex-col gap-8 items-start justify-start p-0 relative w-full">
-            <div className="box-border flex flex-row gap-8 items-start justify-start p-0 relative w-full">
-              <EventCard {...events[0]} />
-              <EventCard {...events[1]} />
-              <EventCard {...events[2]} />
-            </div>
-            <div className="box-border flex flex-row gap-8 items-start justify-start p-0 relative w-full">
-              <EventCard {...events[3]} />
-              <EventCard {...events[4]} />
-              <EventCard {...events[5]} />
+            
+            {/* Events Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
+              {events.map((event, index) => (
+                <EventCard key={index} {...event} />
+              ))}
             </div>
           </div>
         </div>
