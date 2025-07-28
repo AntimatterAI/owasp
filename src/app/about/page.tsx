@@ -112,55 +112,55 @@ export default function AboutPage() {
 
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] pt-12 sm:pt-16 lg:pt-20 xl:pt-[164px] pb-12 sm:pb-16 lg:pb-20">
           {/* Vision/Mission Section */}
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-[120px] items-start justify-start mb-12 sm:mb-16 lg:mb-20">
-            <div className="flex-1 flex flex-col gap-8 lg:gap-12">
+          <div className="flex flex-col xl:flex-row gap-8 lg:gap-12 xl:gap-[120px] items-start justify-start mb-12 sm:mb-16 lg:mb-20">
+            <div className="flex-1 flex flex-col gap-6 lg:gap-8 xl:gap-12">
               {/* Vision */}
-              <div className="flex flex-row gap-2.5 items-center pt-12 border-t border-white/60">
-                <div className="flex flex-row gap-20 items-center w-full">
-                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-[20px] leading-[24px] tracking-[-0.4px] w-8">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start pt-8 sm:pt-12 border-t border-white/60">
+                <div className="flex flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start w-full">
+                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] shrink-0">
                     01
                   </div>
-                  <div className="font-['Barlow'] font-medium text-[#FFD476] text-[20px] leading-[24px] tracking-[-0.4px] w-[100px]">
+                  <div className="font-['Barlow'] font-medium text-[#FFD476] text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] shrink-0 min-w-[80px] sm:min-w-[100px]">
                     Our Vision
                   </div>
-                  <div className="flex-1 font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                  <div className="flex-1 font-['Barlow'] font-medium text-white text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                     No more insecure software.
                   </div>
                 </div>
               </div>
               {/* Mission */}
-              <div className="flex flex-row gap-2.5 items-start pt-12 border-t border-white/60">
-                <div className="flex flex-row gap-20 items-start w-full">
-                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-[20px] leading-[24px] tracking-[-0.4px] w-8">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start pt-8 sm:pt-12 border-t border-white/60">
+                <div className="flex flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start w-full">
+                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] shrink-0">
                     02
                   </div>
-                  <div className="font-['Barlow'] font-medium text-[#FFD476] text-[20px] leading-[24px] tracking-[-0.4px] w-[100px]">
+                  <div className="font-['Barlow'] font-medium text-[#FFD476] text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] shrink-0 min-w-[80px] sm:min-w-[100px]">
                     Our Mission
                   </div>
-                  <div className="flex-1 font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                  <div className="flex-1 font-['Barlow'] font-medium text-white text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                     To be the global open community that powers secure software through education, tools, and collaboration.
                   </div>
                 </div>
               </div>
             </div>
-            <div className="font-['Barlow'] font-medium text-white text-[48px] leading-[48px] tracking-[-0.96px] whitespace-nowrap">
+            <div className="font-['Barlow'] font-medium text-white text-[28px] sm:text-[36px] lg:text-[40px] xl:text-[48px] leading-tight xl:leading-[48px] tracking-[-0.56px] sm:tracking-[-0.72px] lg:tracking-[-0.8px] xl:tracking-[-0.96px] text-center xl:text-left">
               Inside OWASP
             </div>
           </div>
 
           {/* What OWASP Does Section */}
-          <div className="flex flex-row gap-[120px] items-start justify-start">
-            <div className="flex-1 font-['Barlow'] font-medium text-white text-[32px] leading-[40px] tracking-[-0.64px]">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-[120px] items-start justify-start">
+            <div className="flex-1 font-['Barlow'] font-medium text-white text-[20px] sm:text-[24px] lg:text-[28px] xl:text-[32px] leading-tight xl:leading-[40px] tracking-[-0.4px] sm:tracking-[-0.48px] lg:tracking-[-0.56px] xl:tracking-[-0.64px]">
               As the world's largest non-profit organization concerned with software security, OWASP:
             </div>
-            <div className="flex-1 flex flex-col gap-12">
+            <div className="flex-1 flex flex-col gap-6 lg:gap-8 xl:gap-12">
               {/* Item 1 */}
-              <div className="flex flex-row gap-2.5 items-center pt-12 border-t border-white/60">
-                <div className="flex flex-row gap-20 items-center w-full">
-                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-[20px] leading-[24px] tracking-[-0.4px] w-8">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start pt-8 sm:pt-12 border-t border-white/60">
+                <div className="flex flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start w-full">
+                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] shrink-0">
                     01
                   </div>
-                  <div className="flex-1 font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                  <div className="flex-1 font-['Barlow'] font-medium text-white text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                     Supports the building of impactful{' '}
                     <Link href="/projects" className="underline">
                       projects
@@ -169,12 +169,12 @@ export default function AboutPage() {
                 </div>
               </div>
               {/* Item 2 */}
-              <div className="flex flex-row gap-2.5 items-start pt-12 border-t border-white/60">
-                <div className="flex flex-row gap-20 items-start w-full">
-                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-[20px] leading-[24px] tracking-[-0.4px] w-8">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start pt-8 sm:pt-12 border-t border-white/60">
+                <div className="flex flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start w-full">
+                  <div className="font-['Barlow'] font-medium text-[#F1F6FE] text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] shrink-0">
                     02
                   </div>
-                  <div className="flex-1 font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                  <div className="flex-1 font-['Barlow'] font-medium text-white text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                     Develops & nurtures communities through{' '}
                     <Link href="/events" className="underline">
                       events
