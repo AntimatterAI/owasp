@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 // Force dynamic rendering for admin pages
 export const dynamic = 'force-dynamic'
@@ -8,6 +9,8 @@ import { useRouter } from 'next/navigation'
 import { adminService } from '@/lib/admin'
 import type { Event } from '@/lib/types'
 import Button from '@/components/Button'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export default function AdminEventsPage() {
   const [events, setEvents] = useState<Event[]>([])
@@ -72,132 +75,193 @@ export default function AdminEventsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003594]"></div>
+      <div className="min-h-screen bg-white">
+        <Header />
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003594]"></div>
+        </div>
+        <Footer />
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+    <div className="min-h-screen bg-white">
+      <Header />
+      
+      {/* Admin Navigation */}
+      <div className="bg-[#003594]">
+        <div className="max-w-[1440px] mx-auto px-[120px] py-4">
+          <div className="flex justify-between items-center">
             <div className="flex items-center">
               <button 
                 onClick={() => router.push('/admin')}
-                className="text-[#003594] hover:text-[#002266] mr-4"
+                className="text-white hover:text-[#ffb81b] mr-6 font-['Poppins'] text-[14px] flex items-center gap-2"
               >
-                ← Back
+                <Image src="/images/icons/chevron.svg" alt="" width={16} height={16} className="rotate-180 filter brightness-0 invert" />
+                Back to Dashboard
               </button>
-              <img className="h-8 w-auto" src="/logo.svg" alt="OWASP" />
-              <h1 className="ml-4 text-xl font-semibold text-gray-900">Event Management</h1>
+              <h1 className="font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                Event Management
+              </h1>
             </div>
-            <div className="flex items-center">
-              <Button 
-                text="Add New Event" 
-                variant="primary" 
-                size="40"
-                onClick={() => router.push('/admin/events/new')}
-              />
-            </div>
+            <Button 
+              text="Add New Event" 
+              variant="light-blue" 
+              size="40"
+              onClick={() => router.push('/admin/events/new')}
+            />
           </div>
         </div>
-      </nav>
+      </div>
 
-      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        {error && (
-          <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-            {error}
-          </div>
-        )}
+      {/* Events Content */}
+      <div className="bg-[#F1F6FE]">
+        <div className="max-w-[1440px] mx-auto px-[120px] pt-20 pb-[164px]">
+          {error && (
+            <div className="mb-8 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-sm">
+              {error}
+            </div>
+          )}
 
-        <div className="bg-white shadow overflow-hidden sm:rounded-md">
-          {events.length === 0 ? (
-            <div className="text-center py-12">
-              <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <h3 className="mt-2 text-sm font-medium text-gray-900">No events</h3>
-              <p className="mt-1 text-sm text-gray-500">Get started by creating a new event.</p>
-              <div className="mt-6">
-                <Button 
-                  text="Add New Event" 
-                  variant="primary" 
-                  size="40"
-                  onClick={() => router.push('/admin/events/new')}
-                />
+          <div className="flex flex-col gap-16 items-center justify-center w-full">
+            <div className="flex flex-col gap-8 items-center justify-start w-full">
+              <div className="flex flex-col gap-2 items-start justify-start w-full">
+                <div className="font-['Poppins'] font-semibold text-[#00A7E1] text-[16px] leading-[24px] tracking-[-0.32px]">
+                  Admin Dashboard
+                </div>
+                <h1 className="font-['Barlow'] font-medium text-[#101820] text-[64px] leading-[64px] tracking-[-1.28px] max-w-[1200px]">
+                  Event Management
+                </h1>
+              </div>
+              <div className="flex flex-row gap-20 items-start justify-start w-full">
+                <div className="flex-1 min-w-0">
+                  <p className="font-['Poppins'] font-normal text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                    Manage all OWASP events including global conferences, regional AppSec Days, 
+                    and chapter meetings. Create, edit, and publish events to keep the community informed.
+                  </p>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-['Poppins'] font-normal text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                    Events marked as "Published" will appear on the public events page. 
+                    Use the "Featured" option to highlight important events in the hero section.
+                  </p>
+                </div>
               </div>
             </div>
-          ) : (
-            <ul className="divide-y divide-gray-200">
-              {events.map((event) => (
-                <li key={event.id}>
-                  <div className="px-4 py-4 sm:px-6">
-                    <div className="flex items-center justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between">
-                          <p className="text-lg font-medium text-[#003594] truncate">
-                            {event.title}
-                          </p>
-                          <div className="ml-2 flex-shrink-0 flex space-x-2">
-                            <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(event.status)}`}>
-                              {event.status}
-                            </span>
-                            <span className={`px-2 py-1 text-xs font-medium rounded-full ${getTypeColor(event.type)}`}>
-                              {event.type}
-                            </span>
-                            {event.is_featured && (
-                              <span className="px-2 py-1 text-xs font-medium rounded-full text-blue-800 bg-blue-100">
-                                Featured
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                        <div className="mt-2 sm:flex sm:justify-between">
-                          <div className="sm:flex">
-                            <p className="flex items-center text-sm text-gray-500">
-                              <svg className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                              </svg>
-                              {formatDate(event.date, event.month, event.year)} at {event.time}
-                            </p>
-                            <p className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
-                              <svg className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                              </svg>
-                              {event.location}
-                            </p>
-                          </div>
-                          <div className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-                            {event.price && (
-                              <span className="font-medium text-[#ffb81b]">{event.price}</span>
-                            )}
+
+            {/* Events List */}
+            <div className="w-full">
+              {events.length === 0 ? (
+                <div className="text-center py-16">
+                  <div className="mb-8">
+                    <Image src="/images/icons/megaphone.svg" alt="" width={64} height={64} className="mx-auto opacity-40" />
+                  </div>
+                  <h3 className="font-['Barlow'] font-medium text-[#101820] text-[24px] leading-[28px] tracking-[-0.48px] mb-2">
+                    No events found
+                  </h3>
+                  <p className="font-['Poppins'] text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px] mb-8 max-w-md mx-auto">
+                    Get started by creating your first event. Events help keep the OWASP community 
+                    informed about upcoming conferences, meetings, and training sessions.
+                  </p>
+                  <Button 
+                    text="Add New Event" 
+                    variant="primary" 
+                    size="48"
+                    onClick={() => router.push('/admin/events/new')}
+                  />
+                </div>
+              ) : (
+                <div className="grid gap-6">
+                  {events.map((event) => (
+                    <div key={event.id} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                      <div className="p-8">
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center justify-between mb-4">
+                              <h3 className="font-['Barlow'] font-medium text-[#101820] text-[24px] leading-[28px] tracking-[-0.48px]">
+                                {event.title}
+                              </h3>
+                              <div className="flex gap-2">
+                                <span className={`px-3 py-1 text-xs font-medium rounded-full ${getStatusColor(event.status)}`}>
+                                  {event.status}
+                                </span>
+                                <span className={`px-3 py-1 text-xs font-medium rounded-full ${getTypeColor(event.type)}`}>
+                                  {event.type}
+                                </span>
+                                {event.is_featured && (
+                                  <span className="px-3 py-1 text-xs font-medium rounded-full text-blue-800 bg-blue-100">
+                                    Featured
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                              <div className="flex items-center gap-3">
+                                <Image src="/images/icons/arrow-upright.svg" alt="" width={20} height={20} className="opacity-60" />
+                                <div>
+                                  <p className="font-['Poppins'] text-[#757575] text-[12px] leading-[16px] font-medium uppercase tracking-wide">
+                                    Date
+                                  </p>
+                                  <p className="font-['Poppins'] text-[#101820] text-[14px] leading-[20px]">
+                                    {formatDate(event.date, event.month, event.year)}
+                                  </p>
+                                </div>
+                              </div>
+                              
+                              <div className="flex items-center gap-3">
+                                <Image src="/images/icons/marker.svg" alt="" width={20} height={20} className="opacity-60" />
+                                <div>
+                                  <p className="font-['Poppins'] text-[#757575] text-[12px] leading-[16px] font-medium uppercase tracking-wide">
+                                    Location
+                                  </p>
+                                  <p className="font-['Poppins'] text-[#101820] text-[14px] leading-[20px]">
+                                    {event.location}
+                                  </p>
+                                </div>
+                              </div>
+                              
+                              <div className="flex items-center gap-3">
+                                <Image src="/images/icons/coins.svg" alt="" width={20} height={20} className="opacity-60" />
+                                <div>
+                                  <p className="font-['Poppins'] text-[#757575] text-[12px] leading-[16px] font-medium uppercase tracking-wide">
+                                    Price
+                                  </p>
+                                  <p className="font-['Poppins'] text-[#101820] text-[14px] leading-[20px]">
+                                    {event.price || 'Not specified'}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="flex gap-3">
+                              <Button 
+                                text="Edit Event" 
+                                variant="primary" 
+                                size="40"
+                                onClick={() => router.push(`/admin/events/${event.id}/edit`)}
+                              />
+                              <Button 
+                                text="Delete" 
+                                variant="ghost-dark" 
+                                size="40"
+                                onClick={() => handleDelete(event.id)}
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div className="mt-4 flex space-x-3">
-                      <Button 
-                        text="Edit" 
-                        variant="ghost-dark" 
-                        size="40"
-                        onClick={() => router.push(`/admin/events/${event.id}/edit`)}
-                      />
-                      <button
-                        onClick={() => handleDelete(event.id)}
-                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 } 

@@ -1,8 +1,13 @@
+'use client'
+
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
+import { createClientComponentClient } from '@/lib/supabase';
+import type { Event } from '@/lib/types';
 
 interface EventCardProps {
   date: string;
@@ -70,7 +75,9 @@ const EventCard = ({ date, month, year, time, title, location, type, image, pric
         <div className="flex gap-3">
           <Button text="Learn More" variant="ghost-dark" size="40" />
           {registrationUrl && (
-            <Button text="Register" variant="primary" size="40" />
+            <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
+              <Button text="Register" variant="primary" size="40" />
+            </a>
           )}
         </div>
       </div>
@@ -79,88 +86,68 @@ const EventCard = ({ date, month, year, time, title, location, type, image, pric
 };
 
 export default function EventsPage() {
-  const upcomingEvents = [
-    {
-      date: "3-7",
-      month: "NOV",
-      year: "2025",
-      time: "9:00 AM - 6:00 PM",
-      title: "OWASP Global AppSec USA 2025",
-      location: "Washington, DC",
-      type: "Conference" as const,
-      image: "/images/events/event-1.png",
-      price: "Early Bird",
-      registrationUrl: "https://globalappsec.us"
-    },
-    {
-      date: "19",
-      month: "MAY",
-      year: "2025",
-      time: "12:00-12:45 PM",
-      title: "OWASP London Chapter Meeting",
-      location: "London, UK",
-      type: "Chapter Meeting" as const,
-      image: "/images/events/event-2.png",
-      price: "Free",
-      registrationUrl: "https://owasp.org/www-chapter-london"
-    },
-    {
-      date: "22",
-      month: "MAY",
-      year: "2025",
-      time: "2:00-3:30 PM",
-      title: "OWASP Berlin Meetup",
-      location: "Berlin, Germany",
-      type: "Chapter Meeting" as const,
-      image: "/images/events/event-3.png",
-      price: "Free"
-    },
-    {
-      date: "25",
-      month: "MAY",
-      year: "2025",
-      time: "10:00-11:30 AM",
-      title: "Web Security Training Workshop",
-      location: "Tokyo, Japan",
-      type: "Training" as const,
-      image: "/images/events/event-4.png",
-      price: "$299"
-    },
-    {
-      date: "28",
-      month: "MAY",
-      year: "2025",
-      time: "6:00-7:30 PM",
-      title: "OWASP NYC Chapter Meeting",
-      location: "New York, USA",
-      type: "Chapter Meeting" as const,
-      image: "/images/events/event-5.png",
-      price: "Free"
-    },
-    {
-      date: "02",
-      month: "JUN",
-      year: "2025",
-      time: "9:00-10:30 AM",
-      title: "Secure Coding Workshop",
-      location: "Sydney, Australia",
-      type: "Workshop" as const,
-      image: "/images/events/event-6.png",
-      price: "$199"
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [featuredEvent, setFeaturedEvent] = useState<Event | null>(null);
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
+  const fetchEvents = async () => {
+    try {
+      const supabase = createClientComponentClient();
+      const { data, error } = await supabase
+        .from('events')
+        .select('*')
+        .eq('status', 'published')
+        .order('created_at', { ascending: false });
+      
+      if (error) throw error;
+      
+      const eventsList = data || [];
+      setEvents(eventsList);
+      
+      // Find featured event
+      const featured = eventsList.find(event => event.is_featured);
+      setFeaturedEvent(featured || eventsList[0] || null);
+    } catch (err: any) {
+      setError(err.message || 'Failed to load events');
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
 
   const eventTypes = [
     "All Events",
-    "Conferences",
+    "Conferences", 
     "Chapter Meetings",
     "Training",
     "Workshops"
   ];
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <div className="flex items-center justify-center h-96">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003594]"></div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
+      
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 mx-[120px] mt-4 rounded">
+          {error}
+        </div>
+      )}
       
       {/* Hero Section */}
       <div className="bg-[#ffffff] box-border content-stretch flex flex-col gap-8 items-start justify-start pb-[164px] pt-20 px-[120px] relative w-full">
@@ -281,44 +268,49 @@ export default function EventsPage() {
       </div>
 
       {/* Featured Event */}
-      <div className="bg-white">
-        <div className="max-w-[1440px] mx-auto px-[120px] py-20">
-          <div className="bg-gradient-to-r from-[#003594] to-[#0056d6] rounded-2xl overflow-hidden">
-            <div className="flex flex-col lg:flex-row">
-              <div className="flex-1 p-12">
-                <div className="mb-6">
-                  <span className="px-4 py-2 bg-[#ffb81b] text-[#101820] rounded-full text-sm font-semibold">
-                    Featured Event
-                  </span>
-                </div>
-                <h2 className="font-['Barlow'] font-medium text-[40px] text-white leading-[44px] tracking-[-0.8px] mb-4">
-                  OWASP Global AppSec USA 2025
-                </h2>
-                <p className="font-['Poppins'] text-white/90 text-lg leading-7 mb-6">
-                  Join 800+ security professionals from November 3–7, 2025, at the Marriott Marquis in Washington, DC 
-                  for a dynamic week of learning, networking, and inspiration.
-                </p>
-                <div className="flex items-center gap-6 mb-8">
-                  <div className="flex items-center gap-2 text-white">
-                    <Image src="/images/icons/marker.svg" alt="" width={20} height={20} className="filter brightness-0 invert" />
-                    <span>Washington, DC</span>
+      {featuredEvent && (
+        <div className="bg-white">
+          <div className="max-w-[1440px] mx-auto px-[120px] py-20">
+            <div className="bg-gradient-to-r from-[#003594] to-[#0056d6] rounded-2xl overflow-hidden">
+              <div className="flex flex-col lg:flex-row">
+                <div className="flex-1 p-12">
+                  <div className="mb-6">
+                    <span className="px-4 py-2 bg-[#ffb81b] text-[#101820] rounded-full text-sm font-semibold">
+                      Featured Event
+                    </span>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span>November 3-7, 2025</span>
+                  <h2 className="font-['Barlow'] font-medium text-[40px] text-white leading-[44px] tracking-[-0.8px] mb-4">
+                    {featuredEvent.title}
+                  </h2>
+                  <p className="font-['Poppins'] text-white/90 text-lg leading-7 mb-6">
+                    {featuredEvent.description || 'Join security professionals for learning, networking, and inspiration.'}
+                  </p>
+                  <div className="flex items-center gap-6 mb-8">
+                    <div className="flex items-center gap-2 text-white">
+                      <Image src="/images/icons/marker.svg" alt="" width={20} height={20} className="filter brightness-0 invert" />
+                      <span>{featuredEvent.location}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-white">
+                      <span>{featuredEvent.month} {featuredEvent.date}, {featuredEvent.year}</span>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    {featuredEvent.registration_url && (
+                      <a href={featuredEvent.registration_url} target="_blank" rel="noopener noreferrer">
+                        <Button text="Register Now" variant="light-blue" size="48" />
+                      </a>
+                    )}
+                    <Button text="View Details" variant="ghost-white" size="48" />
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  <Button text="Register Now" variant="light-blue" size="48" />
-                  <Button text="View Agenda" variant="ghost-white" size="48" />
+                <div className="w-full lg:w-1/3 relative h-80 lg:h-auto">
+                  <Image src={featuredEvent.image} alt={featuredEvent.title} fill className="object-cover" />
                 </div>
-              </div>
-              <div className="w-full lg:w-1/3 relative h-80 lg:h-auto">
-                <Image src="/images/events/event-1.png" alt="Global AppSec USA" fill className="object-cover" />
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Filters Section */}
       <div className="bg-white border-b border-gray-200">
@@ -352,9 +344,28 @@ export default function EventsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {upcomingEvents.map((event, index) => (
-            <EventCard key={index} {...event} />
-          ))}
+          {events.length === 0 ? (
+            <div className="col-span-full text-center py-12">
+              <h3 className="text-lg font-medium text-gray-900 mb-2">No events available</h3>
+              <p className="text-gray-500">Check back soon for upcoming events.</p>
+            </div>
+          ) : (
+            events.map((event) => (
+              <EventCard 
+                key={event.id} 
+                date={event.date}
+                month={event.month}
+                year={event.year}
+                time={event.time}
+                title={event.title}
+                location={event.location}
+                type={event.type}
+                image={event.image}
+                price={event.price}
+                registrationUrl={event.registration_url}
+              />
+            ))
+          )}
         </div>
 
         {/* Newsletter Signup */}

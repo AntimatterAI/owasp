@@ -1,12 +1,15 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 // Force dynamic rendering for admin pages
 export const dynamic = 'force-dynamic'
 import { useRouter } from 'next/navigation'
 import { adminService } from '@/lib/admin'
 import Button from '@/components/Button'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -17,9 +20,6 @@ export default function AdminPage() {
   const router = useRouter()
 
   useEffect(() => {
-    // Debug: Log environment variables
-    console.log('NEXT_PUBLIC_SUPABASE_URL:', process.env.NEXT_PUBLIC_SUPABASE_URL)
-    console.log('NEXT_PUBLIC_SUPABASE_ANON_KEY exists:', !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
     checkAuth()
   }, [])
 
@@ -61,109 +61,151 @@ export default function AdminPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#003594]"></div>
+      <div className="min-h-screen bg-[#F1F6FE]">
+        <Header />
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003594]"></div>
+        </div>
+        <Footer />
       </div>
     )
   }
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="max-w-md w-full space-y-8">
-          <div>
-            <img className="mx-auto h-12 w-auto" src="/logo.svg" alt="OWASP" />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              Admin Sign In
-            </h2>
+      <div className="min-h-screen bg-white">
+        <Header />
+        
+        {/* Login Section */}
+        <div className="bg-[#F1F6FE]">
+          <div className="max-w-[1440px] mx-auto px-[120px] pt-20 pb-[164px]">
+            <div className="flex flex-col items-center justify-center w-full">
+              <div className="max-w-md w-full">
+                <div className="text-center mb-12">
+                  <div className="mb-6">
+                    <Image src="/images/logos/owasp-logo.svg" alt="OWASP" width={120} height={60} className="mx-auto" />
+                  </div>
+                  <h1 className="font-['Barlow'] font-medium text-[#101820] text-[48px] leading-[48px] tracking-[-0.96px] mb-4">
+                    Admin Sign In
+                  </h1>
+                  <p className="font-['Poppins'] text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                    Access the OWASP admin dashboard to manage events and content.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+                  <form onSubmit={handleSignIn} className="space-y-6">
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-[#101820] mb-2">
+                        Email Address
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autoComplete="email"
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-[#003594] focus:border-transparent font-['Poppins'] text-[#101820]"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="password" className="block text-sm font-medium text-[#101820] mb-2">
+                        Password
+                      </label>
+                      <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        autoComplete="current-password"
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-[#003594] focus:border-transparent font-['Poppins'] text-[#101820]"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </div>
+
+                    {error && (
+                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-sm">
+                        {error}
+                      </div>
+                    )}
+
+                    <div>
+                      <Button 
+                        text={loading ? "Signing in..." : "Sign In"} 
+                        variant="primary" 
+                        size="56" 
+                        disabled={loading}
+                        onClick={() => {}}
+                      />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
-          <form className="mt-8 space-y-6" onSubmit={handleSignIn}>
-            <div>
-              <label htmlFor="email" className="sr-only">Email address</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#003594] focus:border-[#003594] focus:z-10 sm:text-sm"
-                placeholder="Email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="sr-only">Password</label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                required
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#003594] focus:border-[#003594] focus:z-10 sm:text-sm"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            {error && (
-              <div className="text-red-600 text-sm text-center">{error}</div>
-            )}
-            <div>
-              <Button 
-                text={loading ? "Signing in..." : "Sign In"} 
-                variant="primary" 
-                size="56" 
-                disabled={loading}
-                onClick={() => {}}
-              />
-            </div>
-          </form>
         </div>
+
+        <Footer />
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <img className="h-8 w-auto" src="/logo.svg" alt="OWASP" />
-              <h1 className="ml-4 text-xl font-semibold text-gray-900">Admin Dashboard</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={handleSignOut}
-                className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Sign Out
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="px-4 py-6 sm:px-0">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="p-5">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0">
-                    <svg className="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">Events</dt>
-                      <dd className="text-lg font-medium text-gray-900">Manage Events</dd>
-                    </dl>
-                  </div>
+    <div className="min-h-screen bg-white">
+      <Header />
+      
+      {/* Admin Dashboard */}
+      <div className="bg-[#F1F6FE]">
+        <div className="max-w-[1440px] mx-auto px-[120px] pt-20 pb-[164px]">
+          <div className="flex flex-col gap-16 items-center justify-center w-full">
+            <div className="flex flex-col gap-8 items-center justify-start w-full">
+              <div className="flex flex-col gap-2 items-start justify-start w-full">
+                <div className="font-['Poppins'] font-semibold text-[#00A7E1] text-[16px] leading-[24px] tracking-[-0.32px]">
+                  Admin Dashboard
                 </div>
-                <div className="mt-4">
+                <h1 className="font-['Barlow'] font-medium text-[#101820] text-[64px] leading-[64px] tracking-[-1.28px] max-w-[1200px]">
+                  Content Management
+                </h1>
+              </div>
+              <div className="flex flex-row gap-20 items-start justify-start w-full">
+                <div className="flex-1 min-w-0">
+                  <p className="font-['Poppins'] font-normal text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                    Manage OWASP website content including events, projects, and chapters. 
+                    Use the tools below to keep the community informed and engaged.
+                  </p>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-['Poppins'] font-normal text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                    All changes are logged and can be reviewed. Make sure to follow 
+                    content guidelines when updating public-facing information.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Management Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="bg-[#003594] p-3 rounded-lg">
+                      <Image src="/images/icons/megaphone.svg" alt="" width={24} height={24} className="filter brightness-0 invert" />
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="font-['Barlow'] font-medium text-[#101820] text-[20px] leading-[24px] tracking-[-0.4px]">
+                        Events
+                      </h3>
+                      <p className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px]">
+                        Manage global and regional events
+                      </p>
+                    </div>
+                  </div>
                   <Button 
                     text="Manage Events" 
                     variant="primary" 
@@ -172,47 +214,82 @@ export default function AdminPage() {
                   />
                 </div>
               </div>
-            </div>
 
-            <div className="bg-white overflow-hidden shadow rounded-lg opacity-50">
-              <div className="p-5">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0">
-                    <svg className="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                    </svg>
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden opacity-50">
+                <div className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="bg-gray-400 p-3 rounded-lg">
+                      <Image src="/images/icons/briefcase-figma.svg" alt="" width={24} height={24} className="filter brightness-0 invert" />
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="font-['Barlow'] font-medium text-[#101820] text-[20px] leading-[24px] tracking-[-0.4px]">
+                        Projects
+                      </h3>
+                      <p className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px]">
+                        Coming Soon
+                      </p>
+                    </div>
                   </div>
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">Projects</dt>
-                      <dd className="text-lg font-medium text-gray-900">Coming Soon</dd>
-                    </dl>
+                  <Button 
+                    text="Coming Soon" 
+                    variant="ghost-dark" 
+                    size="40"
+                    disabled={true}
+                    onClick={() => {}}
+                  />
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden opacity-50">
+                <div className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="bg-gray-400 p-3 rounded-lg">
+                      <Image src="/images/icons/globe.svg" alt="" width={24} height={24} className="filter brightness-0 invert" />
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="font-['Barlow'] font-medium text-[#101820] text-[20px] leading-[24px] tracking-[-0.4px]">
+                        Chapters
+                      </h3>
+                      <p className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px]">
+                        Coming Soon
+                      </p>
+                    </div>
                   </div>
+                  <Button 
+                    text="Coming Soon" 
+                    variant="ghost-dark" 
+                    size="40"
+                    disabled={true}
+                    onClick={() => {}}
+                  />
                 </div>
               </div>
             </div>
 
-            <div className="bg-white overflow-hidden shadow rounded-lg opacity-50">
-              <div className="p-5">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0">
-                    <svg className="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">Chapters</dt>
-                      <dd className="text-lg font-medium text-gray-900">Coming Soon</dd>
-                    </dl>
-                  </div>
+            {/* Quick Actions */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 w-full max-w-3xl">
+              <div className="flex justify-between items-center">
+                <div>
+                  <h3 className="font-['Barlow'] font-medium text-[#101820] text-[24px] leading-[28px] tracking-[-0.48px] mb-2">
+                    Quick Actions
+                  </h3>
+                  <p className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px]">
+                    Currently signed in as admin
+                  </p>
                 </div>
+                <Button 
+                  text="Sign Out" 
+                  variant="ghost-dark" 
+                  size="40"
+                  onClick={handleSignOut}
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 } 
