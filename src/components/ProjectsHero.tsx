@@ -8,7 +8,7 @@ export default function ProjectsHero() {
       <div className="absolute inset-0 bg-gradient-to-br from-[#101820] via-[#1a2332] to-[#003594] opacity-60" />
       
       {/* Centered container */}
-      <div className="max-w-[1440px] mx-auto px-[120px] py-20 relative">
+              <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 relative">
         {/* Ray Background Element */}
         <div
           className="absolute h-[402px] top-0 w-[480px] pointer-events-none"
@@ -57,12 +57,12 @@ export default function ProjectsHero() {
           </div>
           
           {/* Images section matching Figma layout */}
-          <div className="flex flex-row gap-4 items-start justify-center w-full">
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start justify-center w-full">
             {/* Large left image - Juice Shop presentation */}
-            <div className="flex-1 h-80 relative">
-              <div className="h-80 overflow-hidden relative w-full rounded-lg">
+            <div className="w-full lg:flex-1 h-64 sm:h-72 lg:h-80 relative">
+              <div className="h-full overflow-hidden relative w-full rounded-lg">
                 <div
-                  className="absolute bg-center bg-cover bg-no-repeat h-80 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full min-w-full"
+                  className="absolute bg-center bg-cover bg-no-repeat h-full w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                   style={{
                     backgroundImage: `url('/images/events/hero-main.png')`,
                   }}
@@ -72,8 +72,8 @@ export default function ProjectsHero() {
             </div>
             
             {/* Right side grid - 4 smaller images */}
-            <div className="flex-1 flex flex-col gap-4 h-80">
-              <div className="flex flex-row gap-4 flex-1">
+            <div className="w-full lg:flex-1 flex flex-col gap-3 lg:gap-4 h-64 sm:h-72 lg:h-80">
+              <div className="flex flex-row gap-2 sm:gap-3 lg:gap-4 flex-1">
                 {/* Top left - Group meeting/conference */}
                 <div
                   className="flex-1 bg-center bg-cover bg-no-repeat h-full rounded-lg"
@@ -85,7 +85,7 @@ export default function ProjectsHero() {
                   style={{ backgroundImage: `url('/images/events/hero-top-right.png')` }}
                 />
               </div>
-              <div className="flex flex-row gap-4 flex-1">
+              <div className="flex flex-row gap-2 sm:gap-3 lg:gap-4 flex-1">
                 {/* Bottom left - Documents/wireframes on table */}
                 <div
                   className="flex-1 bg-center bg-cover bg-no-repeat h-full rounded-lg"

@@ -5,7 +5,7 @@ import Button from './Button';
 export default function Footer() {
   return (
     <div className="box-border content-stretch flex flex-col items-start justify-start overflow-clip p-0 relative shrink-0 w-full">
-      <div className="bg-[#151515] box-border content-stretch flex flex-col gap-10 items-center justify-center px-[120px] py-16 relative shrink-0 w-full">
+      <div className="bg-[#151515] box-border content-stretch flex flex-col gap-8 lg:gap-10 items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-14 lg:py-16 relative shrink-0 w-full">
         <div className="font-['Barlow'] font-medium text-[32px] text-[rgba(255,255,255,0.5)] text-center tracking-[-0.64px] leading-[40px]">
           Corporate Supporters
         </div>
@@ -41,7 +41,7 @@ export default function Footer() {
             </Link>
         </div>
       </div>
-      <div className="bg-[#101820] box-border content-stretch flex flex-col gap-16 items-center justify-center px-[120px] py-16 relative shrink-0 w-full">
+              <div className="bg-[#101820] box-border content-stretch flex flex-col gap-12 lg:gap-16 items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-14 lg:py-16 relative shrink-0 w-full">
         <div className="box-border content-stretch flex flex-row gap-12 items-start justify-start p-0 relative shrink-0 w-full max-w-[1440px]">
           <div className="bg-[#151515] box-border content-stretch flex flex-col items-start justify-between p-[32px] relative shrink-0 w-[480px] h-[360px]">
             <div className="h-16 relative shrink-0 w-[212.63px]">

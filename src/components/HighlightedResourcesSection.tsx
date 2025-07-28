@@ -71,23 +71,25 @@ export default function HighlightedResourcesSection() {
   return (
     <div className="bg-[#101820] relative shrink-0 w-full">
       <div className="flex flex-col items-center relative size-full">
-        <div className="box-border flex flex-col gap-16 items-center justify-start px-[120px] py-20 relative w-full max-w-[1440px]">
-          <div className="box-border flex flex-row gap-8 items-end justify-between p-0 relative w-full">
-            <div className="basis-0 box-border flex flex-col gap-8 grow items-start justify-start min-h-px min-w-px p-0 relative">
-              <h2 className="font-['Barlow'] font-medium text-[56px] leading-[56px] tracking-[-1.12px]">
+        <div className="box-border flex flex-col gap-12 lg:gap-16 items-center justify-start px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 relative w-full max-w-[1440px]">
+          <div className="box-border flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-end justify-between p-0 relative w-full">
+            <div className="w-full lg:flex-1 box-border flex flex-col gap-6 lg:gap-8 items-start justify-start p-0 relative">
+              <h2 className="font-['Barlow'] font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-tight lg:leading-[56px] tracking-[-0.6px] sm:tracking-[-0.8px] lg:tracking-[-1.12px]">
                 <span className="text-white">Our </span>
                 <span className="text-[#ffb81b]">Highlighted</span>
                 <span className="text-white"> Resources</span>
               </h2>
-              <p className="font-['Poppins'] text-[#d7d7d7] text-base leading-6 tracking-[-0.32px] max-w-2xl">
+              <p className="font-['Poppins'] text-[#d7d7d7] text-sm sm:text-base leading-5 sm:leading-6 tracking-[-0.28px] sm:tracking-[-0.32px] max-w-2xl">
                 Explore powerful security tools developed by the OWASP community. Each resource provides unique capabilities to strengthen your application security posture.
               </p>
             </div>
-            <Link href="/resources">
-              <Button text="See All Resources" variant="ghost-white" size="48" />
-            </Link>
+            <div className="w-full lg:w-auto">
+              <Link href="/resources">
+                <Button text="See All Resources" variant="ghost-white" size="48" />
+              </Link>
+            </div>
           </div>
-          <div className="box-border flex flex-row gap-8 items-start justify-start p-0 relative w-full">
+          <div className="box-border flex flex-col md:flex-row gap-6 lg:gap-8 items-stretch justify-start p-0 relative w-full">
             {resources.map((resource, index) => (
               <ResourceCard key={index} {...resource} />
             ))}

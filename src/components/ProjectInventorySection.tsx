@@ -71,7 +71,7 @@ export default function ProjectInventorySection() {
   return (
     <div className="bg-[#f1f6fe]">
       {/* Centered container with proper spacing */}
-      <div className="max-w-[1440px] mx-auto px-[120px] py-20">
+              <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20">
         <div className="flex flex-col gap-16 items-center justify-start w-full">
           {/* Header Section */}
           <div className="flex flex-row gap-8 items-end justify-center w-full">
@@ -89,9 +89,9 @@ export default function ProjectInventorySection() {
           </div>
 
           {/* Three Tier Cards */}
-          <div className="bg-[#ffffff] flex flex-row gap-8 items-start justify-start p-[32px] w-full">
+          <div className="bg-[#ffffff] flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start p-4 sm:p-6 lg:p-8 w-full">
             {/* Flagship Projects */}
-            <div className="flex-1 flex flex-col gap-6 items-start justify-start">
+            <div className="w-full lg:flex-1 flex flex-col gap-4 lg:gap-6 items-start justify-start">
               <div className="bg-[#d9e5fa] flex flex-row gap-2.5 items-center justify-center p-[12px]">
                 <div className="relative size-6">
                   <Image src="/images/icons/flag-icon.svg" alt="" fill className="object-contain" />
@@ -107,10 +107,10 @@ export default function ProjectInventorySection() {
               </div>
             </div>
 
-            <div className="bg-[#d7d7d7] self-stretch w-px" />
+            <div className="bg-[#d7d7d7] w-full lg:w-px h-px lg:h-auto lg:self-stretch" />
 
             {/* Production Projects */}
-            <div className="flex-1 flex flex-col gap-6 items-start justify-start">
+            <div className="w-full lg:flex-1 flex flex-col gap-4 lg:gap-6 items-start justify-start">
               <div className="bg-[#d9e5fa] flex flex-row gap-2.5 items-center justify-center p-[12px]">
                 <div className="relative size-6">
                   <Image src="/images/icons/factory-icon.svg" alt="" fill className="object-contain" />
@@ -126,10 +126,10 @@ export default function ProjectInventorySection() {
               </div>
             </div>
 
-            <div className="bg-[#d7d7d7] self-stretch w-px" />
+            <div className="bg-[#d7d7d7] w-full lg:w-px h-px lg:h-auto lg:self-stretch" />
 
             {/* Other Projects */}
-            <div className="flex-1 flex flex-col gap-6 items-start justify-start">
+            <div className="w-full lg:flex-1 flex flex-col gap-4 lg:gap-6 items-start justify-start">
               <div className="bg-[#d9e5fa] flex flex-row gap-2.5 items-center justify-center p-[12px]">
                 <div className="relative size-6">
                   <Image src="/images/icons/egg-icon.svg" alt="" fill className="object-contain" />

@@ -130,17 +130,17 @@ export default function ResourcesPage() {
       </div>
 
       {/* Resources Grid */}
-      <div className="max-w-[1440px] mx-auto px-[120px] py-20">
-        <div className="mb-12">
-          <h2 className="font-['Barlow'] font-medium text-[40px] text-[#101820] leading-[40px] tracking-[-0.8px] mb-4">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20">
+        <div className="mb-8 sm:mb-10 lg:mb-12">
+          <h2 className="font-['Barlow'] font-medium text-2xl sm:text-3xl md:text-4xl lg:text-[40px] text-[#101820] leading-tight lg:leading-[40px] tracking-[-0.48px] sm:tracking-[-0.6px] lg:tracking-[-0.8px] mb-3 sm:mb-4">
             Featured Resources
           </h2>
-          <p className="font-['Poppins'] text-[#757575] text-base leading-6">
+          <p className="font-['Poppins'] text-[#757575] text-sm sm:text-base leading-5 sm:leading-6">
             Our most popular and widely-used security resources and tools.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-14 lg:mb-16">
           {filteredResources.map((resource, index) => (
             <div key={index} className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 overflow-hidden">

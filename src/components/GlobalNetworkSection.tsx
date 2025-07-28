@@ -10,7 +10,7 @@ export default function GlobalNetworkSection() {
   return (
     <div className="bg-[#101820] relative w-full">
       <div className="flex flex-col items-center relative w-full">
-        <div className="box-border flex flex-row gap-16 items-center justify-start px-[120px] py-20 relative w-full max-w-[1440px]">
+        <div className="box-border flex flex-col lg:flex-row gap-8 lg:gap-16 items-center justify-start px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 relative w-full max-w-[1440px]">
           {/* Background blur effects */}
           <div className="absolute bg-[#ffb81b] blur-[50px] filter h-[300px] left-10 top-16 w-[300px] opacity-25" />
           <div className="absolute bg-[#00a7e1] blur-[50px] filter h-[300px] right-10 top-16 w-[300px] opacity-25" />
