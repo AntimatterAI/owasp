@@ -394,10 +394,10 @@ export default function Header() {
           </button>
         </div>
         
-        <div className="p-4">
+        <div className="p-4 bg-[#101820]">
           {/* Mobile Search */}
           <div className="mb-6">
-            <div className="flex items-center bg-white/5 rounded-lg p-2 gap-2">
+            <div className="flex items-center bg-white/20 rounded-lg p-2 gap-2">
               <Image src={searchIcon} alt="" width={18} height={18} className="opacity-60" />
               <input
                 type="text"
@@ -422,7 +422,7 @@ export default function Header() {
                     block w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg transition-all duration-300
                     ${isActive 
                       ? 'bg-[#003594] text-white shadow-lg' 
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
+                      : 'text-white/80 hover:text-white hover:bg-white/20'
                     }
                   `}
                 >
@@ -438,8 +438,8 @@ export default function Header() {
           <div className="mt-6 space-y-3 md:hidden">
             <Link href="/join-community" onClick={() => setMobileMenuOpen(false)}>
               <button className="w-full border-2 border-[#757575] h-11 sm:h-12 px-4 text-white font-['Poppins'] font-semibold text-sm 
-                hover:border-[#00A7E1]/60 hover:bg-[#00A7E1]/10 hover:text-[#00A7E1] 
-                transition-all duration-300 rounded-lg backdrop-blur-sm">
+                hover:border-[#00A7E1]/60 hover:bg-[#00A7E1]/20 hover:text-[#00A7E1] 
+                transition-all duration-300 rounded-lg bg-[#101820]">
                 Join the Community
               </button>
             </Link>
