@@ -375,7 +375,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div className={`
-        fixed inset-y-0 right-0 w-full max-w-sm bg-[#101820]/95 backdrop-blur-lg border-l border-white/10
+        fixed inset-y-0 right-0 w-full max-w-sm bg-[#101820] backdrop-blur-lg border-l border-white/10 shadow-xl
         transform transition-transform duration-300 ease-in-out z-40
         ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>

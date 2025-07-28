@@ -18,8 +18,8 @@ const ResourceCard = ({ title, description, image }: ResourceCardProps) => (
     <div className="absolute border-2 border-[#ffb81b] border-solid inset-0 pointer-events-none group-hover:border-[#ffc947] transition-colors" />
     <div className="relative size-full bg-[#101820]">
       <div className="box-border flex flex-col items-start justify-start p-3 relative w-full h-full">
-        <div className="bg-[#030303] box-border flex flex-col gap-6 h-40 items-center justify-center p-6 relative shrink-0 w-full overflow-hidden">
-          <div className="h-20 w-full flex items-center justify-center relative">
+        <div className="bg-[#030303] box-border flex flex-col gap-6 h-32 sm:h-36 lg:h-40 items-center justify-center p-4 sm:p-6 relative shrink-0 w-full overflow-hidden">
+          <div className="h-16 sm:h-18 lg:h-20 w-full flex items-center justify-center relative">
             <Image 
               src={image} 
               alt={title} 
@@ -30,16 +30,16 @@ const ResourceCard = ({ title, description, image }: ResourceCardProps) => (
           </div>
         </div>
         <div className="flex-1 flex flex-col justify-between w-full">
-          <div className="box-border flex flex-col gap-4 items-start justify-start p-4 relative text-left w-full">
-            <div className="box-border flex flex-col gap-3 items-start justify-start p-0 relative w-full">
-              <h3 className="font-['Barlow'] font-medium text-white text-2xl tracking-[-0.48px] leading-8">
+          <div className="box-border flex flex-col gap-3 lg:gap-4 items-start justify-start p-3 sm:p-4 relative text-left w-full">
+            <div className="box-border flex flex-col gap-2 lg:gap-3 items-start justify-start p-0 relative w-full">
+              <h3 className="font-['Barlow'] font-medium text-white text-lg sm:text-xl lg:text-2xl tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-6 sm:leading-7 lg:leading-8">
                 {title}
               </h3>
-              <p className="font-['Poppins'] text-[#d7d7d7] text-sm leading-5">
+              <p className="font-['Poppins'] text-[#d7d7d7] text-xs sm:text-sm leading-4 sm:leading-5">
                 {description}
               </p>
             </div>
-            <button className="font-['Poppins'] text-[#ffb81b] text-sm underline decoration-skip-ink-none hover:text-[#ffc947] transition-colors mt-2">
+            <button className="font-['Poppins'] text-[#ffb81b] text-xs sm:text-sm underline decoration-skip-ink-none hover:text-[#ffc947] transition-colors mt-1 sm:mt-2">
               Learn More
             </button>
           </div>
