@@ -3,6 +3,7 @@ interface ButtonProps {
   variant?: "primary" | "ghost-white" | "ghost-dark" | "light-blue";
   size?: "40" | "48" | "56";
   className?: string;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
@@ -11,6 +12,7 @@ export default function Button({
   variant = "primary",
   size = "40",
   className = "",
+  disabled = false,
   onClick
 }: ButtonProps) {
   const baseClasses = "font-['Poppins'] font-semibold text-center transition-all duration-300 flex items-center justify-center rounded-sm cursor-pointer";
@@ -31,7 +33,8 @@ export default function Button({
   return (
     <button
       onClick={onClick}
-      className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+      disabled={disabled}
+      className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
     >
       {text}
     </button>
