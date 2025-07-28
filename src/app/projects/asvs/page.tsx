@@ -69,9 +69,9 @@ export default function ASVSProjectPage() {
       <div className="bg-[#ffffff] box-border content-stretch flex flex-col items-start justify-start p-0 relative w-full">
         
         {/* Hero Section */}
-        <div className="flex flex-col lg:flex-row min-h-[400px] lg:h-[560px] items-center justify-center relative w-full">
+        <div className="flex flex-col lg:flex-row min-h-[500px] sm:min-h-[600px] lg:h-[560px] items-center justify-center relative w-full">
           {/* Left side with ASVS logo */}
-          <div className="flex-1 h-64 lg:h-full overflow-hidden relative w-full lg:w-auto">
+          <div className="flex-1 h-80 sm:h-96 lg:h-full overflow-hidden relative w-full lg:w-auto">
             <div className="absolute inset-0 bg-gradient-to-br from-[#1a237e] via-[#303f9f] to-[#42a5f5]">
               {/* OWASP Logo */}
               <div className="absolute top-4 lg:top-8 left-4 lg:left-8 flex items-center gap-2">
@@ -82,12 +82,12 @@ export default function ASVSProjectPage() {
               </div>
               
               {/* Large ASVS Text */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
                 <div className="text-center">
-                  <div className="font-bold text-white text-[60px] sm:text-[80px] lg:text-[100px] xl:text-[120px] leading-tight lg:leading-[100px] tracking-[-1px] lg:tracking-[-2px] mb-2 lg:mb-4">
+                  <div className="font-bold text-white text-[48px] sm:text-[64px] md:text-[80px] lg:text-[100px] xl:text-[120px] leading-[0.85] lg:leading-[100px] tracking-[-1px] lg:tracking-[-2px] mb-2 lg:mb-4">
                     ASVS
                   </div>
-                  <div className="font-medium text-white text-xs sm:text-sm lg:text-[14px] tracking-[1px] lg:tracking-[2px] uppercase">
+                  <div className="font-medium text-white text-[10px] sm:text-xs lg:text-[14px] tracking-[0.5px] sm:tracking-[1px] lg:tracking-[2px] uppercase px-2">
                     APPLICATION SECURITY<br/>VERIFICATION STANDARD
                   </div>
                 </div>
@@ -354,12 +354,12 @@ export default function ASVSProjectPage() {
         </div>
 
         {/* ASVS Supporters Section */}
-        <div className="bg-[#ffffff] box-border content-stretch flex flex-col gap-16 items-center justify-start px-[120px] py-20 relative w-full">
-          <div className="box-border content-stretch flex flex-row gap-8 items-start justify-start p-0 relative w-full text-left">
-            <div className="basis-0 font-['Barlow'] font-medium grow min-h-px min-w-px text-[#101820] text-[56px] tracking-[-1.12px] leading-[56px]">
+        <div className="bg-[#ffffff] flex flex-col gap-12 lg:gap-16 items-center justify-start px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 relative w-full">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start relative w-full text-left">
+            <div className="flex-1 font-['Barlow'] font-medium min-h-px min-w-px text-[#101820] text-[28px] sm:text-[36px] lg:text-[48px] xl:text-[56px] tracking-[-0.56px] sm:tracking-[-0.72px] lg:tracking-[-0.96px] xl:tracking-[-1.12px] leading-tight xl:leading-[56px]">
               ASVS Supporters
             </div>
-            <div className="basis-0 font-['Poppins'] grow leading-[24px] min-h-px min-w-px text-[#757575] text-[16px] tracking-[-0.32px]">
+            <div className="flex-1 font-['Poppins'] leading-6 lg:leading-[24px] min-h-px min-w-px text-[#757575] text-sm lg:text-[16px] tracking-[-0.28px] lg:tracking-[-0.32px]">
               <p className="mb-4">
                 We gratefully acknowledge the organizations supporting the OWASP ASVS Project — either through financial contributions or by allowing their staff to dedicate significant time to the standard.
               </p>
@@ -369,8 +369,8 @@ export default function ASVSProjectPage() {
             </div>
           </div>
           
-          <div className="box-border content-stretch flex flex-row gap-8 items-start justify-start p-0 relative w-full">
-            <div className="basis-0 box-border content-stretch flex flex-col font-['Barlow'] font-medium gap-2 grow items-start justify-start min-h-px min-w-px p-0 relative text-left">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start relative w-full">
+            <div className="flex-1 flex flex-col font-['Barlow'] font-medium gap-2 items-start justify-start min-h-px min-w-px relative text-left">
               <div className="text-[#101820] text-[24px] sm:text-[28px] lg:text-[32px] tracking-[-0.48px] sm:tracking-[-0.56px] lg:tracking-[-0.64px] leading-tight lg:leading-[40px] w-full">
                 Maintaining Supporters
               </div>
@@ -378,7 +378,7 @@ export default function ASVSProjectPage() {
                 through time provisions
               </div>
             </div>
-            <div className="basis-0 box-border content-stretch flex flex-col gap-6 lg:gap-8 items-start justify-start min-h-px min-w-px relative">
+            <div className="flex-1 flex flex-col gap-6 lg:gap-8 items-start justify-start min-h-px min-w-px relative">
               <div className="font-['Poppins'] text-[#757575] text-sm lg:text-[16px] text-left tracking-[-0.28px] lg:tracking-[-0.32px] leading-6 lg:leading-[24px] w-full">
                 Organizations who have allowed contributors to spend significant time working on the standard as part of their working day with the organization.
                 <br /><br />
