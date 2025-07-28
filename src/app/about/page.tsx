@@ -34,20 +34,20 @@ export default function AboutPage() {
       
       {/* Hero Section */}
       <div className="bg-[#F1F6FE]">
-        <div className="max-w-[1440px] mx-auto px-[120px] pt-20 pb-[164px]">
-          <div className="flex flex-col gap-20 items-center justify-center w-full">
-            <div className="flex flex-col gap-12 items-center justify-start w-full">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] pt-12 sm:pt-16 lg:pt-20 pb-20 sm:pb-32 lg:pb-[164px]">
+          <div className="flex flex-col gap-12 lg:gap-20 items-center justify-center w-full">
+            <div className="flex flex-col gap-8 lg:gap-12 items-center justify-start w-full">
               <div className="flex flex-col gap-2 items-start justify-start w-full">
-                <div className="font-['Poppins'] font-semibold text-[#00A7E1] text-[16px] leading-[24px] tracking-[-0.32px] whitespace-nowrap">
+                <div className="font-['Poppins'] font-semibold text-[#00A7E1] text-sm sm:text-base leading-6 tracking-[-0.32px]">
                   About OWASP
                 </div>
-                <h1 className="font-['Barlow'] font-medium text-[#101820] text-[64px] leading-[64px] tracking-[-1.28px] max-w-[1200px]">
+                <h1 className="font-['Barlow'] font-medium text-[#101820] text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-tight xl:leading-[64px] tracking-[-0.64px] sm:tracking-[-0.8px] lg:tracking-[-1.12px] xl:tracking-[-1.28px] max-w-[1200px]">
                   Securing Software Through Community
                 </h1>
               </div>
-              <div className="flex flex-row gap-20 items-start justify-start w-full">
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start justify-start w-full">
                 <div className="flex-1 min-w-0">
-                  <p className="font-['Poppins'] font-normal text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                  <p className="font-['Poppins'] font-normal text-[#757575] text-sm sm:text-base leading-6 tracking-[-0.28px] sm:tracking-[-0.32px]">
                     We are an open community helping organizations build and maintain secure, trusted applications. All OWASP projects, tools, and resources are free and open to everyone.
                   </p>
                 </div>
@@ -72,48 +72,48 @@ export default function AboutPage() {
 
       {/* Inside OWASP Section */}
       <div className="bg-[#101820] relative">
-        {/* Top Stats Cards */}
-        <div className="absolute left-[120px] top-[-84px] w-[1200px]">
-          <div className="grid grid-cols-4 gap-4">
-            <div className="bg-[#182430] border border-white p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
-              <div className="bg-[#101820] p-3 mb-6 w-fit">
-                <Image src="/images/icons/book-open.svg" alt="" width={24} height={24} className="w-6 h-6" />
+        {/* Stats Cards - Responsive positioning */}
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] relative -mt-16 sm:-mt-20 lg:-mt-[84px] mb-8 lg:mb-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="bg-[#182430] border border-white p-4 sm:p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
+              <div className="bg-[#101820] p-2 sm:p-3 mb-4 sm:mb-6 w-fit">
+                <Image src="/images/icons/book-open.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <p className="font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+              <p className="font-['Barlow'] font-medium text-white text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                 Community-led open source projects
               </p>
             </div>
-            <div className="bg-[#182430] border border-white p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
-              <div className="bg-[#101820] p-3 mb-6 w-fit">
-                <Image src="/images/icons/globe.svg" alt="" width={24} height={24} className="w-6 h-6" />
+            <div className="bg-[#182430] border border-white p-4 sm:p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
+              <div className="bg-[#101820] p-2 sm:p-3 mb-4 sm:mb-6 w-fit">
+                <Image src="/images/icons/globe.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <p className="font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+              <p className="font-['Barlow'] font-medium text-white text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                 Over 250+ local chapters worldwide
               </p>
             </div>
-            <div className="bg-[#182430] border border-white p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
-              <div className="bg-[#101820] p-3 mb-6 w-fit">
-                <Image src="/images/icons/users.svg" alt="" width={24} height={24} className="w-6 h-6" />
+            <div className="bg-[#182430] border border-white p-4 sm:p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
+              <div className="bg-[#101820] p-2 sm:p-3 mb-4 sm:mb-6 w-fit">
+                <Image src="/images/icons/users" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <p className="font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+              <p className="font-['Barlow'] font-medium text-white text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                 Tens of thousands of members
               </p>
             </div>
-            <div className="bg-[#182430] border border-white p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
-              <div className="bg-[#101820] p-3 mb-6 w-fit">
-                <Image src="/images/icons/chart-projector.svg" alt="" width={24} height={24} className="w-6 h-6" />
+            <div className="bg-[#182430] border border-white p-4 sm:p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
+              <div className="bg-[#101820] p-2 sm:p-3 mb-4 sm:mb-6 w-fit">
+                <Image src="/images/icons/chart-projector.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <p className="font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+              <p className="font-['Barlow'] font-medium text-white text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                 Industry-leading educational and training conferences
               </p>
             </div>
           </div>
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-[120px] pt-[164px] pb-20">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] pt-12 sm:pt-16 lg:pt-20 xl:pt-[164px] pb-12 sm:pb-16 lg:pb-20">
           {/* Vision/Mission Section */}
-          <div className="flex flex-row gap-[120px] items-start justify-start mb-20">
-            <div className="flex-1 flex flex-col gap-12">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-[120px] items-start justify-start mb-12 sm:mb-16 lg:mb-20">
+            <div className="flex-1 flex flex-col gap-8 lg:gap-12">
               {/* Vision */}
               <div className="flex flex-row gap-2.5 items-center pt-12 border-t border-white/60">
                 <div className="flex flex-row gap-20 items-center w-full">

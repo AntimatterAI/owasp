@@ -8,43 +8,43 @@ export default function ProjectsHero() {
       <div className="absolute inset-0 bg-gradient-to-br from-[#101820] via-[#1a2332] to-[#003594] opacity-60" />
       
       {/* Centered container */}
-              <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 relative">
-        {/* Ray Background Element */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 relative">
+        {/* Ray Background Element - Hidden on mobile for better performance */}
         <div
-          className="absolute h-[402px] top-0 w-[480px] pointer-events-none"
+          className="absolute h-[300px] sm:h-[402px] top-0 w-[360px] sm:w-[480px] pointer-events-none opacity-20 sm:opacity-40 hidden sm:block"
           data-name="Ray"
-          style={{ left: "calc(25% + 120px)" }}
+          style={{ left: "calc(25% + 60px)" }}
         >
           <div className="absolute bottom-[-49.751%] left-[-124.166%] right-[-123.939%] top-[-218.905%]">
-            <Image src="/images/ray.svg" alt="" fill className="block max-w-none opacity-40" />
+            <Image src="/images/ray.svg" alt="" fill className="block max-w-none" />
           </div>
         </div>
 
         <div
-          className="flex flex-col gap-20 items-center justify-center relative z-10"
+          className="flex flex-col gap-12 lg:gap-20 items-center justify-center relative z-10"
           data-name="Container"
         >
-          <div className="flex flex-col gap-12 items-center justify-start w-full">
-            <div className="flex flex-col gap-6 items-center justify-start px-60 py-0 w-full">
+          <div className="flex flex-col gap-8 lg:gap-12 items-center justify-start w-full">
+            <div className="flex flex-col gap-4 lg:gap-6 items-center justify-start w-full">
               <div
-                className="relative shrink-0 w-12 h-12"
+                className="relative shrink-0 w-10 h-10 sm:w-12 sm:h-12"
                 data-name="Logo"
               >
                 <Image src="/images/logos/owasp-logo-small-white.svg" alt="OWASP Logo" fill />
               </div>
-              <h1 className="font-['Barlow'] font-medium text-[64px] text-white text-center leading-[64px] tracking-[-1.28px]">
+              <h1 className="font-['Barlow'] font-medium text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-white text-center leading-tight xl:leading-[64px] tracking-[-0.64px] sm:tracking-[-0.8px] lg:tracking-[-1.12px] xl:tracking-[-1.28px]">
                 Projects for Good
               </h1>
-              <p className="font-['Poppins'] text-[#f4f4f4] text-[16px] text-center leading-[24px] tracking-[-0.32px] max-w-3xl">
+              <p className="font-['Poppins'] text-[#f4f4f4] text-sm sm:text-base text-center leading-6 tracking-[-0.28px] sm:tracking-[-0.32px] max-w-3xl">
                 We are a community of developers, technologists and evangelists
                 improving the security of software. The OWASP Foundation gives
                 aspiring open source projects a platform to improve the security
                 of software with:
               </p>
             </div>
-            <div className="flex flex-row gap-3 items-center justify-center">
-              <Link href="/projects#contribute" className="box-border flex flex-row gap-10 h-14 items-center justify-center px-8 py-0 border border-[#757575] hover:border-white transition-colors">
-                <span className="font-['Poppins'] font-semibold text-[16px] text-white text-center leading-[24px] tracking-[-0.32px]">
+            <div className="flex flex-col sm:flex-row gap-3 items-center justify-center w-full sm:w-auto">
+              <Link href="/projects#contribute" className="box-border flex flex-row gap-6 lg:gap-10 h-12 sm:h-14 items-center justify-center px-6 lg:px-8 py-0 border border-[#757575] hover:border-white transition-colors w-full sm:w-auto">
+                <span className="font-['Poppins'] font-semibold text-sm sm:text-base text-white text-center leading-tight lg:leading-[24px] tracking-[-0.28px] sm:tracking-[-0.32px]">
                   Contribute to Projects
                 </span>
               </Link>

@@ -271,13 +271,13 @@ export default function ChaptersPage() {
       
       {/* Hero Section */}
       <div
-        className="bg-[#101820] box-border content-stretch flex flex-col gap-8 items-start justify-start px-[120px] py-20 relative w-full min-h-[500px] overflow-hidden"
+        className="bg-[#101820] flex flex-col gap-6 lg:gap-8 items-start justify-start px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 relative w-full min-h-[400px] sm:min-h-[500px] overflow-hidden"
         data-name="Hero"
       >
         <div
-          className="absolute h-[402px] top-0 w-[480px]"
+          className="absolute h-[300px] sm:h-[402px] top-0 w-[360px] sm:w-[480px] opacity-20 sm:opacity-100"
           data-name="Ray"
-          style={{ left: "calc(25% + 120px)" }}
+          style={{ left: "calc(25% + 60px)", display: 'none' }}
         >
           <div className="absolute bottom-[-49.751%] left-[-124.166%] right-[-123.939%] top-[-218.905%]">
             <Image 
@@ -290,27 +290,24 @@ export default function ChaptersPage() {
           </div>
         </div>
         <div
-          className="box-border content-stretch flex flex-row gap-20 items-start justify-start p-0 relative shrink-0 w-full"
+          className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start justify-start relative shrink-0 w-full"
           data-name="Container"
         >
           <div
-            className="basis-0 box-border content-stretch flex flex-col grow items-start justify-between min-h-px min-w-px p-0 relative self-stretch shrink-0"
+            className="flex-1 flex flex-col items-start justify-between min-h-px min-w-px relative self-stretch"
           >
             <div
-              className="box-border content-stretch flex flex-col gap-8 items-start justify-center leading-[0] p-0 relative shrink-0 text-left w-full"
+              className="flex flex-col gap-6 lg:gap-8 items-start justify-center relative shrink-0 w-full"
             >
               <div
-                className="font-['Barlow'] font-medium not-italic relative shrink-0 text-[#ffffff] text-[64px] tracking-[-1.28px] w-full"
+                className="font-['Barlow'] font-medium text-[#ffffff] text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-tight xl:leading-[64px] tracking-[-0.64px] sm:tracking-[-0.8px] lg:tracking-[-1.12px] xl:tracking-[-1.28px] w-full"
               >
-                <p className="block leading-[64px]">OWASP Local Chapters</p>
+                <p>OWASP Local Chapters</p>
               </div>
               <div
-                className="font-['Poppins'] relative shrink-0 text-[#f4f4f4] text-[16px] tracking-[-0.32px] w-full"
-                style={{
-                  fontVariationSettings: "'CTGR' 0, 'wdth' 100, 'wght' 400",
-                }}
+                className="font-['Poppins'] text-[#f4f4f4] text-sm sm:text-base leading-6 tracking-[-0.28px] sm:tracking-[-0.32px] w-full max-w-2xl"
               >
-                <p className="block leading-[24px]">
+                <p>
                   OWASP Local Chapters bring application security professionals
                   together around the world. Meetings are free and open to
                   everyone, members and non‑members alike.
@@ -323,7 +320,7 @@ export default function ChaptersPage() {
               </div>
             </div>
             <div
-              className="box-border content-stretch flex flex-row gap-10 h-14 items-center justify-start px-0 py-0 relative shrink-0"
+              className="flex flex-row gap-6 lg:gap-10 h-12 sm:h-14 items-center justify-start relative shrink-0 mt-6 lg:mt-0"
               data-name="Button"
             >
               <FigmaButton
@@ -523,25 +520,25 @@ export default function ChaptersPage() {
       </div>
 
       {/* Chapter Listing Section */}
-      <div className="max-w-[1440px] mx-auto px-[120px] py-16 relative z-10 bg-white">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 relative z-10 bg-white">
         {/* Section Header with Search */}
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8 sm:mb-12 gap-6 lg:gap-0">
           <div>
-            <h2 className="font-['Barlow'] font-medium text-[32px] text-[#101820] leading-[40px] tracking-[-0.64px] mb-2">
+            <h2 className="font-['Barlow'] font-medium text-[24px] sm:text-[28px] lg:text-[32px] text-[#101820] leading-tight lg:leading-[40px] tracking-[-0.48px] sm:tracking-[-0.56px] lg:tracking-[-0.64px] mb-2">
               Chapter Listing
             </h2>
-            <p className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px]">
+            <p className="font-['Poppins'] text-[#757575] text-sm leading-[18px] sm:leading-[20px]">
               Browse all OWASP chapters worldwide
             </p>
           </div>
           
-          <div className="flex">
+          <div className="flex w-full lg:w-auto">
             <input 
               type="text" 
               placeholder="Search chapter"
-              className="px-4 py-2 border border-[#D7D7D7] rounded-l-sm focus:outline-none focus:ring-1 focus:ring-[#003594] focus:border-[#003594] text-[14px] font-['Poppins']"
+              className="px-3 sm:px-4 py-2 border border-[#D7D7D7] rounded-l-sm focus:outline-none focus:ring-1 focus:ring-[#003594] focus:border-[#003594] text-sm font-['Poppins'] flex-1 lg:flex-none lg:w-64"
             />
-            <button className="bg-[#003594] text-white px-4 py-2 rounded-r-sm text-[14px] font-['Poppins'] font-semibold hover:bg-[#002a7a] transition-colors">
+            <button className="bg-[#003594] text-white px-3 sm:px-4 py-2 rounded-r-sm text-sm font-['Poppins'] font-semibold hover:bg-[#002a7a] transition-colors">
               Search
             </button>
           </div>
@@ -644,22 +641,22 @@ export default function ChaptersPage() {
         </div>
 
                  {/* Important Links & OWASP Videos */}
-        <div className="bg-[#F1F6FE] rounded-lg p-16 mt-16">
-          <div className="flex flex-row gap-20 items-start justify-start w-full">
+        <div className="bg-[#F1F6FE] rounded-lg p-6 sm:p-8 lg:p-12 xl:p-16 mt-12 sm:mt-16">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-20 items-start justify-start w-full">
             {/* Important Links Column */}
-            <div className="flex-1 flex flex-col gap-4 items-start justify-start">
-              <h3 className="font-['Barlow'] font-medium text-[20px] text-[#101820] leading-[24px] tracking-[-0.4px] w-full">
+            <div className="flex-1 flex flex-col gap-3 sm:gap-4 items-start justify-start">
+              <h3 className="font-['Barlow'] font-medium text-lg sm:text-[20px] text-[#101820] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] w-full">
                 Important Links
               </h3>
-              <div className="flex flex-col gap-6 items-start justify-start w-full">
+              <div className="flex flex-col gap-4 sm:gap-6 items-start justify-start w-full">
                 <a 
                   href="mailto:chapters@owasp.org" 
                   className="flex flex-row gap-2 items-center justify-start group hover:opacity-80 transition-opacity"
                 >
-                  <span className="font-['Poppins'] font-medium text-[14px] text-[#003594] leading-[20px] whitespace-nowrap">
+                  <span className="font-['Poppins'] font-medium text-sm text-[#003594] leading-[18px] sm:leading-[20px]">
                     Contact Us - Chapter Support
                   </span>
-                  <div className="w-5 h-5 flex items-center justify-center">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center shrink-0">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M3.5 8.5L8.5 3.5M8.5 3.5H3.5M8.5 3.5V8.5" stroke="#003594" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -669,10 +666,10 @@ export default function ChaptersPage() {
                   href="https://owasp.org/leaders/" 
                   className="flex flex-row gap-2 items-center justify-start group hover:opacity-80 transition-opacity"
                 >
-                  <span className="font-['Poppins'] font-medium text-[14px] text-[#003594] leading-[20px] whitespace-nowrap">
+                  <span className="font-['Poppins'] font-medium text-sm text-[#003594] leading-[18px] sm:leading-[20px]">
                     All Chapter Leaders
                   </span>
-                  <div className="w-5 h-5 flex items-center justify-center">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center shrink-0">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M3.5 8.5L8.5 3.5M8.5 3.5H3.5M8.5 3.5V8.5" stroke="#003594" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -682,10 +679,10 @@ export default function ChaptersPage() {
                   href="https://owasp.org/chapters/status/" 
                   className="flex flex-row gap-2 items-center justify-start group hover:opacity-80 transition-opacity"
                 >
-                  <span className="font-['Poppins'] font-medium text-[14px] text-[#003594] leading-[20px] whitespace-nowrap">
+                  <span className="font-['Poppins'] font-medium text-sm text-[#003594] leading-[18px] sm:leading-[20px]">
                     Chapter Status
                   </span>
-                  <div className="w-5 h-5 flex items-center justify-center">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center shrink-0">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M3.5 8.5L8.5 3.5M8.5 3.5H3.5M8.5 3.5V8.5" stroke="#003594" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
