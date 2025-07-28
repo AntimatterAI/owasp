@@ -178,7 +178,7 @@ export default function AdminEventsPage() {
                       <Button 
                         text="Edit" 
                         variant="ghost-dark" 
-                        size="32"
+                        size="40"
                         onClick={() => router.push(`/admin/events/${event.id}/edit`)}
                       />
                       <button
