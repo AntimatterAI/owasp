@@ -1,6 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+
+// Force dynamic rendering for admin pages
+export const dynamic = 'force-dynamic'
 import { useRouter } from 'next/navigation'
 import { adminService } from '@/lib/admin'
 import type { EventFormData } from '@/lib/types'
