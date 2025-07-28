@@ -69,25 +69,25 @@ export default function ASVSProjectPage() {
       <div className="bg-[#ffffff] box-border content-stretch flex flex-col items-start justify-start p-0 relative w-full">
         
         {/* Hero Section */}
-        <div className="flex flex-row h-[560px] items-center justify-center relative w-full">
+        <div className="flex flex-col lg:flex-row min-h-[400px] lg:h-[560px] items-center justify-center relative w-full">
           {/* Left side with ASVS logo */}
-          <div className="flex-1 h-full overflow-hidden relative">
+          <div className="flex-1 h-64 lg:h-full overflow-hidden relative w-full lg:w-auto">
             <div className="absolute inset-0 bg-gradient-to-br from-[#1a237e] via-[#303f9f] to-[#42a5f5]">
               {/* OWASP Logo */}
-              <div className="absolute top-8 left-8 flex items-center gap-2">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                  <div className="w-6 h-6 bg-[#003594] rounded-full"></div>
+              <div className="absolute top-4 lg:top-8 left-4 lg:left-8 flex items-center gap-2">
+                <div className="w-6 h-6 lg:w-8 lg:h-8 bg-white rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 lg:w-6 lg:h-6 bg-[#003594] rounded-full"></div>
                 </div>
-                <span className="text-white font-medium text-sm">OWASP</span>
+                <span className="text-white font-medium text-xs lg:text-sm">OWASP</span>
               </div>
               
               {/* Large ASVS Text */}
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <div className="text-center">
-                  <div className="font-bold text-white text-[120px] leading-[100px] tracking-[-2px] mb-4">
+                  <div className="font-bold text-white text-[60px] sm:text-[80px] lg:text-[100px] xl:text-[120px] leading-tight lg:leading-[100px] tracking-[-1px] lg:tracking-[-2px] mb-2 lg:mb-4">
                     ASVS
                   </div>
-                  <div className="font-medium text-white text-[14px] tracking-[2px] uppercase">
+                  <div className="font-medium text-white text-xs sm:text-sm lg:text-[14px] tracking-[1px] lg:tracking-[2px] uppercase">
                     APPLICATION SECURITY<br/>VERIFICATION STANDARD
                   </div>
                 </div>
@@ -96,30 +96,30 @@ export default function ASVSProjectPage() {
           </div>
           
           {/* Right side with content */}
-          <div className="flex-1 flex flex-col gap-16 h-full items-start justify-center px-16 py-0 bg-[#f8f9fa]">
-            <div className="flex flex-col gap-6 items-start justify-start w-full">
-              <div className="flex flex-col gap-4 items-start justify-start w-full">
+          <div className="flex-1 flex flex-col gap-8 lg:gap-16 h-full items-start justify-center px-4 sm:px-6 lg:px-12 xl:px-16 py-8 lg:py-0 bg-[#f8f9fa]">
+            <div className="flex flex-col gap-4 lg:gap-6 items-start justify-start w-full">
+              <div className="flex flex-col gap-3 lg:gap-4 items-start justify-start w-full">
                 <div className="bg-[#d9e5fa] flex flex-row gap-2 items-center justify-start pl-3 pr-6 py-3 rounded">
-                  <div className="relative size-5">
+                  <div className="relative size-4 lg:size-5">
                     <Image src="/images/icons/flag-icon.svg" alt="Flag" fill className="object-contain" />
                   </div>
-                  <div className="font-medium text-[#003594] text-[14px] text-left text-nowrap leading-[20px]">
+                  <div className="font-medium text-[#003594] text-xs lg:text-[14px] text-left text-nowrap leading-tight lg:leading-[20px]">
                     Flagship Project
                   </div>
                 </div>
-                <div className="font-medium text-[#101820] text-[48px] text-left tracking-[-0.96px] leading-[56px] w-full">
+                <div className="font-medium text-[#101820] text-[28px] sm:text-[36px] lg:text-[40px] xl:text-[48px] text-left tracking-[-0.56px] sm:tracking-[-0.72px] lg:tracking-[-0.8px] xl:tracking-[-0.96px] leading-tight xl:leading-[56px] w-full">
                   OWASP Application Security Verification Standard (ASVS)
                 </div>
               </div>
-              <div className="text-[#757575] text-[16px] text-left tracking-[-0.32px] leading-[24px] w-full">
+              <div className="text-[#757575] text-sm lg:text-[16px] text-left tracking-[-0.28px] lg:tracking-[-0.32px] leading-6 lg:leading-[24px] w-full">
                 The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.
               </div>
             </div>
             <div className="flex flex-row gap-1.5 items-center justify-start">
-              <div className="font-medium text-[#003594] text-[16px] text-left text-nowrap tracking-[-0.32px] leading-[24px]">
+              <div className="font-medium text-[#003594] text-sm lg:text-[16px] text-left text-nowrap tracking-[-0.28px] lg:tracking-[-0.32px] leading-tight lg:leading-[24px]">
                 Read More Details
               </div>
-              <div className="flex h-[20px] items-center justify-center w-[20px]">
+              <div className="flex h-[18px] lg:h-[20px] items-center justify-center w-[18px] lg:w-[20px]">
                 <Image src="/images/icons/chevron.svg" alt="Arrow" width={16} height={16} className="rotate-[-90deg]" />
               </div>
             </div>
@@ -127,47 +127,47 @@ export default function ASVSProjectPage() {
         </div>
 
         {/* About ASVS Section */}
-        <div className="bg-[#f1f6fe] box-border content-stretch flex flex-col gap-16 items-center justify-start px-[120px] py-20 relative w-full">
-          <div className="box-border content-stretch flex flex-col gap-8 items-start justify-start p-0 relative w-full">
-            <div className="font-['Barlow'] font-medium text-[#101820] text-[48px] text-center tracking-[-0.96px] leading-[48px] w-full">
+        <div className="bg-[#f1f6fe] flex flex-col gap-12 lg:gap-16 items-center justify-start px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 relative w-full">
+          <div className="flex flex-col gap-6 lg:gap-8 items-start justify-start relative w-full">
+            <div className="font-['Barlow'] font-medium text-[#101820] text-[28px] sm:text-[36px] lg:text-[40px] xl:text-[48px] text-center tracking-[-0.56px] sm:tracking-[-0.72px] lg:tracking-[-0.8px] xl:tracking-[-0.96px] leading-tight xl:leading-[48px] w-full">
               About ASVS
             </div>
-            <div className="box-border content-stretch flex flex-row gap-8 items-start justify-start p-0 relative w-full">
-              <div className="basis-0 grow min-h-px min-w-px relative text-[16px] leading-[24px]">
-                <p className="font-['Poppins'] text-[#757575] tracking-[-0.32px]">
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start relative w-full">
+              <div className="flex-1 min-h-px min-w-px relative text-sm lg:text-[16px] leading-6 lg:leading-[24px]">
+                <p className="font-['Poppins'] text-[#757575] tracking-[-0.28px] lg:tracking-[-0.32px]">
                   <span>The primary aim of the OWASP Application Security Verification Standard (ASVS) Project is to </span>
-                  <span className="font-['Poppins'] font-medium text-[#003594] tracking-[-0.32px]">
+                  <span className="font-['Poppins'] font-medium text-[#003594] tracking-[-0.28px] lg:tracking-[-0.32px]">
                     normalize the range in the coverage and level of rigor available in the market
                   </span>
                   <span> when it comes to performing Web application security verification using a commercially-workable open standard.</span>
                 </p>
               </div>
-              <div className="basis-0 grow min-h-px min-w-px relative">
-                <p className="font-['Poppins'] text-[#757575] text-[16px] tracking-[-0.32px] leading-[24px]">
+              <div className="flex-1 min-h-px min-w-px relative">
+                <p className="font-['Poppins'] text-[#757575] text-sm lg:text-[16px] tracking-[-0.28px] lg:tracking-[-0.32px] leading-6 lg:leading-[24px]">
                   The standard provides a basis for testing application technical security controls, as well as any technical security controls in the environment, that are relied on to protect against vulnerabilities such as Cross-Site Scripting (XSS) and SQL injection. This standard can be used to establish a level of confidence in the security of Web applications.
                 </p>
               </div>
             </div>
           </div>
           
-          <div className="box-border content-stretch flex flex-row gap-8 items-start justify-start p-0 relative w-full">
-            <div className="basis-0 box-border content-stretch flex flex-col grow items-start justify-between min-h-px min-w-px p-0 relative self-stretch">
-              <div className="font-['Barlow'] font-medium text-[#101820] text-[32px] text-left tracking-[-0.64px] leading-[40px] w-full">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-8 items-start justify-start relative w-full">
+            <div className="flex-1 flex flex-col items-start justify-between min-h-px min-w-px relative self-stretch">
+              <div className="font-['Barlow'] font-medium text-[#101820] text-[24px] sm:text-[28px] lg:text-[32px] text-left tracking-[-0.48px] sm:tracking-[-0.56px] lg:tracking-[-0.64px] leading-tight lg:leading-[40px] w-full">
                 Developed to achieve these objectives:
               </div>
-              <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative w-full">
-                <div className="font-['Poppins'] text-[#757575] text-[14px] text-left leading-[20px] w-full">
+              <div className="flex flex-col gap-2 items-start justify-start relative w-full mt-6 lg:mt-0">
+                <div className="font-['Poppins'] text-[#757575] text-sm leading-tight lg:leading-[20px] w-full">
                   Latest version
                 </div>
-                <div className="box-border content-stretch flex flex-col gap-1 items-start justify-start p-0 relative">
-                  <div className="font-['Poppins'] font-medium text-[#101820] text-[16px] text-left text-nowrap tracking-[-0.32px] leading-[24px]">
+                <div className="flex flex-col gap-1 items-start justify-start relative">
+                  <div className="font-['Poppins'] font-medium text-[#101820] text-sm lg:text-[16px] text-left text-nowrap tracking-[-0.28px] lg:tracking-[-0.32px] leading-tight lg:leading-[24px]">
                     ASVS 5.0.0
                   </div>
-                  <div className="box-border content-stretch flex flex-row gap-1.5 items-center justify-start p-0 relative">
-                    <div className="font-['Poppins'] font-medium text-[#003594] text-[16px] text-left text-nowrap tracking-[-0.32px] leading-[24px]">
+                  <div className="flex flex-row gap-1.5 items-center justify-start relative">
+                    <div className="font-['Poppins'] font-medium text-[#003594] text-sm lg:text-[16px] text-left text-nowrap tracking-[-0.28px] lg:tracking-[-0.32px] leading-tight lg:leading-[24px]">
                       Download
                     </div>
-                    <div className="overflow-clip relative size-5">
+                    <div className="overflow-clip relative size-4 lg:size-5">
                       <Image src="/images/icons/arrow-up-right.svg" alt="Download" fill className="object-contain" />
                     </div>
                   </div>
@@ -175,18 +175,18 @@ export default function ASVSProjectPage() {
               </div>
             </div>
             
-            <div className="basis-0 box-border content-stretch flex flex-col gap-12 grow items-start justify-center min-h-px min-w-px p-0 relative">
+            <div className="flex-1 flex flex-col gap-8 lg:gap-12 items-start justify-center min-h-px min-w-px relative">
               {/* Objective 1 */}
-              <div className="box-border content-stretch flex flex-row gap-2.5 items-center justify-center pb-0 pt-8 px-0 relative w-full border-t border-[#d9e5fa]">
-                <div className="basis-0 box-border content-stretch flex flex-row gap-20 grow items-start justify-start min-h-px min-w-px p-0 relative">
-                  <div className="font-['Barlow'] font-medium text-[#6496ed] text-[24px] text-left tracking-[-0.48px] leading-[32px] w-8">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start justify-center pb-0 pt-6 lg:pt-8 px-0 relative w-full border-t border-[#d9e5fa]">
+                <div className="flex flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start justify-start min-h-px min-w-px relative w-full">
+                  <div className="font-['Barlow'] font-medium text-[#6496ed] text-[20px] lg:text-[24px] text-left tracking-[-0.4px] lg:tracking-[-0.48px] leading-tight lg:leading-[32px] shrink-0">
                     01
                   </div>
-                  <div className="basis-0 box-border content-stretch flex flex-col gap-2 grow items-start justify-start min-h-px min-w-px p-0 relative text-left">
-                    <div className="font-['Barlow'] font-medium text-[#041a41] text-[24px] tracking-[-0.48px] leading-[32px] w-full">
+                  <div className="flex flex-col gap-2 items-start justify-start min-h-px min-w-px relative text-left flex-1">
+                    <div className="font-['Barlow'] font-medium text-[#041a41] text-[20px] lg:text-[24px] tracking-[-0.4px] lg:tracking-[-0.48px] leading-tight lg:leading-[32px] w-full">
                       Use as a metric
                     </div>
-                    <div className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px] w-full">
+                    <div className="font-['Poppins'] text-[#757575] text-sm leading-tight lg:leading-[20px] w-full">
                       Provide application developers and application owners with a yardstick with which to assess the degree of trust that can be placed in their Web applications
                     </div>
                   </div>
@@ -194,16 +194,16 @@ export default function ASVSProjectPage() {
               </div>
               
               {/* Objective 2 */}
-              <div className="box-border content-stretch flex flex-row gap-2.5 items-center justify-center pb-0 pt-8 px-0 relative w-full border-t border-[#d9e5fa]">
-                <div className="basis-0 box-border content-stretch flex flex-row gap-20 grow items-start justify-start min-h-px min-w-px p-0 relative">
-                  <div className="font-['Barlow'] font-medium text-[#6496ed] text-[24px] text-left tracking-[-0.48px] leading-[32px] w-8">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start justify-center pb-0 pt-6 lg:pt-8 px-0 relative w-full border-t border-[#d9e5fa]">
+                <div className="flex flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start justify-start min-h-px min-w-px relative w-full">
+                  <div className="font-['Barlow'] font-medium text-[#6496ed] text-[20px] lg:text-[24px] text-left tracking-[-0.4px] lg:tracking-[-0.48px] leading-tight lg:leading-[32px] shrink-0">
                     02
                   </div>
-                  <div className="basis-0 box-border content-stretch flex flex-col gap-2 grow items-start justify-start min-h-px min-w-px p-0 relative text-left">
-                    <div className="font-['Barlow'] font-medium text-[#041a41] text-[24px] tracking-[-0.48px] leading-[32px] w-full">
+                  <div className="flex flex-col gap-2 items-start justify-start min-h-px min-w-px relative text-left flex-1">
+                    <div className="font-['Barlow'] font-medium text-[#041a41] text-[20px] lg:text-[24px] tracking-[-0.4px] lg:tracking-[-0.48px] leading-tight lg:leading-[32px] w-full">
                       Use as guidance
                     </div>
-                    <div className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px] w-full">
+                    <div className="font-['Poppins'] text-[#757575] text-sm leading-tight lg:leading-[20px] w-full">
                       Provide guidance to security control developers as to what to build into security controls in order to satisfy application security requirements
                     </div>
                   </div>
@@ -211,16 +211,16 @@ export default function ASVSProjectPage() {
               </div>
               
               {/* Objective 3 */}
-              <div className="box-border content-stretch flex flex-row gap-2.5 items-center justify-center pb-0 pt-8 px-0 relative w-full border-t border-[#d9e5fa]">
-                <div className="basis-0 box-border content-stretch flex flex-row gap-20 grow items-start justify-start min-h-px min-w-px p-0 relative">
-                  <div className="font-['Barlow'] font-medium text-[#6496ed] text-[24px] text-left tracking-[-0.48px] leading-[32px] w-8">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start justify-center pb-0 pt-6 lg:pt-8 px-0 relative w-full border-t border-[#d9e5fa]">
+                <div className="flex flex-row gap-4 sm:gap-6 lg:gap-8 xl:gap-20 items-start justify-start min-h-px min-w-px relative w-full">
+                  <div className="font-['Barlow'] font-medium text-[#6496ed] text-[20px] lg:text-[24px] text-left tracking-[-0.4px] lg:tracking-[-0.48px] leading-tight lg:leading-[32px] shrink-0">
                     03
                   </div>
-                  <div className="basis-0 box-border content-stretch flex flex-col gap-2 grow items-start justify-start min-h-px min-w-px p-0 relative text-left">
-                    <div className="font-['Barlow'] font-medium text-[#041a41] text-[24px] tracking-[-0.48px] leading-[32px] w-full">
+                  <div className="flex flex-col gap-2 items-start justify-start min-h-px min-w-px relative text-left flex-1">
+                    <div className="font-['Barlow'] font-medium text-[#041a41] text-[20px] lg:text-[24px] tracking-[-0.4px] lg:tracking-[-0.48px] leading-tight lg:leading-[32px] w-full">
                       Use during procurement
                     </div>
-                    <div className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px] w-full">
+                    <div className="font-['Poppins'] text-[#757575] text-sm leading-tight lg:leading-[20px] w-full">
                       Provide a basis for specifying application security verification requirements in contracts.
                     </div>
                   </div>
@@ -231,12 +231,12 @@ export default function ASVSProjectPage() {
         </div>
 
         {/* How to Reference ASVS Requirements */}
-        <div className="bg-[#ffffff] box-border content-stretch flex flex-row gap-16 items-start justify-center px-[120px] py-20 relative w-full">
-          <div className="basis-0 font-['Barlow'] font-medium grow min-h-px min-w-px text-[#101820] text-[56px] text-left tracking-[-1.12px] leading-[56px]">
+        <div className="bg-[#ffffff] flex flex-col lg:flex-row gap-8 lg:gap-16 items-start justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 relative w-full">
+          <div className="flex-1 font-['Barlow'] font-medium min-h-px min-w-px text-[#101820] text-[28px] sm:text-[36px] lg:text-[48px] xl:text-[56px] text-left tracking-[-0.56px] sm:tracking-[-0.72px] lg:tracking-[-0.96px] xl:tracking-[-1.12px] leading-tight xl:leading-[56px]">
             How to Reference ASVS Requirements
           </div>
-          <div className="bg-[#ffffff] box-border content-stretch flex flex-col gap-8 items-center justify-center p-[40px] relative w-[640px] border border-[#d7d7d7]">
-            <div className="font-['Poppins'] text-[#757575] text-[16px] text-left tracking-[-0.32px] leading-[24px] w-full">
+          <div className="bg-[#ffffff] flex flex-col gap-6 lg:gap-8 items-center justify-center p-6 lg:p-[40px] relative w-full lg:w-[640px] border border-[#d7d7d7]">
+            <div className="font-['Poppins'] text-[#757575] text-sm lg:text-[16px] text-left tracking-[-0.28px] lg:tracking-[-0.32px] leading-6 lg:leading-[24px] w-full">
               <p className="mb-4">
                 Each requirement has an identifier in the format <span className="font-['Consolas'] font-bold text-[#101820]">&lt;chapter&gt;.&lt;section&gt;.&lt;requirement&gt;</span>, where each element is a number. For example, <span className="font-['Consolas'] font-bold text-[#101820]">1.11.3</span>.
               </p>
@@ -249,7 +249,7 @@ export default function ASVSProjectPage() {
                 Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding.
               </p>
             </div>
-            <div className="font-['Poppins'] text-[#757575] text-[16px] text-left tracking-[-0.32px] leading-[24px] w-full">
+            <div className="font-['Poppins'] text-[#757575] text-sm lg:text-[16px] text-left tracking-[-0.28px] lg:tracking-[-0.32px] leading-6 lg:leading-[24px] w-full">
               <p className="mb-4">
                 Since the identifiers may change between versions of the standard, it is preferable for other documents, reports, or tools to use the following format: <span className="font-['Consolas'] font-bold text-[#101820]">v&lt;version&gt;-&lt;chapter&gt;.&lt;section&gt;.&lt;requirement&gt;</span>, where: 'version' is the ASVS version tag. For example: <span className="font-['Consolas'] font-bold text-[#101820]">v5.0.0-1.2.5</span> would be understood to mean specifically the 5th requirement in the 'Injection Prevention' section of the 'Encoding and Sanitization' chapter from version 5.0.0.
               </p>
@@ -267,35 +267,35 @@ export default function ASVSProjectPage() {
         </div>
 
         {/* Meet the ASVS Section */}
-        <div className="bg-[#f1f6fe] box-border content-stretch flex flex-col gap-16 items-center justify-start px-[120px] py-20 relative w-full">
-          <div className="box-border content-stretch flex flex-row items-end justify-between p-0 relative w-full">
-            <div className="font-['Barlow'] font-medium text-[#101820] text-[56px] text-center text-nowrap tracking-[-1.12px] leading-[56px]">
+        <div className="bg-[#f1f6fe] flex flex-col gap-12 lg:gap-16 items-center justify-start px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 relative w-full">
+          <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 lg:gap-0 relative w-full">
+            <div className="font-['Barlow'] font-medium text-[#101820] text-[28px] sm:text-[36px] lg:text-[48px] xl:text-[56px] text-center lg:text-left text-nowrap tracking-[-0.56px] sm:tracking-[-0.72px] lg:tracking-[-0.96px] xl:tracking-[-1.12px] leading-tight xl:leading-[56px]">
               Meet the ASVS
             </div>
-            <div className="box-border content-stretch flex flex-row gap-10 h-14 items-center justify-center px-8 py-0 relative">
+            <div className="flex flex-row gap-6 lg:gap-10 h-12 lg:h-14 items-center justify-center px-6 lg:px-8 py-0 relative w-full lg:w-auto">
               <Button text="View Full Agenda" type="Ghost Dark" size="56" />
             </div>
           </div>
-          <div className="bg-[#ffffff] box-border content-stretch flex flex-col items-start justify-start overflow-clip p-0 relative shadow-[0px_12px_32px_-6px_rgba(0,0,0,0.1)] w-full">
+          <div className="bg-[#ffffff] flex flex-col items-start justify-start overflow-clip relative shadow-[0px_12px_32px_-6px_rgba(0,0,0,0.1)] w-full">
             <div className="aspect-[1200/335] bg-center bg-cover bg-no-repeat w-full bg-gradient-to-r from-[#003594] to-[#6496ed]" />
-            <div className="box-border content-stretch flex flex-col gap-8 items-start justify-start p-[48px] relative w-full border-[#d7d7d7] border-[0px_1px_1px]">
+            <div className="flex flex-col gap-6 lg:gap-8 items-start justify-start p-6 lg:p-[48px] relative w-full border-[#d7d7d7] border-[0px_1px_1px]">
               
               {/* Project Update */}
-              <div className="box-border content-stretch flex flex-row gap-16 items-center justify-start p-0 relative w-full">
-                <div className="box-border content-stretch flex flex-row gap-4 items-start justify-start p-0 relative">
-                  <div className="box-border content-stretch flex flex-col gap-3 items-center justify-start p-0 relative w-40">
-                    <div className="overflow-clip relative rounded-[120px] size-24">
-                      <div className="absolute bg-center bg-cover bg-no-repeat h-[108px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-[109px] bg-gray-300" style={{ top: "calc(50% - 0.147px)" }} />
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center justify-start relative w-full">
+                <div className="flex flex-col sm:flex-row gap-4 items-start justify-start relative">
+                  <div className="flex flex-col gap-3 items-center justify-start w-32 lg:w-40">
+                    <div className="overflow-clip relative rounded-[120px] size-20 lg:size-24">
+                      <div className="absolute bg-center bg-cover bg-no-repeat h-[96px] lg:h-[108px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-[97px] lg:w-[109px] bg-gray-300" style={{ top: "calc(50% - 0.147px)" }} />
                     </div>
-                    <div className="font-['Barlow'] font-medium text-[#101820] text-[20px] text-center tracking-[-0.4px] leading-[24px] w-full">
+                    <div className="font-['Barlow'] font-medium text-[#101820] text-lg lg:text-[20px] text-center tracking-[-0.36px] lg:tracking-[-0.4px] leading-tight lg:leading-[24px] w-full">
                       Shanni Prutchi
                     </div>
                   </div>
-                  <div className="box-border content-stretch flex flex-col gap-3 items-center justify-start p-0 relative w-40">
-                    <div className="overflow-clip relative rounded-[120px] size-24">
-                      <div className="absolute bg-center bg-cover bg-no-repeat h-[115px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-[113px] bg-gray-300" style={{ top: "calc(50% - 0.196px)" }} />
+                  <div className="flex flex-col gap-3 items-center justify-start w-32 lg:w-40">
+                    <div className="overflow-clip relative rounded-[120px] size-20 lg:size-24">
+                      <div className="absolute bg-center bg-cover bg-no-repeat h-[103px] lg:h-[115px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-[101px] lg:w-[113px] bg-gray-300" style={{ top: "calc(50% - 0.196px)" }} />
                     </div>
-                    <div className="font-['Barlow'] font-medium text-[#101820] text-[20px] text-center tracking-[-0.4px] leading-[24px] w-full">
+                    <div className="font-['Barlow'] font-medium text-[#101820] text-lg lg:text-[20px] text-center tracking-[-0.36px] lg:tracking-[-0.4px] leading-tight lg:leading-[24px] w-full">
                       Ryan Armstrong
                     </div>
                   </div>

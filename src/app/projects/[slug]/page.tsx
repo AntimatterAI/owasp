@@ -203,34 +203,36 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
       
       {/* Hero Section */}
       <div className="bg-[#101820] relative">
-        <div className="max-w-[1440px] mx-auto px-[120px] py-24">
-          <div className="flex flex-col lg:flex-row gap-12 items-start">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-24">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
             <div className="flex-1">
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-4 lg:mb-6">
                 <Link href="/projects" className="text-[#ffb81b] hover:text-[#ffa000] transition-colors text-sm">
                   ← Back to Projects
                 </Link>
-                <span className={`px-3 py-1 rounded-full text-sm font-semibold ${statusColors[project.status]}`}>
-                  {project.status}
-                </span>
-                <span className="px-3 py-1 bg-white/10 text-white rounded-full text-sm">
-                  {project.category}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className={`px-3 py-1 rounded-full text-xs sm:text-sm font-semibold ${statusColors[project.status]}`}>
+                    {project.status}
+                  </span>
+                  <span className="px-3 py-1 bg-white/10 text-white rounded-full text-xs sm:text-sm">
+                    {project.category}
+                  </span>
+                </div>
               </div>
               
-              <h1 className={`font-['Barlow'] font-medium text-white mb-6 ${
+              <h1 className={`font-['Barlow'] font-medium text-white mb-4 lg:mb-6 ${
                 project.slug === 'owasp-application-security-verification-standard-asvs' 
-                  ? 'text-[48px] leading-[56px] tracking-[-0.96px]' 
-                  : 'text-[56px] leading-[56px] tracking-[-1.12px]'
+                  ? 'text-[28px] sm:text-[36px] lg:text-[40px] xl:text-[48px] leading-tight xl:leading-[56px] tracking-[-0.56px] sm:tracking-[-0.72px] lg:tracking-[-0.8px] xl:tracking-[-0.96px]' 
+                  : 'text-[32px] sm:text-[40px] lg:text-[48px] xl:text-[56px] leading-tight xl:leading-[56px] tracking-[-0.64px] sm:tracking-[-0.8px] lg:tracking-[-0.96px] xl:tracking-[-1.12px]'
               }`}>
                 {project.title}
               </h1>
               
-              <p className="font-['Poppins'] text-[#f4f4f4] text-lg leading-7 mb-8">
+              <p className="font-['Poppins'] text-[#f4f4f4] text-sm sm:text-base lg:text-lg leading-6 lg:leading-7 mb-6 lg:mb-8">
                 {project.longDescription}
               </p>
               
-              <div className="flex gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 lg:mb-8">
                 {project.websiteUrl && (
                   <Button text="Visit Project" variant="light-blue" size="56" />
                 )}
@@ -243,36 +245,36 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
               </div>
               
               {/* Quick Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
                 {project.version && (
                   <div>
-                    <div className="text-[#ffb81b] text-2xl font-bold">{project.version}</div>
-                    <div className="text-white/70 text-sm">Latest Version</div>
+                    <div className="text-[#ffb81b] text-lg sm:text-xl lg:text-2xl font-bold">{project.version}</div>
+                    <div className="text-white/70 text-xs sm:text-sm">Latest Version</div>
                   </div>
                 )}
                 {project.downloads && (
                   <div>
-                    <div className="text-[#ffb81b] text-2xl font-bold">{project.downloads}</div>
-                    <div className="text-white/70 text-sm">Downloads</div>
+                    <div className="text-[#ffb81b] text-lg sm:text-xl lg:text-2xl font-bold">{project.downloads}</div>
+                    <div className="text-white/70 text-xs sm:text-sm">Downloads</div>
                   </div>
                 )}
                 {project.contributors && (
                   <div>
-                    <div className="text-[#ffb81b] text-2xl font-bold">{project.contributors}</div>
-                    <div className="text-white/70 text-sm">Contributors</div>
+                    <div className="text-[#ffb81b] text-lg sm:text-xl lg:text-2xl font-bold">{project.contributors}</div>
+                    <div className="text-white/70 text-xs sm:text-sm">Contributors</div>
                   </div>
                 )}
                 {project.lastUpdate && (
                   <div>
-                    <div className="text-[#ffb81b] text-2xl font-bold">{new Date(project.lastUpdate).toLocaleDateString()}</div>
-                    <div className="text-white/70 text-sm">Last Update</div>
+                    <div className="text-[#ffb81b] text-lg sm:text-xl lg:text-2xl font-bold">{new Date(project.lastUpdate).toLocaleDateString()}</div>
+                    <div className="text-white/70 text-xs sm:text-sm">Last Update</div>
                   </div>
                 )}
               </div>
             </div>
             
             <div className="w-full lg:w-1/3">
-              <div className="relative h-80 rounded-lg overflow-hidden">
+              <div className="relative h-64 lg:h-80 rounded-lg overflow-hidden">
                 <Image src={project.image} alt={project.title} fill className="object-cover" />
               </div>
             </div>
@@ -281,18 +283,18 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
       </div>
 
       {/* Content Sections */}
-      <div className="max-w-[1440px] mx-auto px-[120px] py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-12">
+          <div className="lg:col-span-2 space-y-8 lg:space-y-12">
             
             {/* Features */}
             <div>
-              <h2 className="font-['Barlow'] font-medium text-[32px] text-[#101820] mb-6">
+              <h2 className="font-['Barlow'] font-medium text-[24px] sm:text-[28px] lg:text-[32px] text-[#101820] mb-4 lg:mb-6">
                 Key Features
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 {project.features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm">
                     <Image src="/images/icons/check.svg" alt="" width={20} height={20} className="mt-0.5 shrink-0" />
@@ -304,13 +306,13 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             
             {/* Getting Started */}
             <div>
-              <h2 className="font-['Barlow'] font-medium text-[32px] text-[#101820] mb-6">
+              <h2 className="font-['Barlow'] font-medium text-[24px] sm:text-[28px] lg:text-[32px] text-[#101820] mb-4 lg:mb-6">
                 Getting Started
               </h2>
               <div className="space-y-4">
                 {project.gettingStarted.map((step, index) => (
                   <div key={index} className="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm">
-                    <div className="w-8 h-8 bg-[#003594] text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">
+                    <div className="w-7 h-7 lg:w-8 lg:h-8 bg-[#003594] text-white rounded-full flex items-center justify-center text-xs lg:text-sm font-bold shrink-0">
                       {index + 1}
                     </div>
                     <span className="font-['Poppins'] text-[#757575] text-sm">{step}</span>
@@ -321,11 +323,11 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </div>
           
           {/* Sidebar */}
-          <div className="space-y-8">
+          <div className="space-y-6 lg:space-y-8">
             
             {/* Requirements */}
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-['Barlow'] font-medium text-[20px] text-[#101820] mb-4">
+            <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm">
+              <h3 className="font-['Barlow'] font-medium text-lg lg:text-[20px] text-[#101820] mb-3 lg:mb-4">
                 Requirements
               </h3>
               <ul className="space-y-2">
@@ -339,8 +341,8 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             </div>
             
             {/* Quick Links */}
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-['Barlow'] font-medium text-[20px] text-[#101820] mb-4">
+            <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm">
+              <h3 className="font-['Barlow'] font-medium text-lg lg:text-[20px] text-[#101820] mb-3 lg:mb-4">
                 Quick Links
               </h3>
               <div className="space-y-3">
@@ -363,8 +365,8 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             </div>
             
             {/* Contribute */}
-            <div className="bg-[#f8f9fa] p-6 rounded-lg">
-              <h3 className="font-['Barlow'] font-medium text-[20px] text-[#101820] mb-4">
+            <div className="bg-[#f8f9fa] p-4 lg:p-6 rounded-lg">
+              <h3 className="font-['Barlow'] font-medium text-lg lg:text-[20px] text-[#101820] mb-3 lg:mb-4">
                 Get Involved
               </h3>
               <p className="font-['Poppins'] text-[#757575] text-sm mb-4">
