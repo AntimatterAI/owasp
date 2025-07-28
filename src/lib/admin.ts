@@ -1,9 +1,9 @@
-import { createServerComponentClient } from './supabase'
+import { createClientComponentClient } from './supabase'
 import type { Event, EventFormData } from './types'
 
 export class AdminService {
   private getSupabase() {
-    return createServerComponentClient()
+    return createClientComponentClient()
   }
 
   // Events CRUD operations
