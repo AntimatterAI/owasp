@@ -80,17 +80,17 @@ export default function EditEventPage() {
         
         {/* Admin Navigation */}
         <div className="bg-[#003594]">
-          <div className="max-w-[1440px] mx-auto px-[120px] py-4">
-            <div className="flex justify-between items-center">
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-4">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0">
               <div className="flex items-center">
                 <button 
                   onClick={() => router.push('/admin/events')}
-                  className="text-white hover:text-[#ffb81b] mr-6 font-['Poppins'] text-[14px] flex items-center gap-2"
+                  className="text-white hover:text-[#ffb81b] mr-4 sm:mr-6 font-['Poppins'] text-sm flex items-center gap-2"
                 >
                   <Image src="/images/icons/chevron.svg" alt="" width={16} height={16} className="rotate-180 filter brightness-0 invert" />
                   Back to Events
                 </button>
-                <h1 className="font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+                <h1 className="font-['Barlow'] font-medium text-white text-lg sm:text-[20px] leading-tight tracking-[-0.4px]">
                   Edit Event
                 </h1>
               </div>
@@ -100,20 +100,20 @@ export default function EditEventPage() {
 
         {/* Error Content */}
         <div className="bg-[#F1F6FE]">
-          <div className="max-w-[1440px] mx-auto px-[120px] pt-20 pb-[164px]">
-            <div className="flex flex-col items-center justify-center text-center py-16">
-              <div className="mb-8">
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] pt-12 sm:pt-16 lg:pt-20 pb-20 sm:pb-32 lg:pb-[164px]">
+            <div className="flex flex-col items-center justify-center text-center py-12 sm:py-16">
+              <div className="mb-6 sm:mb-8">
                 <Image src="/images/icons/alert-circle.svg" alt="" width={64} height={64} className="mx-auto opacity-40" />
               </div>
-              <h3 className="font-['Barlow'] font-medium text-[#101820] text-[24px] leading-[28px] tracking-[-0.48px] mb-2">
+              <h3 className="font-['Barlow'] font-medium text-[#101820] text-lg sm:text-xl lg:text-[24px] leading-tight lg:leading-[28px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] mb-2">
                 Error Loading Event
               </h3>
-              <p className="font-['Poppins'] text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px] mb-8 max-w-md">
+              <p className="font-['Poppins'] text-[#757575] text-sm sm:text-base leading-6 tracking-[-0.28px] sm:tracking-[-0.32px] mb-6 sm:mb-8 max-w-md">
                 {error}
               </p>
               <button 
                 onClick={() => router.push('/admin/events')}
-                className="font-['Poppins'] text-[#003594] hover:text-[#002266] text-[14px] flex items-center gap-2"
+                className="font-['Poppins'] text-[#003594] hover:text-[#002266] text-sm flex items-center gap-2"
               >
                 <Image src="/images/icons/chevron.svg" alt="" width={16} height={16} className="rotate-180" />
                 Return to Events
@@ -133,17 +133,17 @@ export default function EditEventPage() {
       
       {/* Admin Navigation */}
       <div className="bg-[#003594]">
-        <div className="max-w-[1440px] mx-auto px-[120px] py-4">
-          <div className="flex justify-between items-center">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-4">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0">
             <div className="flex items-center">
               <button 
                 onClick={() => router.push('/admin/events')}
-                className="text-white hover:text-[#ffb81b] mr-6 font-['Poppins'] text-[14px] flex items-center gap-2"
+                className="text-white hover:text-[#ffb81b] mr-4 sm:mr-6 font-['Poppins'] text-sm flex items-center gap-2"
               >
                 <Image src="/images/icons/chevron.svg" alt="" width={16} height={16} className="rotate-180 filter brightness-0 invert" />
                 Back to Events
               </button>
-              <h1 className="font-['Barlow'] font-medium text-white text-[20px] leading-[24px] tracking-[-0.4px]">
+              <h1 className="font-['Barlow'] font-medium text-white text-lg sm:text-[20px] leading-tight tracking-[-0.4px]">
                 Edit Event: {event?.title}
               </h1>
             </div>
@@ -153,32 +153,32 @@ export default function EditEventPage() {
 
       {/* Form Content */}
       <div className="bg-[#F1F6FE]">
-        <div className="max-w-[1440px] mx-auto px-[120px] pt-20 pb-[164px]">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] pt-12 sm:pt-16 lg:pt-20 pb-20 sm:pb-32 lg:pb-[164px]">
           {error && (
-            <div className="mb-8 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-sm">
+            <div className="mb-6 sm:mb-8 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-sm">
               {error}
             </div>
           )}
 
-          <div className="flex flex-col gap-16 items-center justify-center w-full">
-            <div className="flex flex-col gap-8 items-center justify-start w-full">
+          <div className="flex flex-col gap-12 lg:gap-16 items-center justify-center w-full">
+            <div className="flex flex-col gap-6 lg:gap-8 items-center justify-start w-full">
               <div className="flex flex-col gap-2 items-start justify-start w-full">
-                <div className="font-['Poppins'] font-semibold text-[#00A7E1] text-[16px] leading-[24px] tracking-[-0.32px]">
+                <div className="font-['Poppins'] font-semibold text-[#00A7E1] text-sm sm:text-base leading-6 tracking-[-0.32px]">
                   Admin Dashboard
                 </div>
-                <h1 className="font-['Barlow'] font-medium text-[#101820] text-[64px] leading-[64px] tracking-[-1.28px] max-w-[1200px]">
+                <h1 className="font-['Barlow'] font-medium text-[#101820] text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-tight xl:leading-[64px] tracking-[-0.64px] sm:tracking-[-0.8px] lg:tracking-[-1.12px] xl:tracking-[-1.28px] max-w-[1200px]">
                   Edit Event
                 </h1>
               </div>
-              <div className="flex flex-row gap-20 items-start justify-start w-full">
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start justify-start w-full">
                 <div className="flex-1 min-w-0">
-                  <p className="font-['Poppins'] font-normal text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                  <p className="font-['Poppins'] font-normal text-[#757575] text-sm sm:text-base leading-6 tracking-[-0.28px] sm:tracking-[-0.32px]">
                     Make changes to the event details below. All fields marked with an asterisk (*) are required. 
                     Your changes will take effect immediately after saving.
                   </p>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-['Poppins'] font-normal text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px]">
+                  <p className="font-['Poppins'] font-normal text-[#757575] text-sm sm:text-base leading-6 tracking-[-0.28px] sm:tracking-[-0.32px]">
                     Updating the status to "Published" will make the event visible on the public events page. 
                     Use "Draft" to save changes without publishing.
                   </p>
