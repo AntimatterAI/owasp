@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useMemo } from 'react';
+import MegaMenu from './MegaMenu';
 
 // Local images
 const logo = "/images/logos/owasp-logo.svg";
@@ -75,6 +76,8 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedResult, setSelectedResult] = useState(-1);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [megaMenuOpen, setMegaMenuOpen] = useState<string | null>(null);
+  const [megaMenuTimeout, setMegaMenuTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const navigationItems: NavigationItem[] = [
     { href: '/', label: 'Home' },
@@ -83,6 +86,50 @@ export default function Header() {
     { href: '/events', label: 'Events' },
     { href: '/about', label: 'About' },
   ];
+
+  // Mega menu handlers
+  const handleMegaMenuEnter = (menuType: string) => {
+    // Clear any existing timeout
+    if (megaMenuTimeout) {
+      clearTimeout(megaMenuTimeout);
+      setMegaMenuTimeout(null);
+    }
+    // Set the menu open
+    setMegaMenuOpen(menuType);
+  };
+
+  const handleMegaMenuLeave = () => {
+    // Set timeout to close menu
+    const timeout = setTimeout(() => {
+      setMegaMenuOpen(null);
+    }, 150);
+    setMegaMenuTimeout(timeout);
+  };
+
+  const handleNavItemEnter = (menuType: string | null) => {
+    // Clear any existing timeout
+    if (megaMenuTimeout) {
+      clearTimeout(megaMenuTimeout);
+      setMegaMenuTimeout(null);
+    }
+    // Set the menu (null for items without mega menu)
+    setMegaMenuOpen(menuType);
+  };
+
+
+
+  const closeMegaMenu = () => {
+    setMegaMenuOpen(null);
+    if (megaMenuTimeout) {
+      clearTimeout(megaMenuTimeout);
+      setMegaMenuTimeout(null);
+    }
+  };
+
+  // Close mega menu when route changes
+  useEffect(() => {
+    closeMegaMenu();
+  }, [pathname]);
 
   const isActiveTab = (href: string) => {
     // Special case for home page - only match exact path
@@ -184,8 +231,8 @@ export default function Header() {
   };
 
   return (
-    <header className="backdrop-blur-[5px] backdrop-filter bg-[#101820]/95 h-20 sticky top-0 w-full z-50 border-b border-white/10 shadow-sm">
-      <div className="flex flex-row items-center h-full">
+    <header className="backdrop-blur-[5px] backdrop-filter bg-[#101820]/95 sticky top-0 w-full z-50 border-b border-white/10 shadow-sm">
+      <div className="flex flex-row items-center h-20">
         <div className="box-border flex flex-row h-20 items-center justify-between px-4 sm:px-8 lg:px-16 py-0 relative w-full max-w-[1440px] mx-auto">
           
           {/* Logo */}
@@ -194,10 +241,17 @@ export default function Header() {
           </Link>
           
           {/* Main Navigation - Hidden on Mobile */}
-          <nav className="hidden lg:flex absolute box-border flex-row items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="flex flex-row items-center bg-white/5 rounded-lg p-1 backdrop-blur-sm border border-white/10">
+          <div 
+            className="hidden lg:flex absolute box-border flex-row items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            onMouseLeave={handleMegaMenuLeave}
+          >
+            <nav className="flex flex-row items-center bg-white/5 rounded-lg p-1 backdrop-blur-sm border border-white/10">
               {navigationItems.map((item) => {
                 const isActive = isActiveTab(item.href);
+                const hasMegaMenu = ['projects', 'chapters', 'events', 'about'].includes(item.label.toLowerCase());
+                const menuType = hasMegaMenu ? (item.label.toLowerCase() as 'projects' | 'chapters' | 'events' | 'about') : null;
+                const isMenuOpen = megaMenuOpen === menuType;
+                
                 return (
                   <Link
                     key={item.href}
@@ -205,22 +259,40 @@ export default function Header() {
                     className={`
                       relative flex flex-row items-center justify-center px-4 py-2 h-10
                       rounded-md transition-all duration-300 group
-                      ${isActive 
+                      ${isActive || isMenuOpen
                         ? 'bg-[#003594] text-white shadow-lg shadow-[#003594]/20' 
                         : 'text-white/80 hover:text-white hover:bg-white/10'
                       }
                     `}
+                    onMouseEnter={() => handleNavItemEnter(menuType)}
                   >
-                    <span className="font-['Poppins'] text-sm font-medium relative">
+                    <span className="font-['Poppins'] text-sm font-medium relative flex items-center gap-1">
                       {item.label}
-                      {isActive && (
+                      {hasMegaMenu && (
+                        <svg 
+                          width="12" 
+                          height="12" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          className={`transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`}
+                        >
+                          <path 
+                            d="M6 9l6 6 6-6" 
+                            stroke="currentColor" 
+                            strokeWidth="2" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
+                      {(isActive || isMenuOpen) && (
                         <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#00A7E1] rounded-full" />
                       )}
                     </span>
                   </Link>
                 );
               })}
-            </div>
+            </nav>
             
             {/* Search - Hidden on Mobile */}
             <div className="ml-6 relative">
@@ -242,7 +314,18 @@ export default function Header() {
                 </button>
               </div>
             </div>
-          </nav>
+
+            {/* Mega Menu - Positioned within navigation container */}
+            {megaMenuOpen && (
+              <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-screen">
+                <MegaMenu
+                  isOpen={!!megaMenuOpen}
+                  onClose={closeMegaMenu}
+                  menuType={megaMenuOpen as 'projects' | 'chapters' | 'events' | 'about'}
+                />
+              </div>
+            )}
+          </div>
           
           {/* Action Buttons and Mobile Menu */}
           <div className="box-border flex flex-row gap-3 items-center justify-start p-0 relative shrink-0">
