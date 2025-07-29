@@ -45,85 +45,92 @@ export default function Footer() {
 
       {/* Main Footer Section */}
       <div className="bg-[#101820] box-border content-stretch flex flex-col gap-8 lg:gap-12 xl:gap-16 items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-8 sm:py-10 lg:py-12 xl:py-16 relative shrink-0 w-full">
-        <div className="box-border content-stretch flex flex-col lg:flex-row gap-8 lg:gap-12 items-start justify-start p-0 relative shrink-0 w-full max-w-[1440px]">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start justify-start w-full max-w-[1440px]">
           
           {/* OWASP Logo and Description */}
-          <div className="bg-[#151515] box-border content-stretch flex flex-col items-start justify-between p-6 sm:p-8 relative shrink-0 w-full lg:w-[480px] min-h-[280px] lg:h-[360px]">
-            <div className="h-12 sm:h-14 lg:h-16 relative shrink-0 w-[160px] sm:w-[186px] lg:w-[213px]">
+          <div className="bg-[#151515] flex flex-col items-start justify-between p-6 sm:p-8 w-full lg:w-[480px] min-h-[200px] lg:min-h-[300px]">
+            <div className="h-12 sm:h-14 lg:h-16 w-[160px] sm:w-[186px] lg:w-[213px] mb-4 lg:mb-0">
               <Image src="/images/logos/owasp-logo-footer.svg" alt="OWASP Logo" width={213} height={64} className="block max-w-none size-full" />
             </div>
-            <div className="font-['Poppins'] text-[#ffffff] text-[13px] sm:text-[14px] leading-[18px] sm:leading-[20px] mt-4 lg:mt-0">
+            <div className="font-['Poppins'] text-[#ffffff] text-[13px] sm:text-[14px] leading-[18px] sm:leading-[20px]">
               OWASP is a nonprofit foundation improving software security through open-source projects, global communities, and education. All resources are free and open to everyone.
             </div>
           </div>
 
-          {/* Links and Actions */}
-          <div className="basis-0 box-border content-stretch flex flex-col grow items-start justify-between min-h-px min-w-px p-0 relative self-stretch shrink-0">
-            <div className="box-border content-stretch flex flex-col sm:flex-row gap-6 sm:gap-4 items-start justify-start p-0 relative shrink-0 w-full">
+          {/* Links Section */}
+          <div className="flex flex-col gap-8 w-full lg:flex-1">
+            {/* Navigation Links */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 w-full">
               
-              {/* Quick Links Column 1 */}
-              <div className="basis-0 box-border content-stretch flex flex-col gap-4 sm:gap-6 grow items-start justify-center min-h-px min-w-px p-0 relative shrink-0">
+              {/* Quick Links Column */}
+              <div className="flex flex-col gap-4">
                 <div className="font-['Poppins'] text-[14px] sm:text-[16px] text-[rgba(244,244,244,0.5)] tracking-[-0.28px] sm:tracking-[-0.32px] leading-[20px] sm:leading-[24px]">
                   Quick Links
                 </div>
-                <Link href="/projects" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  Projects
-                </Link>
-                <Link href="/chapters" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  Chapters
-                </Link>
-                <Link href="/events" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  Events
-                </Link>
-                <Link href="/about" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  About
-                </Link>
-                <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  Visit Store
-                </a>
+                <div className="flex flex-col gap-3">
+                  <Link href="/projects" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    Projects
+                  </Link>
+                  <Link href="/chapters" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    Chapters
+                  </Link>
+                  <Link href="/events" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    Events
+                  </Link>
+                  <Link href="/about" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    About
+                  </Link>
+                  <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    Visit Store
+                  </a>
+                </div>
               </div>
 
-              {/* Quick Links Column 2 */}
-              <div className="basis-0 box-border content-stretch flex flex-col gap-4 sm:gap-6 grow items-start justify-center min-h-px min-w-px p-0 relative shrink-0">
+              {/* Legal Column */}
+              <div className="flex flex-col gap-4">
                 <div className="font-['Poppins'] text-[14px] sm:text-[16px] text-[rgba(244,244,244,0.5)] tracking-[-0.28px] sm:tracking-[-0.32px] leading-[20px] sm:leading-[24px]">
                   Legal
                 </div>
-                <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  Privacy
-                </a>
-                <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  Sitemap
-                </a>
-                <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  Contact
-                </a>
+                <div className="flex flex-col gap-3">
+                  <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    Privacy
+                  </a>
+                  <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    Sitemap
+                  </a>
+                  <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    Contact
+                  </a>
+                </div>
               </div>
 
               {/* Socials Column */}
-              <div className="basis-0 box-border content-stretch flex flex-col gap-4 sm:gap-6 grow items-start justify-center min-h-px min-w-px p-0 relative shrink-0">
+              <div className="flex flex-col gap-4">
                 <div className="font-['Poppins'] text-[14px] sm:text-[16px] text-[rgba(244,244,244,0.5)] tracking-[-0.28px] sm:tracking-[-0.32px] leading-[20px] sm:leading-[24px]">
                   Socials
                 </div>
-                <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  LinkedIn
-                </a>
-                <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  GitHub
-                </a>
-                <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  X (Twitter)
-                </a>
-                <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  Facebook
-                </a>
-                <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[18px] sm:text-[20px] lg:text-[24px] tracking-[-0.36px] sm:tracking-[-0.4px] lg:tracking-[-0.48px] leading-[24px] sm:leading-[28px] lg:leading-[32px] cursor-pointer hover:text-[#ffb81b] transition-colors">
-                  YouTube
-                </a>
+                <div className="flex flex-col gap-3">
+                  <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    LinkedIn
+                  </a>
+                  <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    GitHub
+                  </a>
+                  <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    X (Twitter)
+                  </a>
+                  <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    Facebook
+                  </a>
+                  <a href="#" className="font-['Barlow'] font-medium text-[#ffffff] text-[16px] sm:text-[18px] lg:text-[20px] tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[22px] sm:leading-[24px] lg:leading-[26px] hover:text-[#ffb81b] transition-colors">
+                    YouTube
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="box-border content-stretch flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-start p-0 relative shrink-0 mt-6 lg:mt-0 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
               <button className="bg-[#ffb81b] h-10 sm:h-12 px-4 sm:px-6 font-['Poppins'] font-semibold text-[#101820] text-[12px] sm:text-[14px] tracking-[-0.24px] sm:tracking-[-0.28px] leading-[18px] sm:leading-[20px] hover:bg-[#ffc947] transition-colors rounded-sm w-full sm:w-auto">
                 Make a Donation
               </button>
@@ -135,11 +142,11 @@ export default function Footer() {
         </div>
 
         {/* Copyright Section */}
-        <div className="box-border content-stretch flex flex-col lg:flex-row gap-4 lg:gap-16 items-start lg:items-end justify-center p-0 relative shrink-0 text-[#d7d7d7] text-[10px] sm:text-[11px] lg:text-[12px] tracking-[-0.2px] sm:tracking-[-0.22px] lg:tracking-[-0.24px] w-full max-w-[1440px]">
-          <div className="basis-0 grow min-h-px min-w-px relative shrink-0 font-['Poppins'] leading-[14px] sm:leading-[15px] lg:leading-[16px] order-2 lg:order-1">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-16 items-start lg:items-end justify-between w-full max-w-[1440px] text-[#d7d7d7] text-[10px] sm:text-[11px] lg:text-[12px] tracking-[-0.2px] sm:tracking-[-0.22px] lg:tracking-[-0.24px]">
+          <div className="font-['Poppins'] leading-[14px] sm:leading-[15px] lg:leading-[16px] order-2 lg:order-1 flex-1">
             OWASP, the OWASP logo, and Global AppSec are registered trademarks and AppSec Days, AppSec California, AppSec Cali, SnowFROC, OWASP Boston Application Security Conference, and LASCON are trademarks of the OWASP Foundation, Inc.
           </div>
-          <div className="relative shrink-0 font-['Poppins'] leading-[14px] sm:leading-[15px] lg:leading-[16px] order-1 lg:order-2">
+          <div className="font-['Poppins'] leading-[14px] sm:leading-[15px] lg:leading-[16px] order-1 lg:order-2 whitespace-nowrap">
             © 2025, OWASP Foundation Inc. All rights reserved.
           </div>
         </div>
