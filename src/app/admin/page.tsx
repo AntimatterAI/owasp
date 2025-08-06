@@ -82,9 +82,6 @@ export default function AdminPage() {
             <div className="flex flex-col items-center justify-center w-full">
               <div className="max-w-md w-full">
                 <div className="text-center mb-12">
-                  <div className="mb-6">
-                    <Image src="/images/logos/owasp-logo.svg" alt="OWASP" width={120} height={60} className="mx-auto" />
-                  </div>
                   <h1 className="font-['Barlow'] font-medium text-[#101820] text-[48px] leading-[48px] tracking-[-0.96px] mb-4">
                     Admin Sign In
                   </h1>
