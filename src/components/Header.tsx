@@ -236,13 +236,8 @@ export default function Header() {
         <div className="box-border flex flex-row h-20 items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-0 relative w-full max-w-[1440px] mx-auto">
           
           {/* Logo */}
-          <Link href="/" className="h-10 relative shrink-0 w-[132.894px] group transition-all duration-300">
-            <Image 
-              src={logo} 
-              alt="OWASP Logo" 
-              fill 
-              className="object-contain transition-transform duration-300 group-hover:animate-wing-flap" 
-            />
+          <Link href="/" className="h-10 relative shrink-0 w-[132.894px] hover:opacity-90 transition-opacity">
+            <Image src={logo} alt="OWASP Logo" fill className="object-contain" />
           </Link>
           
           {/* Main Navigation - Smart Responsive Breakpoint */}

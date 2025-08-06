@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from './Button';
+import AnimatedSection from './AnimatedSection';
 
 const markerIcon = "/images/icons/marker.svg";
 const megaphoneIcon = "/images/icons/megaphone.svg";
@@ -16,7 +17,8 @@ export default function GlobalNetworkSection() {
           <div className="absolute bg-[#00a7e1] blur-[50px] filter h-[300px] right-10 top-16 w-[300px] opacity-25" />
           
           {/* Main content container */}
-          <div className="relative w-full h-[600px] bg-[#101820] overflow-hidden rounded-lg border border-white/10 shadow-2xl animate-scale-in [animation-delay:0.3s] opacity-0 [animation-fill-mode:forwards]">
+          <AnimatedSection animation="scale-in" delay={200}>
+            <div className="relative w-full h-[600px] bg-[#101820] overflow-hidden rounded-lg border border-white/10 shadow-2xl">
             {/* Background Image */}
             <div className="absolute inset-0">
               <Image 
@@ -91,7 +93,8 @@ export default function GlobalNetworkSection() {
                 </div>
               </div>
             </div>
-          </div>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </div>

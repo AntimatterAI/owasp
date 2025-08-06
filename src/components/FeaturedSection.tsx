@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import AnimatedSection from './AnimatedSection';
 
 // Local images
 const gsocImage1 = "/images/events/gsoc-1.png";
@@ -16,7 +17,8 @@ export default function FeaturedSection() {
           <div className="box-border flex flex-col gap-20 items-center justify-start p-0 relative shrink-0 w-full">
             <div className="box-border flex flex-col gap-10 items-start justify-start p-0 relative shrink-0 w-full">
               {/* Main News Card */}
-              <div className="relative w-full h-[400px] bg-[#101820] overflow-hidden rounded-lg shadow-lg animate-fade-in-up [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
+              <AnimatedSection animation="fade-in-up" delay={150}>
+                <div className="relative w-full h-[400px] bg-[#101820] overflow-hidden rounded-lg shadow-lg">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                   <Image 
@@ -98,7 +100,8 @@ export default function FeaturedSection() {
                     This milestone reinforces OWASP's ongoing commitment to open-source innovation and highlights the strength of our global community of mentors and contributors, as well as our commitment to education-by-doing with the GSoC program.
                   </p>
                 </div>
-              </div>
+                </div>
+              </AnimatedSection>
             </div>
             
             {/* Navigation Controls */}
