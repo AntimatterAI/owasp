@@ -18,7 +18,7 @@ export default function FeaturedSection() {
             <div className="box-border flex flex-col gap-10 items-start justify-start p-0 relative shrink-0 w-full">
               {/* Main News Card */}
               <AnimatedSection animation="fade-in-up" delay={150}>
-                <div className="relative w-full h-[400px] bg-[#101820] overflow-hidden rounded-lg shadow-lg">
+                <div className="relative w-full h-[300px] sm:h-[350px] lg:h-[400px] bg-[#101820] overflow-hidden rounded-lg shadow-lg">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                   <Image 
@@ -32,25 +32,25 @@ export default function FeaturedSection() {
                 </div>
                 
                 {/* Content */}
-                <div className="relative z-10 h-full flex flex-row">
-                  {/* Left side - Main content */}
-                  <div className="flex-1 flex flex-col justify-between p-12">
-                    <div className="flex flex-col gap-6">
+                <div className="relative z-10 h-full flex flex-col">
+                  {/* Main content */}
+                  <div className="flex-1 flex flex-col justify-between p-6 sm:p-8 lg:p-12">
+                    <div className="flex flex-col gap-4 lg:gap-6">
                       <div className="flex items-center gap-2">
-                        <div className="font-['Poppins'] font-semibold text-white/90 text-base">
+                        <div className="font-['Poppins'] font-semibold text-white/90 text-sm lg:text-base">
                           Starr Brown, May 12
                         </div>
                       </div>
-                      <h2 className="font-['Barlow'] font-medium text-white text-[48px] leading-[52px] tracking-[-0.96px] max-w-3xl">
+                      <h2 className="font-['Barlow'] font-medium text-white text-[28px] sm:text-[36px] lg:text-[48px] leading-[32px] sm:leading-[40px] lg:leading-[52px] tracking-[-0.56px] sm:tracking-[-0.72px] lg:tracking-[-0.96px] max-w-3xl">
                         OWASP X Google Summer of Code 2025 - Enabling 15 Opportunities for Impact
                       </h2>
                     </div>
                     
-                    <div className="flex items-end justify-between">
-                      <p className="font-['Poppins'] text-white/80 text-base leading-6 max-w-2xl">
+                    <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-8">
+                      <p className="font-['Poppins'] text-white/80 text-sm sm:text-base leading-5 sm:leading-6 max-w-2xl">
                         We're proud to share that OWASP is once again an official mentoring organization for Google Summer of Code (GSoC) 2025—and this year, we've secured 15 contributor slots across some of the most impactful open-source security projects in the world.
                       </p>
-                      <button className="ml-8 h-12 px-6 border border-white/40 text-white font-['Poppins'] font-semibold text-sm hover:bg-white/10 hover:border-white/60 transition-all duration-300 rounded-sm">
+                      <button className="lg:ml-8 h-10 lg:h-12 px-4 lg:px-6 border border-white/40 text-white font-['Poppins'] font-semibold text-xs lg:text-sm hover:bg-white/10 hover:border-white/60 transition-all duration-300 rounded-sm w-fit">
                         Continue Reading
                       </button>
                     </div>
