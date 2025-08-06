@@ -34,31 +34,27 @@ interface ProjectCardProps {
 
 function ProjectCard({ title, description, image, imageStyle, imageContainerClass }: ProjectCardProps) {
   return (
-    <div className="bg-[#ffffff] flex flex-col gap-3 p-[12px] w-full">
-      <div className={`bg-[#030303] flex flex-col gap-6 h-40 items-center justify-center p-0 w-full ${imageContainerClass || ''}`}>
+    <div className="bg-[#ffffff] flex flex-col gap-3 p-3 w-full hover:shadow-lg transition-shadow duration-300">
+      <div className={`bg-[#030303] flex items-center justify-center h-32 sm:h-36 lg:h-40 p-4 w-full ${imageContainerClass || ''}`}>
         <div 
-          className="bg-center bg-cover bg-no-repeat shrink-0"
+          className="bg-center bg-contain bg-no-repeat w-full h-full"
           style={{ 
             backgroundImage: `url('${image}')`,
             ...imageStyle
           }}
         />
       </div>
-      <div className="flex flex-col gap-4 items-start justify-center p-[16px] w-full">
+      <div className="flex flex-col gap-3 lg:gap-4 items-start justify-center p-3 lg:p-4 w-full">
         <div className="flex flex-col gap-2 items-start justify-start w-full">
-          <div className="flex flex-row gap-0.5 items-center justify-start w-full">
-            <div className="font-['Barlow'] font-medium text-[#003594] text-[20px] text-left text-nowrap tracking-[-0.4px] leading-[24px] flex-1">
+          <div className="flex flex-row gap-2 items-start justify-between w-full">
+            <div className="font-['Barlow'] font-medium text-[#003594] text-[16px] sm:text-[18px] lg:text-[20px] text-left tracking-[-0.32px] sm:tracking-[-0.36px] lg:tracking-[-0.4px] leading-[20px] sm:leading-[22px] lg:leading-[24px] flex-1 min-w-0">
               {title}
             </div>
-            <div className="relative size-6">
-              <div className="absolute bottom-[1.384%] flex items-center justify-center left-[1.386%] right-[1.383%] top-[1.384%]">
-                <div className="flex-none h-[15.001px] rotate-[315deg] w-[18.001px]">
-                  <Image src="/images/icons/arrow-up-right.svg" alt="" fill className="object-contain" />
-                </div>
-              </div>
+            <div className="relative w-5 h-5 lg:w-6 lg:h-6 shrink-0">
+              <Image src="/images/icons/arrow-up-right.svg" alt="" fill className="object-contain opacity-60" />
             </div>
           </div>
-          <div className="font-['Poppins'] text-[#757575] text-[14px] text-left w-full leading-[20px]">
+          <div className="font-['Poppins'] text-[#757575] text-[13px] lg:text-[14px] text-left w-full leading-[18px] lg:leading-[20px]">
             {description}
           </div>
         </div>
@@ -169,9 +165,9 @@ export default function ProjectInventorySection() {
               </div>
             </div>
 
-            {/* Project Cards Row */}
-            <div className="flex flex-row gap-8 items-start justify-start w-full">
-              <Link href="/projects/asvs">
+            {/* Project Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
+              <Link href="/projects/asvs" className="w-full">
                 <ProjectCard
                   title="OWASP Application Security Verification Standard (ASVS)"
                   description="The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development."

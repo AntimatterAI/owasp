@@ -7,22 +7,22 @@ import Button from '@/components/Button';
 export default function AboutPage() {
     const values = [
     {
-      icon: "/images/icons/flag.svg",
+      icon: "/images/icons/book-open.svg",
       title: "Open",
       description: "Everything at OWASP is radically transparent from our finances to our code."
     },
     {
-      icon: "/images/icons/flag.svg",
+      icon: "/images/icons/code.svg",
       title: "Innovation",
       description: "We encourage and support innovation and experiments for solutions to software security challenges."
     },
     {
-      icon: "/images/icons/factory.svg",
+      icon: "/images/icons/globe.svg",
       title: "Global",
       description: "Anyone around the world is encouraged to participate in the OWASP community."
     },
     {
-      icon: "/images/icons/egg.svg",
+      icon: "/images/icons/check-shield.svg",
       title: "Integrity",
       description: "Our community is respectful, supportive, truthful, and vendor neutral"
     }
@@ -71,9 +71,9 @@ export default function AboutPage() {
       </div>
 
       {/* Inside OWASP Section */}
-      <div className="bg-[#101820] relative">
+      <div className="bg-[#101820] relative pt-8 sm:pt-0">
         {/* Stats Cards - Responsive positioning */}
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] relative -mt-16 sm:-mt-20 lg:-mt-[84px] mb-8 lg:mb-0">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] relative mt-0 sm:-mt-16 lg:-mt-20 xl:-mt-[84px] mb-8 lg:mb-0">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <div className="bg-[#182430] border border-white p-4 sm:p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
               <div className="bg-[#101820] p-2 sm:p-3 mb-4 sm:mb-6 w-fit">
@@ -93,7 +93,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-[#182430] border border-white p-4 sm:p-6 shadow-[0px_8px_16px_0px_rgba(0,0,0,0.16)]">
               <div className="bg-[#101820] p-2 sm:p-3 mb-4 sm:mb-6 w-fit">
-                <Image src="/images/icons/users" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" />
+                <Image src="/images/icons/users.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <p className="font-['Barlow'] font-medium text-white text-lg sm:text-[20px] leading-tight sm:leading-[24px] tracking-[-0.36px] sm:tracking-[-0.4px]">
                 Tens of thousands of members
@@ -208,20 +208,20 @@ export default function AboutPage() {
 
       {/* Core Values Section */}
       <div className="bg-white">
-        <div className="max-w-[1440px] mx-auto px-[120px] py-20">
-          <div className="text-center mb-16">
-            <h2 className="font-['Barlow'] font-medium text-[48px] text-[#101820] leading-[48px] tracking-[-0.96px] mb-6">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="font-['Barlow'] font-medium text-[32px] sm:text-[40px] lg:text-[48px] text-[#101820] leading-tight lg:leading-[48px] tracking-[-0.64px] sm:tracking-[-0.8px] lg:tracking-[-0.96px] mb-4 lg:mb-6">
               Core Values
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-white p-8 border border-[#f4f4f4] shadow-[0px_12px_32px_-8px_rgba(0,0,0,0.1)]">
-                <div className="bg-[#D9E5FA] p-3 mb-6 w-fit">
-                  <Image src={value.icon} alt="" width={24} height={24} className="w-6 h-6" />
+              <div key={index} className="bg-white p-6 lg:p-8 border border-[#f4f4f4] shadow-[0px_12px_32px_-8px_rgba(0,0,0,0.1)]">
+                <div className="bg-[#D9E5FA] p-2.5 lg:p-3 mb-4 lg:mb-6 w-fit">
+                  <Image src={value.icon} alt="" width={24} height={24} className="w-5 h-5 lg:w-6 lg:h-6" />
                 </div>
-                <h3 className="font-['Barlow'] font-medium text-[24px] text-[#101820] leading-[32px] tracking-[-0.48px] mb-2">
+                <h3 className="font-['Barlow'] font-medium text-[20px] lg:text-[24px] text-[#101820] leading-[28px] lg:leading-[32px] tracking-[-0.4px] lg:tracking-[-0.48px] mb-2">
                   {value.title}
                 </h3>
                 <p className="font-['Poppins'] text-[#757575] text-[14px] leading-[20px]">
@@ -235,29 +235,25 @@ export default function AboutPage() {
 
       {/* Contact Us Section */}
       <div className="bg-[#F1F6FE]">
-        <div className="max-w-[1440px] mx-auto px-[120px] py-20">
-          <div className="flex flex-row gap-20 items-start justify-start mb-20">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start justify-start mb-12 lg:mb-20">
             {/* Left Column - Contact Info */}
             <div className="flex-1 flex flex-col justify-between">
               <div className="flex flex-col gap-12 mb-16">
                 <div>
-                  <h2 className="font-['Barlow'] font-medium text-[56px] text-[#101820] leading-[56px] tracking-[-1.12px] mb-6">
+                  <h2 className="font-['Barlow'] font-medium text-[32px] sm:text-[40px] lg:text-[48px] xl:text-[56px] text-[#101820] leading-tight xl:leading-[56px] tracking-[-0.64px] sm:tracking-[-0.8px] lg:tracking-[-0.96px] xl:tracking-[-1.12px] mb-4 lg:mb-6">
                     Contact Us
                   </h2>
-                  <p className="font-['Poppins'] text-[#757575] text-[16px] leading-[24px] tracking-[-0.32px] mb-6">
+                  <p className="font-['Poppins'] text-[#757575] text-sm sm:text-[16px] leading-6 sm:leading-[24px] tracking-[-0.28px] sm:tracking-[-0.32px] mb-6">
                     Questions, feedback, or collaboration ideas?<br />
                     We'd love to hear from you!
                   </p>
-                  <div className="bg-[#003594] h-14 flex items-center justify-center px-8">
-                    <span className="font-['Poppins'] font-semibold text-white text-[16px] leading-[24px] tracking-[-0.32px]">
-                      Contact Us
-                    </span>
-                  </div>
+                  <Button text="Contact Us" variant="primary" size="56" />
                 </div>
               </div>
 
               {/* Address Information */}
-              <div className="flex flex-row gap-12">
+              <div className="flex flex-col sm:flex-row gap-8 lg:gap-12">
                 {/* Global Address */}
                 <div className="flex-1 flex flex-col gap-3">
                   <h3 className="font-['Barlow'] font-medium text-[#101820] text-[20px] leading-[24px] tracking-[-0.4px]">
