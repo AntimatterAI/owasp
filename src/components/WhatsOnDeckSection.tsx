@@ -66,7 +66,7 @@ export default function WhatsOnDeckSection() {
       <div className="flex flex-col items-center relative w-full">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-12 sm:py-16 lg:py-20 w-full">
           <div className="flex flex-col gap-12 lg:gap-16 items-center justify-start w-full">
-            <div className="flex flex-col gap-4 items-center justify-center w-full">
+            <div className="flex flex-col gap-4 items-center justify-center w-full animate-fade-in-up [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
               <div className="flex flex-col items-center justify-center w-full">
                 <div className="flex flex-col gap-2 items-center justify-center w-full">
                   <div className="font-['Poppins'] font-semibold text-[#00a7e1] text-base leading-6 tracking-[-0.32px]">
@@ -85,7 +85,9 @@ export default function WhatsOnDeckSection() {
             {/* Responsive Grid Layout */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl justify-items-center">
               {projects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
+                <div key={index} className="animate-scale-in opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: `${0.1 * (index + 1)}s`}}>
+                  <ProjectCard {...project} />
+                </div>
               ))}
             </div>
           </div>

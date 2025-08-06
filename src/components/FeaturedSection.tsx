@@ -16,7 +16,7 @@ export default function FeaturedSection() {
           <div className="box-border flex flex-col gap-20 items-center justify-start p-0 relative shrink-0 w-full">
             <div className="box-border flex flex-col gap-10 items-start justify-start p-0 relative shrink-0 w-full">
               {/* Main News Card */}
-              <div className="relative w-full h-[400px] bg-[#101820] overflow-hidden rounded-lg shadow-lg">
+              <div className="relative w-full h-[400px] bg-[#101820] overflow-hidden rounded-lg shadow-lg animate-fade-in-up [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                   <Image 

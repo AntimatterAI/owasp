@@ -15,7 +15,7 @@ export default function Button({
   disabled = false,
   onClick
 }: ButtonProps) {
-  const baseClasses = "font-['Poppins'] font-semibold text-center transition-all duration-300 flex items-center justify-center rounded-sm cursor-pointer";
+  const baseClasses = "font-['Poppins'] font-semibold text-center transition-all duration-300 flex items-center justify-center rounded-sm cursor-pointer relative overflow-hidden group";
   
   const sizeClasses = {
     "40": "h-10 px-4 text-[14px] leading-[20px] tracking-[-0.28px]",
@@ -24,10 +24,17 @@ export default function Button({
   };
 
   const variantClasses = {
-    "primary": "bg-[#003594] text-[#ffffff] hover:bg-[#004bbb] shadow-sm hover:shadow-md",
-    "ghost-white": "border-2 border-[#757575] text-[#ffffff] hover:border-white/60 hover:bg-white/10",
-    "ghost-dark": "border-2 border-[#757575] text-[#101820] hover:border-gray-400 hover:bg-gray-50",
-    "light-blue": "bg-[#00a7e1] text-[#ffffff] hover:bg-[#0096d1] shadow-sm hover:shadow-md"
+    "primary": "bg-[#003594] text-[#ffffff] shadow-sm hover:shadow-md",
+    "ghost-white": "border-2 border-[#757575] text-[#ffffff] hover:border-white/60",
+    "ghost-dark": "border-2 border-[#757575] text-[#101820] hover:border-gray-400",
+    "light-blue": "bg-[#00a7e1] text-[#ffffff] shadow-sm hover:shadow-md"
+  };
+
+  const fillClasses = {
+    "primary": "bg-[#004bbb]",
+    "ghost-white": "bg-white/10",
+    "ghost-dark": "bg-gray-50",
+    "light-blue": "bg-[#0096d1]"
   };
 
   return (
@@ -36,7 +43,11 @@ export default function Button({
       disabled={disabled}
       className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
     >
-      {text}
+      {/* Horizontal fill animation */}
+      <div className={`absolute inset-0 ${fillClasses[variant]} transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out`} />
+      
+      {/* Button text */}
+      <span className="relative z-10">{text}</span>
     </button>
   );
 } 
