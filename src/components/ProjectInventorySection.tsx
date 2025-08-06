@@ -89,7 +89,7 @@ export default function ProjectInventorySection() {
           </div>
 
           {/* Three Tier Cards */}
-          <div className="bg-[#ffffff] flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start p-4 sm:p-6 lg:p-8 w-full">
+          <div className="bg-[#ffffff] flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start p-4 sm:p-6 lg:p-8 w-full rounded-lg">
             {/* Flagship Projects */}
             <div className="w-full lg:flex-1 flex flex-col gap-4 lg:gap-6 items-start justify-start">
               <div className="bg-[#d9e5fa] flex flex-row gap-2.5 items-center justify-center p-[12px]">
