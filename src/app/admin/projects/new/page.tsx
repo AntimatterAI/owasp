@@ -81,7 +81,7 @@ export default function NewProjectPage() {
       .replace(/[^a-z0-9\s-]/g, '')
       .replace(/\s+/g, '-')
       .replace(/-+/g, '-')
-      .trim('-');
+      .replace(/^-+|-+$/g, ''); // Remove leading and trailing hyphens
   };
 
   const handleInputChange = (field: keyof ProjectFormData, value: any) => {
