@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getProjects, Project, type ProjectsResponse } from '@/lib/projects';
-import { supabase } from '@/lib/supabase';
+import { createClientComponentClient } from '@/lib/supabase';
 
 export default function AdminProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -21,6 +21,7 @@ export default function AdminProjectsPage() {
   // Check authentication
   useEffect(() => {
     const checkAuth = async () => {
+      const supabase = createClientComponentClient();
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
         router.push('/admin');
@@ -73,6 +74,7 @@ export default function AdminProjectsPage() {
     if (!confirm('Are you sure you want to delete this project?')) return;
 
     try {
+      const supabase = createClientComponentClient();
       const { error } = await supabase
         .from('projects')
         .delete()
@@ -90,6 +92,7 @@ export default function AdminProjectsPage() {
 
   const handleToggleFeatured = async (projectId: string, currentFeatured: boolean) => {
     try {
+      const supabase = createClientComponentClient();
       const { error } = await supabase
         .from('projects')
         .update({ is_featured: !currentFeatured })

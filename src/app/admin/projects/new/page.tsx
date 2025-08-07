@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
+import { createClientComponentClient } from '@/lib/supabase';
 
 interface ProjectFormData {
   title: string;
@@ -61,6 +61,7 @@ export default function NewProjectPage() {
   // Check authentication
   useEffect(() => {
     const checkAuth = async () => {
+      const supabase = createClientComponentClient();
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
         router.push('/admin');
@@ -125,6 +126,8 @@ export default function NewProjectPage() {
     setError(null);
 
     try {
+      const supabase = createClientComponentClient();
+      
       // Filter out empty strings from arrays
       const cleanedData = {
         ...formData,
