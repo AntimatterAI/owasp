@@ -1,4 +1,4 @@
-import { supabase } from './supabase';
+import { createClientComponentClient } from './supabase';
 
 export interface Project {
   id: string;
@@ -46,6 +46,7 @@ export async function getProjects(options?: {
   search?: string;
 }): Promise<ProjectsResponse> {
   try {
+    const supabase = createClientComponentClient();
     let query = supabase
       .from('projects')
       .select('*', { count: 'exact' })
@@ -100,6 +101,7 @@ export async function getProjects(options?: {
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
   try {
+    const supabase = createClientComponentClient();
     const { data, error } = await supabase
       .from('projects')
       .select('*')
@@ -146,6 +148,7 @@ export async function searchProjects(query: string, limit: number = 20): Promise
 // Helper function to get unique categories
 export async function getProjectCategories(): Promise<string[]> {
   try {
+    const supabase = createClientComponentClient();
     const { data, error } = await supabase
       .from('projects')
       .select('category')
