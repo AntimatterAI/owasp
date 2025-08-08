@@ -120,10 +120,59 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <h2 className="font-['Barlow'] font-bold text-[#101820] text-[24px] lg:text-[32px] mb-6">
                   About {project.title}
                 </h2>
-                <div className="prose prose-lg max-w-none">
-                  <p className="font-['Poppins'] text-[#757575] leading-relaxed">
-                    {project.long_description}
-                  </p>
+                <div className="prose prose-lg max-w-none space-y-6">
+                  {project.long_description.split('\n\n').map((paragraph, index) => {
+                    // Handle different content types
+                    if (paragraph.startsWith('##')) {
+                      // Heading
+                      const headingText = paragraph.replace(/^##\s+/, '');
+                      return (
+                        <h3 key={index} className="font-['Barlow'] font-bold text-[#101820] text-xl mt-8 mb-4">
+                          {headingText}
+                        </h3>
+                      );
+                    } else if (paragraph.match(/^\d+\.\s+\*\*/)) {
+                      // Numbered list with bold items (like the Top 10 list)
+                      const items = paragraph.split(/(?=\d+\.\s+\*\*)/);
+                      return (
+                        <ol key={index} className="space-y-4 list-none">
+                          {items.filter(item => item.trim()).map((item, itemIndex) => {
+                            const cleanItem = item.trim();
+                            // Extract the number, title, and description
+                            const match = cleanItem.match(/^(\d+)\.\s+\*\*(.+?)\*\*\s*-?\s*(.*)$/);
+                            if (match) {
+                              const [, number, title, description] = match;
+                              return (
+                                <li key={itemIndex} className="flex gap-4">
+                                  <div className="w-8 h-8 bg-[#003594] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
+                                    {number}
+                                  </div>
+                                  <div>
+                                    <div className="font-['Poppins'] font-semibold text-[#101820] mb-1">
+                                      {title}
+                                    </div>
+                                    {description && (
+                                      <div className="font-['Poppins'] text-[#757575] text-sm">
+                                        {description}
+                                      </div>
+                                    )}
+                                  </div>
+                                </li>
+                              );
+                            }
+                            return null;
+                          })}
+                        </ol>
+                      );
+                    } else {
+                      // Regular paragraph
+                      return (
+                        <p key={index} className="font-['Poppins'] text-[#757575] leading-relaxed">
+                          {paragraph}
+                        </p>
+                      );
+                    }
+                  })}
                 </div>
               </section>
             )}
