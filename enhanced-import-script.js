@@ -19,7 +19,7 @@ function createSlug(title) {
     .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
     .replace(/\s+/g, '-') // Replace spaces with hyphens
     .replace(/-+/g, '-') // Replace multiple hyphens with single
-    .trim('-'); // Remove leading/trailing hyphens
+    .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
 }
 
 // Helper function to escape SQL strings
@@ -42,8 +42,7 @@ function extractFromProjectsPage() {
   const projects = [];
   
   // Extract Flagship Projects
-  const flagshipSection = document.querySelector('h3:contains("Flagship Projects")') || 
-                         Array.from(document.querySelectorAll('h3')).find(h => h.textContent.includes('Flagship Projects'));
+  const flagshipSection = Array.from(document.querySelectorAll('h3')).find(h => h.textContent.includes('Flagship Projects'));
   
   if (flagshipSection) {
     let currentElement = flagshipSection.nextElementSibling;
