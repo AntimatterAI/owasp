@@ -41,6 +41,16 @@ export interface Project {
     url: string;
     type: string;
   }>;
+  // Project leaders
+  project_leaders?: Array<{
+    name: string;
+    role: string;
+  }>;
+  // Social links
+  social_links?: Array<{
+    platform: string;
+    url: string;
+  }>;
 }
 
 export interface ProjectsResponse {
@@ -123,7 +133,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
         requirements, getting_started, tags, license, language,
         maintainers, difficulty_level,
         tab_main_content, tab_translation_content, tab_sponsors_content, tab_data_content,
-        project_links
+        project_links, project_leaders, social_links
       `)
       .eq('slug', slug)
       .eq('status', 'active')

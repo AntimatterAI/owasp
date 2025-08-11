@@ -321,6 +321,47 @@ export default function ProjectDetailPageWithTabs({ project }: ProjectPageProps)
               </div>
             )}
 
+            {/* Project Leaders */}
+            {project.project_leaders && project.project_leaders.length > 0 && (
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="font-['Barlow'] font-bold text-[#101820] text-xl mb-4">
+                  Leaders
+                </h3>
+                <div className="space-y-3">
+                  {project.project_leaders.map((leader, index) => (
+                    <div key={index}>
+                      <div className="text-[#003594] hover:text-[#0056b3] font-medium text-sm">
+                        {leader.name}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Social Links */}
+            {project.social_links && project.social_links.length > 0 && (
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="font-['Barlow'] font-bold text-[#101820] text-xl mb-4">
+                  Downloads or Social Links
+                </h3>
+                <div className="space-y-3">
+                  {project.social_links.map((link, index) => (
+                    <div key={index}>
+                      <a 
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#003594] hover:text-[#0056b3] font-medium text-sm underline"
+                      >
+                        • {link.platform}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Project Information */}
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="font-['Barlow'] font-bold text-[#101820] text-xl mb-4">
