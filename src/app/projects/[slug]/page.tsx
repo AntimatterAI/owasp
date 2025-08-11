@@ -122,13 +122,36 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 </h2>
                 <div className="prose prose-lg max-w-none space-y-6">
                   {project.long_description.split('\n\n').map((paragraph, index) => {
+                    // Helper function to convert URLs in text to clickable links
+                    const renderTextWithLinks = (text: string) => {
+                      const urlRegex = /(https?:\/\/[^\s]+)/g;
+                      const parts = text.split(urlRegex);
+                      
+                      return parts.map((part, partIndex) => {
+                        if (urlRegex.test(part)) {
+                          return (
+                            <a 
+                              key={partIndex}
+                              href={part}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[#003594] hover:text-[#0056b3] underline font-medium"
+                            >
+                              {part}
+                            </a>
+                          );
+                        }
+                        return part;
+                      });
+                    };
+
                     // Handle different content types
                     if (paragraph.startsWith('##')) {
                       // Heading
                       const headingText = paragraph.replace(/^##\s+/, '');
                       return (
                         <h3 key={index} className="font-['Barlow'] font-bold text-[#101820] text-xl mt-8 mb-4">
-                          {headingText}
+                          {renderTextWithLinks(headingText)}
                         </h3>
                       );
                     } else if (paragraph.match(/^\d+\.\s+\*\*/)) {
@@ -149,11 +172,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                                   </div>
                                   <div>
                                     <div className="font-['Poppins'] font-semibold text-[#101820] mb-1">
-                                      {title}
+                                      {renderTextWithLinks(title)}
                                     </div>
                                     {description && (
                                       <div className="font-['Poppins'] text-[#757575] text-sm">
-                                        {description}
+                                        {renderTextWithLinks(description)}
                                       </div>
                                     )}
                                   </div>
@@ -164,11 +187,49 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                           })}
                         </ol>
                       );
+                    } else if (paragraph.startsWith('-') || paragraph.match(/^\s*\*/)) {
+                      // Handle bullet points or markdown-style lists
+                      const lines = paragraph.split('\n').filter(line => line.trim());
+                      return (
+                        <ul key={index} className="space-y-2">
+                          {lines.map((line, lineIndex) => {
+                            const cleanLine = line.replace(/^[-*]\s*/, '').trim();
+                            if (cleanLine.startsWith('**') && cleanLine.includes('**:')) {
+                              // Bold labels with descriptions
+                              const match = cleanLine.match(/^\*\*(.+?)\*\*:\s*(.*)$/);
+                              if (match) {
+                                const [, label, description] = match;
+                                return (
+                                  <li key={lineIndex} className="flex items-start gap-3">
+                                    <div className="w-2 h-2 bg-[#003594] rounded-full flex-shrink-0 mt-2"></div>
+                                    <div>
+                                      <span className="font-['Poppins'] font-semibold text-[#101820]">
+                                        {renderTextWithLinks(label)}:
+                                      </span>
+                                      <span className="font-['Poppins'] text-[#757575] ml-1">
+                                        {renderTextWithLinks(description)}
+                                      </span>
+                                    </div>
+                                  </li>
+                                );
+                              }
+                            }
+                            return (
+                              <li key={lineIndex} className="flex items-start gap-3">
+                                <div className="w-2 h-2 bg-[#003594] rounded-full flex-shrink-0 mt-2"></div>
+                                <span className="font-['Poppins'] text-[#757575]">
+                                  {renderTextWithLinks(cleanLine)}
+                                </span>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      );
                     } else {
                       // Regular paragraph
                       return (
                         <p key={index} className="font-['Poppins'] text-[#757575] leading-relaxed">
-                          {paragraph}
+                          {renderTextWithLinks(paragraph)}
                         </p>
                       );
                     }
