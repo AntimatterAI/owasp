@@ -30,6 +30,11 @@ export interface Project {
   language?: string;
   maintainers?: string[];
   difficulty_level: 'beginner' | 'intermediate' | 'advanced';
+  // Tab content fields
+  tab_main_content?: string;
+  tab_translation_content?: string;
+  tab_sponsors_content?: string;
+  tab_data_content?: string;
 }
 
 export interface ProjectsResponse {
