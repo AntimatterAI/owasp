@@ -225,7 +225,7 @@ export async function getProjects(options?: {
     }
 
     return {
-      projects: data || [],
+      projects: (data as unknown as Project[]) || [],
       total: count || 0
     };
   } catch (error) {
@@ -316,7 +316,7 @@ export async function getProjectCategories(): Promise<string[]> {
       throw error;
     }
 
-    const categories = [...new Set(data?.map(p => p.category) || [])];
+    const categories = [...new Set((data as unknown as Project[])?.map(p => p.category) || [])];
     return categories.sort();
   } catch (error) {
     console.error('Error in getProjectCategories:', error);
