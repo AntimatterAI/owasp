@@ -35,6 +35,12 @@ export interface Project {
   tab_translation_content?: string;
   tab_sponsors_content?: string;
   tab_data_content?: string;
+  // Project-specific links
+  project_links?: Array<{
+    title: string;
+    url: string;
+    type: string;
+  }>;
 }
 
 export interface ProjectsResponse {
@@ -116,7 +122,8 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
         last_updated, version, downloads, contributors, features,
         requirements, getting_started, tags, license, language,
         maintainers, difficulty_level,
-        tab_main_content, tab_translation_content, tab_sponsors_content, tab_data_content
+        tab_main_content, tab_translation_content, tab_sponsors_content, tab_data_content,
+        project_links
       `)
       .eq('slug', slug)
       .eq('status', 'active')

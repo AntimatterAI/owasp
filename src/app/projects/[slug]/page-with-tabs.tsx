@@ -20,24 +20,24 @@ interface TabContentProps {
 function TabContent({ content }: TabContentProps) {
   // Helper function to convert URLs in text to clickable links
   const renderTextWithLinks = (text: string) => {
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const urlRegex = /(https?:\/\/[^\s<>"']+)/g;
     const parts = text.split(urlRegex);
     
     return parts.map((part, partIndex) => {
-      if (urlRegex.test(part)) {
+      if (part.match(urlRegex)) {
         return (
           <a 
             key={partIndex}
             href={part}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#003594] hover:text-[#0056b3] underline font-medium"
+            className="text-[#003594] hover:text-[#0056b3] underline font-medium break-all"
           >
             {part}
           </a>
         );
       }
-      return part;
+      return <span key={partIndex}>{part}</span>;
     });
   };
 
@@ -298,6 +298,29 @@ export default function ProjectDetailPageWithTabs({ project }: ProjectPageProps)
 
           {/* Sidebar */}
           <div className="space-y-8">
+            {/* Project Links */}
+            {project.project_links && project.project_links.length > 0 && (
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="font-['Barlow'] font-bold text-[#101820] text-xl mb-4">
+                  Project Resources
+                </h3>
+                <div className="space-y-3">
+                  {project.project_links.map((link, index) => (
+                    <div key={index}>
+                      <a 
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#003594] hover:text-[#0056b3] font-medium text-sm underline"
+                      >
+                        • {link.title}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Project Information */}
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="font-['Barlow'] font-bold text-[#101820] text-xl mb-4">
