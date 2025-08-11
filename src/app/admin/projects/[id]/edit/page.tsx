@@ -81,7 +81,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
 
         if (error) throw error;
 
-        const project = data as Project;
+        const project = data as unknown as Project;
         setProject(project);
         setFormData({
           title: project.title || '',
