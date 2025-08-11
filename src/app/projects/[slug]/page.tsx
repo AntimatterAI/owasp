@@ -15,5 +15,15 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  // Debug: Log the project data to see what we're getting
+  console.log('Project data:', {
+    title: project.title,
+    slug: project.slug,
+    hasTabMain: !!project.tab_main_content,
+    hasTabTranslation: !!project.tab_translation_content,
+    hasTabSponsors: !!project.tab_sponsors_content,
+    hasTabData: !!project.tab_data_content
+  });
+
   return <ProjectDetailPageWithTabs project={project} />;
 }
