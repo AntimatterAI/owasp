@@ -259,16 +259,6 @@ export default function ProjectDetailPageWithTabs({ project }: ProjectPageProps)
                     <Button text="View on GitHub" variant="ghost-white" size="56" />
                   </Link>
                 )}
-                {project.website_url && (
-                  <Link href={project.website_url} target="_blank" rel="noopener noreferrer">
-                    <Button text="Visit Website" variant="primary" size="56" />
-                  </Link>
-                )}
-                {project.documentation_url && (
-                  <Link href={project.documentation_url} target="_blank" rel="noopener noreferrer">
-                    <Button text="Documentation" variant="ghost-white" size="56" />
-                  </Link>
-                )}
               </div>
             </div>
 
