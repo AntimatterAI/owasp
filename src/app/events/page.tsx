@@ -107,7 +107,7 @@ export default function EventsPage() {
       
       if (error) throw error;
       
-      const eventsList = data || [];
+      const eventsList = (data as unknown as Event[]) || [];
       setEvents(eventsList);
       
       // Find featured event
