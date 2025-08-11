@@ -14,7 +14,7 @@ export class AdminService {
       .order('created_at', { ascending: false })
     
     if (error) throw error
-    return data || []
+    return (data as unknown as Event[]) || []
   }
 
   async getEvent(id: string): Promise<Event | null> {
@@ -25,7 +25,7 @@ export class AdminService {
       .single()
     
     if (error) throw error
-    return data
+    return data as unknown as Event
   }
 
   async createEvent(eventData: EventFormData): Promise<Event> {
@@ -36,7 +36,7 @@ export class AdminService {
       .single()
     
     if (error) throw error
-    return data
+    return data as unknown as Event
   }
 
   async updateEvent(id: string, eventData: Partial<EventFormData>): Promise<Event> {
@@ -48,7 +48,7 @@ export class AdminService {
       .single()
     
     if (error) throw error
-    return data
+    return data as unknown as Event
   }
 
   async deleteEvent(id: string): Promise<void> {
@@ -74,7 +74,7 @@ export class AdminService {
     })
     
     if (error) throw error
-    return data
+    return data as unknown as Event
   }
 
   async signOut() {

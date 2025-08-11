@@ -50,7 +50,7 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
         .limit(8)
       
       if (error) throw error
-      setEvents(data || [])
+      setEvents((data as unknown as Event[]) || [])
     } catch (err) {
       console.error('Failed to fetch events:', err)
     } finally {
