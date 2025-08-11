@@ -81,29 +81,30 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
 
         if (error) throw error;
 
-        setProject(data);
+        const project = data as Project;
+        setProject(project);
         setFormData({
-          title: data.title || '',
-          slug: data.slug || '',
-          description: data.description || '',
-          long_description: data.long_description || '',
-          image: data.image || '',
-          category: data.category || 'Tool',
-          project_type: data.project_type || 'other',
-          github_url: data.github_url || '',
-          website_url: data.website_url || '',
-          documentation_url: data.documentation_url || '',
-          is_featured: data.is_featured || false,
-          language: data.language || '',
-          difficulty_level: data.difficulty_level || 'intermediate',
-          license: data.license || 'Apache-2.0',
-          version: data.version || '',
-          downloads: data.downloads || '',
-          contributors: data.contributors || 0,
-          features: data.features || [''],
-          requirements: data.requirements || [''],
-          getting_started: data.getting_started || [''],
-          tags: data.tags || ['']
+          title: project.title || '',
+          slug: project.slug || '',
+          description: project.description || '',
+          long_description: project.long_description || '',
+          image: project.image || '',
+          category: project.category || 'Tool',
+          project_type: project.project_type || 'other',
+          github_url: project.github_url || '',
+          website_url: project.website_url || '',
+          documentation_url: project.documentation_url || '',
+          is_featured: project.is_featured || false,
+          language: project.language || '',
+          difficulty_level: project.difficulty_level || 'intermediate',
+          license: project.license || 'Apache-2.0',
+          version: project.version || '',
+          downloads: project.downloads || '',
+          contributors: project.contributors || 0,
+          features: project.features || [''],
+          requirements: project.requirements || [''],
+          getting_started: project.getting_started || [''],
+          tags: project.tags || ['']
         });
       } catch (err: any) {
         console.error('Error loading project:', err);
