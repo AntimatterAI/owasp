@@ -268,7 +268,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
       throw error;
     }
 
-    return data;
+    return data as unknown as Project;
   } catch (error) {
     console.error('Error in getProjectBySlug:', error);
     throw error;
