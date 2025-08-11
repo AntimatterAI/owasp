@@ -109,7 +109,15 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     const supabase = createClientComponentClient();
     const { data, error } = await supabase
       .from('projects')
-      .select('*')
+      .select(`
+        id, created_at, updated_at, title, slug, description, long_description,
+        image, category, status, project_url, github_url, website_url,
+        documentation_url, is_featured, project_type, github_stars,
+        last_updated, version, downloads, contributors, features,
+        requirements, getting_started, tags, license, language,
+        maintainers, difficulty_level,
+        tab_main_content, tab_translation_content, tab_sponsors_content, tab_data_content
+      `)
       .eq('slug', slug)
       .eq('status', 'active')
       .single();
