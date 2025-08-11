@@ -39,12 +39,6 @@ There are three new categories, four categories with naming and scoping changes,
 ## Available Languages
 The OWASP Top 10 2021 is available in multiple languages including Arabic, Spanish, French, Indonesian, Italian, Japanese, Portuguese (Brazil), Chinese (Simplified and Traditional).
 
-## Key Links
-- **Data Contribution**: https://bit.ly/OWASPTop10Data
-- **GitHub Data Folder**: https://github.com/OWASP/Top10/tree/master/2025/Data
-- **Previous Version (2017)**: https://owasp.org/www-project-top-ten/2017/
-- **Project Presentation**: OWASP Top 10:2021 - 20th Anniversary Presentation
-
 ## Project Leaders
 - Andrew van der Stock
 - Brian Glas  

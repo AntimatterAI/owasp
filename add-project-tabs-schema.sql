@@ -42,13 +42,7 @@ There are three new categories, four categories with naming and scoping changes,
 
 10. **A10:2021-Server-Side Request Forgery** - Added from the Top 10 community survey (#1). The data shows a relatively low incidence rate with above average testing coverage, along with above-average ratings for Exploit and Impact potential.
 
-## Key Links and Resources
-- **Data Contribution**: https://bit.ly/OWASPTop10Data
-- **GitHub Data Repository**: https://github.com/OWASP/Top10/tree/master/2025/Data  
-- **Previous Version (2017)**: https://owasp.org/www-project-top-ten/2017/
-- **Project Presentation**: OWASP Top 10:2021 - 20th Anniversary Presentation (PPTX)
-- **Making of OWASP Top 10**: Documentation on project development process
-- **Email Contact**: [email protected]',
+',
 
     tab_translation_content = 'Efforts have been made in numerous languages to translate the OWASP Top 10 - 2021. If you are interested in helping, please contact the members of the team for the language you are interested in contributing to, or if you don''t see your language listed, please email [email protected] to let us know that you want to help and we''ll form a volunteer group for your language.
 
