@@ -138,23 +138,118 @@ export interface Project {
   language?: string;
   maintainers?: string[];
   difficulty_level: 'beginner' | 'intermediate' | 'advanced';
-  // Tab content fields
+  
+  // Enhanced content fields
+  project_overview?: string;
+  key_features?: string[];
+  installation_guide?: string;
+  usage_examples?: string;
+  api_documentation?: string;
+  security_considerations?: string;
+  best_practices?: string;
+  troubleshooting?: string;
+  changelog?: string;
+  roadmap?: string;
+  community_guidelines?: string;
+  contribution_guide?: string;
+  
+  // Enhanced tab content fields
   tab_main_content?: string;
   tab_translation_content?: string;
   tab_sponsors_content?: string;
   tab_data_content?: string;
-  // Project-specific links
+  tab_overview_content?: string;
+  tab_documentation_content?: string;
+  tab_downloads_content?: string;
+  tab_community_content?: string;
+  tab_contribute_content?: string;
+  tab_support_content?: string;
+  
+  // Resources and assets
+  screenshots?: Array<{
+    url: string;
+    caption: string;
+    alt_text: string;
+  }>;
+  videos?: Array<{
+    url: string;
+    title: string;
+    description: string;
+    duration?: string;
+  }>;
+  tutorials?: Array<{
+    title: string;
+    url: string;
+    difficulty: string;
+    duration?: string;
+  }>;
+  case_studies?: Array<{
+    title: string;
+    company: string;
+    url: string;
+    summary: string;
+  }>;
+  integrations?: Array<{
+    name: string;
+    description: string;
+    url: string;
+    category: string;
+  }>;
+  third_party_tools?: Array<{
+    name: string;
+    description: string;
+    url: string;
+    compatibility: string;
+  }>;
+  
+  // Metrics and statistics
+  download_count?: number;
+  active_installations?: number;
+  security_advisories?: Array<{
+    id: string;
+    title: string;
+    severity: string;
+    date: string;
+    description: string;
+    fixed_in_version?: string;
+  }>;
+  release_notes?: Array<{
+    version: string;
+    date: string;
+    changes: string[];
+    breaking_changes?: string[];
+  }>;
+  
+  // SEO and metadata
+  meta_title?: string;
+  meta_description?: string;
+  meta_keywords?: string[];
+  canonical_url?: string;
+  
+  // Project relationships
+  related_projects?: string[];
+  dependencies?: string[];
+  dependents?: string[];
+  industry_usage?: string[];
+  compliance_standards?: string[];
+  threat_categories?: string[];
+  
+  // Content management
+  content_version?: string;
+  content_last_updated?: string;
+  content_reviewer?: string;
+  content_status?: 'draft' | 'review' | 'published' | 'archived';
+  
+  // Legacy fields for backward compatibility
   project_links?: Array<{
     title: string;
     url: string;
     type: string;
   }>;
-  // Project leaders
   project_leaders?: Array<{
     name: string;
     role: string;
   }>;
-  // Social links
   social_links?: Array<{
     platform: string;
     url: string;
@@ -252,7 +347,36 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
         last_updated, version, downloads, contributors, features,
         requirements, getting_started, tags, license, language,
         maintainers, difficulty_level,
+        
+        -- Enhanced content fields
+        project_overview, key_features, installation_guide, usage_examples,
+        api_documentation, security_considerations, best_practices, 
+        troubleshooting, changelog, roadmap, community_guidelines, 
+        contribution_guide,
+        
+        -- Tab content fields
         tab_main_content, tab_translation_content, tab_sponsors_content, tab_data_content,
+        tab_overview_content, tab_documentation_content, tab_downloads_content,
+        tab_community_content, tab_contribute_content, tab_support_content,
+        
+        -- Rich media content
+        screenshots, videos, tutorials, case_studies, integrations,
+        third_party_tools,
+        
+        -- Metrics and statistics
+        download_count, active_installations, security_advisories, release_notes,
+        
+        -- SEO and metadata
+        meta_title, meta_description, meta_keywords, canonical_url,
+        
+        -- Project relationships
+        related_projects, dependencies, dependents, industry_usage,
+        compliance_standards, threat_categories,
+        
+        -- Content management
+        content_version, content_last_updated, content_reviewer, content_status,
+        
+        -- Legacy fields
         project_links, project_leaders, social_links
       `)
       .eq('slug', slug)

@@ -187,7 +187,7 @@ function TabContent({ content }: TabContentProps) {
 }
 
 export default function ProjectDetailPageWithTabs({ project }: ProjectPageProps) {
-  const [activeTab, setActiveTab] = useState('main');
+  const [activeTab, setActiveTab] = useState('overview');
 
   const getProjectTypeColor = (type: string) => {
     switch (type) {
@@ -215,10 +215,46 @@ export default function ProjectDetailPageWithTabs({ project }: ProjectPageProps)
 
   // Define available tabs based on what content exists
   const tabs = [
-    { id: 'main', label: 'Main', content: project.tab_main_content || project.long_description },
-    ...(project.tab_translation_content ? [{ id: 'translation', label: 'Translation Efforts', content: project.tab_translation_content }] : []),
-    ...(project.tab_sponsors_content ? [{ id: 'sponsors', label: 'Sponsors', content: project.tab_sponsors_content }] : []),
-    ...(project.tab_data_content ? [{ id: 'data', label: 'Data 2025', content: project.tab_data_content }] : []),
+    { 
+      id: 'overview', 
+      label: 'Overview', 
+      content: project.tab_overview_content || project.tab_main_content || project.long_description,
+      icon: 'book-open'
+    },
+    ...(project.tab_documentation_content || project.installation_guide || project.api_documentation ? [{ 
+      id: 'documentation', 
+      label: 'Documentation', 
+      content: project.tab_documentation_content,
+      icon: 'code'
+    }] : []),
+    ...(project.tab_downloads_content || project.usage_examples ? [{ 
+      id: 'downloads', 
+      label: 'Downloads & Usage', 
+      content: project.tab_downloads_content,
+      icon: 'arrow-upright'
+    }] : []),
+    ...(project.tab_community_content || project.community_guidelines ? [{ 
+      id: 'community', 
+      label: 'Community', 
+      content: project.tab_community_content,
+      icon: 'users'
+    }] : []),
+    ...(project.tab_contribute_content || project.contribution_guide ? [{ 
+      id: 'contribute', 
+      label: 'Contribute', 
+      content: project.tab_contribute_content,
+      icon: 'briefcase-figma'
+    }] : []),
+    ...(project.tab_support_content || project.troubleshooting ? [{ 
+      id: 'support', 
+      label: 'Support', 
+      content: project.tab_support_content,
+      icon: 'megaphone'
+    }] : []),
+    // Legacy tabs for backward compatibility
+    ...(project.tab_translation_content ? [{ id: 'translation', label: 'Translation Efforts', content: project.tab_translation_content, icon: 'globe' }] : []),
+    ...(project.tab_sponsors_content ? [{ id: 'sponsors', label: 'Sponsors', content: project.tab_sponsors_content, icon: 'handshake' }] : []),
+    ...(project.tab_data_content ? [{ id: 'data', label: 'Data 2025', content: project.tab_data_content, icon: 'chart-projector' }] : []),
   ];
 
   const currentTabContent = tabs.find(tab => tab.id === activeTab)?.content || project.long_description || '';
@@ -226,6 +262,23 @@ export default function ProjectDetailPageWithTabs({ project }: ProjectPageProps)
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
+      
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[120px] py-4">
+          <nav className="flex items-center gap-2 text-sm">
+            <Link href="/" className="text-[#003594] hover:text-[#0056b3] underline">
+              Home
+            </Link>
+            <span className="text-gray-400">/</span>
+            <Link href="/projects?view=all" className="text-[#003594] hover:text-[#0056b3] underline">
+              All Projects
+            </Link>
+            <span className="text-gray-400">/</span>
+            <span className="text-gray-600">{project.title}</span>
+          </nav>
+        </div>
+      </div>
       
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-[#1a237e] via-[#303f9f] to-[#42a5f5] relative overflow-hidden">
@@ -287,18 +340,27 @@ export default function ProjectDetailPageWithTabs({ project }: ProjectPageProps)
             {/* Tabs Navigation */}
             {tabs.length > 1 && (
               <div className="border-b border-gray-200">
-                <nav className="flex space-x-8" aria-label="Tabs">
+                <nav className="flex flex-wrap gap-2 lg:gap-8" aria-label="Tabs">
                   {tabs.map((tab) => (
                     <button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id)}
-                      className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                      className={`flex items-center gap-2 py-3 px-4 lg:px-1 border-b-2 font-medium text-sm rounded-t-lg lg:rounded-none transition-colors ${
                         activeTab === tab.id
-                          ? 'border-[#003594] text-[#003594]'
-                          : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                          ? 'border-[#003594] text-[#003594] bg-blue-50 lg:bg-transparent'
+                          : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50 lg:hover:bg-transparent'
                       }`}
                     >
-                      {tab.label}
+                      {tab.icon && (
+                        <Image 
+                          src={`/images/icons/${tab.icon}.svg`} 
+                          alt="" 
+                          width={16} 
+                          height={16} 
+                          className={`${activeTab === tab.id ? 'opacity-100' : 'opacity-60'}`}
+                        />
+                      )}
+                      <span className="whitespace-nowrap">{tab.label}</span>
                     </button>
                   ))}
                 </nav>
@@ -313,8 +375,152 @@ export default function ProjectDetailPageWithTabs({ project }: ProjectPageProps)
               <TabContent content={currentTabContent} />
             </section>
 
-            {/* Features - Only show on Main tab */}
-            {activeTab === 'main' && project.features && project.features.length > 0 && (
+            {/* Screenshots Section */}
+            {project.screenshots && project.screenshots.length > 0 && (
+              <section>
+                <h2 className="font-['Barlow'] font-bold text-[#101820] text-[24px] lg:text-[32px] mb-6">
+                  Screenshots
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {project.screenshots.map((screenshot, index) => (
+                    <div key={index} className="space-y-2">
+                      <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-200">
+                        <Image 
+                          src={screenshot.url} 
+                          alt={screenshot.alt_text}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      {screenshot.caption && (
+                        <p className="text-sm text-gray-600 text-center">{screenshot.caption}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Videos Section */}
+            {project.videos && project.videos.length > 0 && (
+              <section>
+                <h2 className="font-['Barlow'] font-bold text-[#101820] text-[24px] lg:text-[32px] mb-6">
+                  Videos
+                </h2>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {project.videos.map((video, index) => (
+                    <div key={index} className="space-y-3">
+                      <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-200">
+                        <iframe
+                          src={video.url}
+                          title={video.title}
+                          className="w-full h-full"
+                          allowFullScreen
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-['Poppins'] font-semibold text-[#101820] text-lg">{video.title}</h3>
+                        {video.description && (
+                          <p className="text-sm text-gray-600 mt-1">{video.description}</p>
+                        )}
+                        {video.duration && (
+                          <span className="text-xs text-gray-500">Duration: {video.duration}</span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Tutorials Section */}
+            {project.tutorials && project.tutorials.length > 0 && (
+              <section>
+                <h2 className="font-['Barlow'] font-bold text-[#101820] text-[24px] lg:text-[32px] mb-6">
+                  Tutorials
+                </h2>
+                <div className="space-y-4">
+                  {project.tutorials.map((tutorial, index) => (
+                    <div key={index} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h3 className="font-['Poppins'] font-semibold text-[#101820] text-lg mb-2">
+                            <a 
+                              href={tutorial.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[#003594] hover:text-[#0056b3] underline"
+                            >
+                              {tutorial.title}
+                            </a>
+                          </h3>
+                          <div className="flex gap-4 text-sm text-gray-600">
+                            <span className="flex items-center gap-1">
+                              <span className={`w-2 h-2 rounded-full ${
+                                tutorial.difficulty === 'beginner' ? 'bg-green-500' :
+                                tutorial.difficulty === 'intermediate' ? 'bg-yellow-500' : 'bg-red-500'
+                              }`}></span>
+                              {tutorial.difficulty}
+                            </span>
+                            {tutorial.duration && (
+                              <span>Duration: {tutorial.duration}</span>
+                            )}
+                          </div>
+                        </div>
+                        <Image 
+                          src="/images/icons/arrow-up-right.svg" 
+                          alt="External link" 
+                          width={16} 
+                          height={16} 
+                          className="opacity-60 mt-1" 
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Case Studies Section */}
+            {project.case_studies && project.case_studies.length > 0 && (
+              <section>
+                <h2 className="font-['Barlow'] font-bold text-[#101820] text-[24px] lg:text-[32px] mb-6">
+                  Case Studies
+                </h2>
+                <div className="space-y-6">
+                  {project.case_studies.map((caseStudy, index) => (
+                    <div key={index} className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                      <div className="flex items-start justify-between mb-3">
+                        <div>
+                          <h3 className="font-['Poppins'] font-semibold text-[#101820] text-lg">
+                            <a 
+                              href={caseStudy.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[#003594] hover:text-[#0056b3] underline"
+                            >
+                              {caseStudy.title}
+                            </a>
+                          </h3>
+                          <p className="text-[#003594] font-medium">{caseStudy.company}</p>
+                        </div>
+                        <Image 
+                          src="/images/icons/arrow-up-right.svg" 
+                          alt="External link" 
+                          width={16} 
+                          height={16} 
+                          className="opacity-60" 
+                        />
+                      </div>
+                      <p className="text-gray-600">{caseStudy.summary}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Features - Show on Overview tab */}
+            {activeTab === 'overview' && project.features && project.features.length > 0 && (
               <section>
                 <h2 className="font-['Barlow'] font-bold text-[#101820] text-[24px] lg:text-[32px] mb-6">
                   Key Features
@@ -456,6 +662,114 @@ export default function ProjectDetailPageWithTabs({ project }: ProjectPageProps)
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+
+            {/* Related Projects */}
+            {project.related_projects && project.related_projects.length > 0 && (
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="font-['Barlow'] font-bold text-[#101820] text-xl mb-4">
+                  Related Projects
+                </h3>
+                <div className="space-y-2">
+                  {project.related_projects.map((relatedSlug, index) => (
+                    <div key={index}>
+                      <Link 
+                        href={`/projects/${relatedSlug}`}
+                        className="text-[#003594] hover:text-[#0056b3] font-medium text-sm underline block"
+                      >
+                        • {relatedSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Security Advisories */}
+            {project.security_advisories && project.security_advisories.length > 0 && (
+              <div className="bg-white rounded-lg p-6 shadow-sm border-l-4 border-red-500">
+                <h3 className="font-['Barlow'] font-bold text-[#101820] text-xl mb-4 flex items-center gap-2">
+                  <Image src="/images/icons/check-shield.svg" alt="Security" width={20} height={20} />
+                  Security Advisories
+                </h3>
+                <div className="space-y-3">
+                  {project.security_advisories.slice(0, 3).map((advisory, index) => (
+                    <div key={index} className="border-l-2 border-red-200 pl-3">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className={`px-2 py-1 rounded text-xs font-medium ${
+                          advisory.severity === 'critical' ? 'bg-red-100 text-red-800' :
+                          advisory.severity === 'high' ? 'bg-orange-100 text-orange-800' :
+                          advisory.severity === 'medium' ? 'bg-yellow-100 text-yellow-800' :
+                          'bg-gray-100 text-gray-800'
+                        }`}>
+                          {advisory.severity.toUpperCase()}
+                        </span>
+                        <span className="text-xs text-gray-500">{advisory.date}</span>
+                      </div>
+                      <p className="text-sm font-medium text-gray-900">{advisory.title}</p>
+                      {advisory.fixed_in_version && (
+                        <p className="text-xs text-green-600 mt-1">Fixed in v{advisory.fixed_in_version}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Integrations */}
+            {project.integrations && project.integrations.length > 0 && (
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="font-['Barlow'] font-bold text-[#101820] text-xl mb-4">
+                  Integrations
+                </h3>
+                <div className="space-y-3">
+                  {project.integrations.slice(0, 5).map((integration, index) => (
+                    <div key={index}>
+                      <a 
+                        href={integration.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#003594] hover:text-[#0056b3] font-medium text-sm underline"
+                      >
+                        • {integration.name}
+                      </a>
+                      <p className="text-xs text-gray-600 ml-3">{integration.category}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Industry Usage */}
+            {project.industry_usage && project.industry_usage.length > 0 && (
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="font-['Barlow'] font-bold text-[#101820] text-xl mb-4">
+                  Industry Usage
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.industry_usage.map((industry, index) => (
+                    <span key={index} className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+                      {industry}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Compliance Standards */}
+            {project.compliance_standards && project.compliance_standards.length > 0 && (
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="font-['Barlow'] font-bold text-[#101820] text-xl mb-4">
+                  Compliance Standards
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.compliance_standards.map((standard, index) => (
+                    <span key={index} className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">
+                      {standard}
+                    </span>
+                  ))}
+                </div>
               </div>
             )}
 

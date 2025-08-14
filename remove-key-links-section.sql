@@ -34,3 +34,4 @@ There are three new categories, four categories with naming and scoping changes,
 10. **A10:2021-Server-Side Request Forgery** - Added from the Top 10 community survey (#1). The data shows a relatively low incidence rate with above average testing coverage, along with above-average ratings for Exploit and Impact potential.'
 
 WHERE slug = 'owasp-top-10';
+

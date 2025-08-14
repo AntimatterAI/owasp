@@ -155,7 +155,7 @@ export default function ProjectInventorySection() {
               </div>
             </div>
             <div className="flex flex-row gap-10 h-12 items-center justify-start lg:justify-center px-6 py-0 shrink-0">
-              <Link href="/projects">
+              <Link href="/projects?view=all">
                 <Button text="See All Projects" type="Ghost Dark" size="48" />
               </Link>
             </div>
@@ -164,55 +164,61 @@ export default function ProjectInventorySection() {
           {/* Three Tier Cards */}
           <div className="bg-[#ffffff] flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-start p-4 sm:p-6 lg:p-8 w-full rounded-lg">
             {/* Flagship Projects */}
-            <div className="flex-1 bg-[#ffffff] flex flex-col items-start justify-start p-0 relative border border-[#fdb77d]">
-              <div className="bg-[#101820] flex flex-row gap-2 items-center justify-center px-3 py-3 relative w-full">
-                <div className="relative size-5">
-                  <div className="absolute h-[15px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-[19px] bg-[#fdb77d] rounded-full" style={{ top: "calc(50% + 0.281px)" }} />
+            <Link href="/projects?view=level&level=flagship" className="flex-1">
+              <div className="bg-[#ffffff] flex flex-col items-start justify-start p-0 relative border border-[#fdb77d] hover:shadow-md transition-shadow cursor-pointer">
+                <div className="bg-[#101820] flex flex-row gap-2 items-center justify-center px-3 py-3 relative w-full">
+                  <div className="relative size-5">
+                    <div className="absolute h-[15px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-[19px] bg-[#fdb77d] rounded-full" style={{ top: "calc(50% + 0.281px)" }} />
+                  </div>
+                  <div className="font-['Poppins'] font-medium text-[#ffffff] text-sm text-left text-nowrap tracking-[-0.28px] leading-[20px]">
+                    Flagship Projects
+                  </div>
                 </div>
-                <div className="font-['Poppins'] font-medium text-[#ffffff] text-sm text-left text-nowrap tracking-[-0.28px] leading-[20px]">
-                  Flagship Projects
+                <div className="flex flex-col gap-4 items-start justify-center p-6 relative w-full">
+                  <div className="font-['Poppins'] text-[#757575] text-xs text-center leading-[20px] w-full">
+                    Projects that have demonstrated strategic value to OWASP and application security as a whole
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-4 items-start justify-center p-6 relative w-full">
-                <div className="font-['Poppins'] text-[#757575] text-xs text-center leading-[20px] w-full">
-                  Projects that have demonstrated strategic value to OWASP and application security as a whole
-                </div>
-              </div>
-            </div>
+            </Link>
 
             {/* Production Projects */}
-            <div className="flex-1 bg-[#ffffff] flex flex-col items-start justify-start p-0 relative border border-[#ccd8e0]">
-              <div className="bg-[#101820] flex flex-row gap-2 items-center justify-center px-3 py-3 relative w-full">
-                <div className="relative size-5">
-                  <div className="absolute h-[15px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-[19px] bg-[#ccd8e0] rounded-full" style={{ top: "calc(50% + 0.281px)" }} />
+            <Link href="/projects?view=level&level=production" className="flex-1">
+              <div className="bg-[#ffffff] flex flex-col items-start justify-start p-0 relative border border-[#ccd8e0] hover:shadow-md transition-shadow cursor-pointer">
+                <div className="bg-[#101820] flex flex-row gap-2 items-center justify-center px-3 py-3 relative w-full">
+                  <div className="relative size-5">
+                    <div className="absolute h-[15px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-[19px] bg-[#ccd8e0] rounded-full" style={{ top: "calc(50% + 0.281px)" }} />
+                  </div>
+                  <div className="font-['Poppins'] font-medium text-[#ffffff] text-sm text-left text-nowrap tracking-[-0.28px] leading-[20px]">
+                    Production Projects
+                  </div>
                 </div>
-                <div className="font-['Poppins'] font-medium text-[#ffffff] text-sm text-left text-nowrap tracking-[-0.28px] leading-[20px]">
-                  Production Projects
+                <div className="flex flex-col gap-4 items-start justify-center p-6 relative w-full">
+                  <div className="font-['Poppins'] text-[#757575] text-xs text-center leading-[20px] w-full">
+                    OWASP Production projects are production-ready projects
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-4 items-start justify-center p-6 relative w-full">
-                <div className="font-['Poppins'] text-[#757575] text-xs text-center leading-[20px] w-full">
-                  OWASP Production projects are production-ready projects
-                </div>
-              </div>
-            </div>
+            </Link>
 
             {/* Other Projects */}
-            <div className="flex-1 bg-[#ffffff] flex flex-col items-start justify-start p-0 relative border border-[#b686fc]">
-              <div className="bg-[#101820] flex flex-row gap-2 items-center justify-center px-3 py-3 relative w-full">
-                <div className="relative size-5">
-                  <div className="absolute h-[15px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-[19px] bg-[#b686fc] rounded-full" style={{ top: "calc(50% + 0.281px)" }} />
+            <Link href="/projects?view=type" className="flex-1">
+              <div className="bg-[#ffffff] flex flex-col items-start justify-start p-0 relative border border-[#b686fc] hover:shadow-md transition-shadow cursor-pointer">
+                <div className="bg-[#101820] flex flex-row gap-2 items-center justify-center px-3 py-3 relative w-full">
+                  <div className="relative size-5">
+                    <div className="absolute h-[15px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-[19px] bg-[#b686fc] rounded-full" style={{ top: "calc(50% + 0.281px)" }} />
+                  </div>
+                  <div className="font-['Poppins'] font-medium text-[#ffffff] text-sm text-left text-nowrap tracking-[-0.28px] leading-[20px]">
+                    Other Projects
+                  </div>
                 </div>
-                <div className="font-['Poppins'] font-medium text-[#ffffff] text-sm text-left text-nowrap tracking-[-0.28px] leading-[20px]">
-                  Other Projects
+                <div className="flex flex-col gap-4 items-start justify-center p-6 relative w-full">
+                  <div className="font-['Poppins'] text-[#757575] text-xs text-center leading-[20px] w-full">
+                    The Lab and Incubator projects can be found here
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-4 items-start justify-center p-6 relative w-full">
-                <div className="font-['Poppins'] text-[#757575] text-xs text-center leading-[20px] w-full">
-                  The Lab and Incubator projects can be found here
-                </div>
-              </div>
-            </div>
+            </Link>
           </div>
 
           {/* Project Grid Section */}
@@ -243,7 +249,7 @@ export default function ProjectInventorySection() {
 
             {/* Load More Button */}
             <div className="flex flex-row gap-10 h-12 items-center justify-center px-6 py-0 w-full">
-              <Link href="/projects">
+              <Link href="/projects?view=all">
                 <Button text="Load More" type="Ghost Dark" size="48" />
               </Link>
             </div>
