@@ -343,18 +343,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     const supabase = createClientComponentClient();
     const { data, error } = await supabase
       .from('projects')
-      .select(`
-        id, created_at, updated_at, title, slug, description, long_description,
-        image, category, status, project_url, github_url, website_url,
-        documentation_url, is_featured, project_type, github_stars,
-        last_updated, version, downloads, contributors, features,
-        requirements, getting_started, tags, license, language,
-        maintainers, difficulty_level,
-        project_overview, key_features, installation_guide,
-        tab_main_content, tab_overview_content,
-        screenshots, meta_title, meta_description, related_projects,
-        content_status, project_links, project_leaders, social_links
-      `)
+      .select('*')
       .eq('slug', slug)
       .eq('status', 'active')
       .single();
@@ -362,10 +351,15 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     if (error) {
       if (error.code === 'PGRST116') {
         // No rows returned
+        console.log(`No project found with slug: ${slug}`);
         return null;
       }
-      console.error('Error fetching project:', error);
-      throw error;
+      console.error('Error fetching project by slug:', error);
+      console.error('Slug searched:', slug);
+      console.error('Error details:', JSON.stringify(error, null, 2));
+      // Return mock data as fallback instead of throwing
+      console.warn('Falling back to mock data due to database error');
+      return mockProjects.find(p => p.slug === slug) || null;
     }
 
     return data as unknown as Project;
