@@ -174,13 +174,10 @@ export async function getChapters(options?: {
 
 export async function getChapterBySlug(slug: string): Promise<Chapter | null> {
   try {
-    // Check if Supabase environment variables are available
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-      console.warn('Supabase environment variables not configured, returning mock data');
-      return mockChapters.find(c => c.slug === slug) || null;
-    }
-
     const supabase = createClientComponentClient();
+    
+    console.log(`Fetching chapter with slug: ${slug}`);
+    
     const { data, error } = await supabase
       .from('chapters')
       .select('*')
@@ -191,18 +188,19 @@ export async function getChapterBySlug(slug: string): Promise<Chapter | null> {
     if (error) {
       if (error.code === 'PGRST116') {
         // No rows returned
-        console.log(`No chapter found with slug: ${slug}`);
-        return null;
+        console.log(`No chapter found in database with slug: ${slug}, checking mock data`);
+        return mockChapters.find(c => c.slug === slug) || null;
       }
-      console.error('Error fetching chapter by slug:', error);
+      console.error('Database error fetching chapter by slug:', error);
       console.warn('Falling back to mock data due to database error');
       return mockChapters.find(c => c.slug === slug) || null;
     }
 
+    console.log(`Successfully fetched chapter from database:`, data?.name);
     return data as unknown as Chapter;
   } catch (error) {
-    console.error('Error in getChapterBySlug:', error);
-    console.warn('Falling back to mock data due to error');
+    console.error('Network/client error in getChapterBySlug:', error);
+    console.warn('Falling back to mock data due to client error');
     return mockChapters.find(c => c.slug === slug) || null;
   }
 }
