@@ -200,7 +200,7 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
             </Link>
 
             <Link 
-              href="/projects/zap" 
+              href="/projects/dependency-track" 
               onClick={onClose}
               className="p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 group"
             >
@@ -209,11 +209,11 @@ export default function MegaMenu({ isOpen, onClose, menuType }: MegaMenuProps) {
                   <Image src="/images/icons/search.svg" alt="" width={16} height={16} className="filter brightness-0 invert" />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium text-sm group-hover:text-[#00A7E1] transition-colors">ZAP</h4>
+                  <h4 className="text-white font-medium text-sm group-hover:text-[#00A7E1] transition-colors">Dependency-Track</h4>
                   <span className="px-2 py-0.5 bg-[#dc3545] text-white text-xs rounded-full">Flagship</span>
                 </div>
               </div>
-              <p className="text-white/70 text-xs leading-relaxed">World's most popular free security testing proxy</p>
+              <p className="text-white/70 text-xs leading-relaxed">Intelligent software supply chain security platform</p>
             </Link>
 
             <Link 

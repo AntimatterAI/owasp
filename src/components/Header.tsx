@@ -33,11 +33,11 @@ const projectsData: Project[] = [
     slug: "owasp-top-10"
   },
   {
-    title: "ZAP (Zed Attack Proxy)",
-    description: "The OWASP Zed Attack Proxy (ZAP) is one of the world's most popular free security tools.",
+    title: "Dependency-Track",
+    description: "Intelligent Component Analysis platform for identifying and reducing software supply chain risk using SBOM.",
     category: "Security Testing",
     status: "Flagship",
-    slug: "zap-zed-attack-proxy"
+    slug: "dependency-track"
   },
   {
     title: "Amass",
@@ -517,10 +517,10 @@ export default function Header() {
                         🛡️ OWASP Top 10
                       </button>
                       <button 
-                        onClick={() => handleQuickSearch('ZAP')}
+                        onClick={() => handleQuickSearch('Dependency-Track')}
                         className="w-full text-left p-3 hover:bg-white/5 rounded-lg transition-colors text-white/80 hover:text-white"
                       >
-                        🔍 ZAP (Zed Attack Proxy)
+                        🔍 Dependency-Track
                       </button>
                       <button 
                         onClick={() => handleQuickSearch('Security Testing')}

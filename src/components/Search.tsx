@@ -35,11 +35,11 @@ const defaultProjectsData: Project[] = [
     slug: "owasp-top-10"
   },
   {
-    title: "ZAP (Zed Attack Proxy)",
-    description: "The OWASP Zed Attack Proxy (ZAP) is one of the world's most popular free security tools.",
+    title: "Dependency-Track",
+    description: "Intelligent Component Analysis platform for identifying and reducing software supply chain risk using SBOM.",
     category: "Security Testing",
     status: "Flagship",
-    slug: "zap-zed-attack-proxy"
+    slug: "dependency-track"
   },
   {
     title: "Amass",
