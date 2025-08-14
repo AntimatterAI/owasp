@@ -19,6 +19,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   console.log('Project data:', {
     title: project.title,
     slug: project.slug,
+    hasCustomTabs: !!project.tabs,
+    customTabsLength: project.tabs?.length || 0,
+    customTabs: project.tabs,
     hasTabMain: !!project.tab_main_content,
     hasTabTranslation: !!project.tab_translation_content,
     hasTabSponsors: !!project.tab_sponsors_content,

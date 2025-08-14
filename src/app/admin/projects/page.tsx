@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getProjects, Project, type ProjectsResponse } from '@/lib/projects';
+import { getProjects, type ProjectsResponse } from '@/lib/projects';
+import { Project } from '@/lib/types';
 import { createClientComponentClient } from '@/lib/supabase';
 
 export default function AdminProjectsPage() {

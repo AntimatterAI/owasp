@@ -7,7 +7,7 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
-import { Project } from '@/lib/projects';
+import { Project } from '@/lib/types';
 
 interface ProjectPageProps {
   project: Project;
@@ -18,8 +18,14 @@ interface TabContentProps {
 }
 
 function TabContent({ content }: TabContentProps) {
-  // Helper function to convert URLs and OWASP vulnerability references to clickable links
-  const renderTextWithLinks = (text: string) => {
+  // Helper function to convert URLs, embeds, and OWASP vulnerability references to interactive content
+  const renderRichContent = (text: string) => {
+    // YouTube embed regex
+    const youtubeRegex = /\[YOUTUBE\](https:\/\/(?:www\.)?youtube\.com\/(?:watch\?v=|embed\/)([a-zA-Z0-9_-]+)(?:\S+)?)\[\/YOUTUBE\]/g;
+    
+    // Image embed regex
+    const imageRegex = /\[IMAGE\](https?:\/\/[^\s\]]+)\|([^|]*)\|([^]]*)\[\/IMAGE\]/g;
+    
     // First handle OWASP A01-A10 vulnerability references
     const owaspVulnRegex = /(A\d{2}:2021-[^,\n\r.]+)/g;
     
@@ -37,8 +43,18 @@ function TabContent({ content }: TabContentProps) {
       'A10:2021-Server-Side Request Forgery': 'https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/'
     };
 
-    // Replace OWASP vulnerabilities with links first
-    let processedText = text.replace(owaspVulnRegex, (match) => {
+    // Replace YouTube embeds first
+    let processedText = text.replace(youtubeRegex, (match, url, videoId) => {
+      return `<YOUTUBEEMBED>${videoId}</YOUTUBEEMBED>`;
+    });
+
+    // Replace images
+    processedText = processedText.replace(imageRegex, (match, url, alt, caption) => {
+      return `<IMAGEEMBED>${url}|${alt}|${caption}</IMAGEEMBED>`;
+    });
+
+    // Replace OWASP vulnerabilities with links
+    processedText = processedText.replace(owaspVulnRegex, (match) => {
       const url = vulnUrls[match];
       if (url) {
         return `<OWASPLINK>${match}|${url}</OWASPLINK>`;
@@ -53,10 +69,42 @@ function TabContent({ content }: TabContentProps) {
     });
 
     // Split and render
-    const parts = processedText.split(/(<OWASPLINK>.*?<\/OWASPLINK>|<HTTPLINK>.*?<\/HTTPLINK>)/);
+    const parts = processedText.split(/(<YOUTUBEEMBED>.*?<\/YOUTUBEEMBED>|<IMAGEEMBED>.*?<\/IMAGEEMBED>|<OWASPLINK>.*?<\/OWASPLINK>|<HTTPLINK>.*?<\/HTTPLINK>)/);
     
     return parts.map((part, partIndex) => {
-      if (part.startsWith('<OWASPLINK>')) {
+      if (part.startsWith('<YOUTUBEEMBED>')) {
+        const videoId = part.replace(/<\/?YOUTUBEEMBED>/g, '');
+        return (
+          <div key={partIndex} className="my-6">
+            <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-200">
+              <iframe
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title="YouTube video"
+                className="w-full h-full"
+                allowFullScreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              />
+            </div>
+          </div>
+        );
+      } else if (part.startsWith('<IMAGEEMBED>')) {
+        const content = part.replace(/<\/?IMAGEEMBED>/g, '');
+        const [url, alt, caption] = content.split('|');
+        return (
+          <div key={partIndex} className="my-6">
+            <div className="relative rounded-lg overflow-hidden border border-gray-200">
+              <img
+                src={url}
+                alt={alt}
+                className="w-full h-auto"
+              />
+            </div>
+            {caption && (
+              <p className="text-sm text-gray-600 text-center mt-2 italic">{caption}</p>
+            )}
+          </div>
+        );
+      } else if (part.startsWith('<OWASPLINK>')) {
         const content = part.replace(/<\/?OWASPLINK>/g, '');
         const [text, url] = content.split('|');
         return (
@@ -99,7 +147,7 @@ function TabContent({ content }: TabContentProps) {
           const headingText = paragraph.replace(/^##\s+/, '');
           return (
             <h3 key={index} className="font-['Barlow'] font-bold text-[#101820] text-xl mt-8 mb-4">
-              {renderTextWithLinks(headingText)}
+              {renderRichContent(headingText)}
             </h3>
           );
         } else if (paragraph.match(/^\d+\.\s+\*\*/)) {
@@ -120,11 +168,11 @@ function TabContent({ content }: TabContentProps) {
                       </div>
                       <div>
                         <div className="font-['Poppins'] font-semibold text-[#101820] mb-1">
-                          {renderTextWithLinks(title)}
+                          {renderRichContent(title)}
                         </div>
                         {description && (
                           <div className="font-['Poppins'] text-[#757575] text-sm">
-                            {renderTextWithLinks(description)}
+                            {renderRichContent(description)}
                           </div>
                         )}
                       </div>
@@ -152,10 +200,10 @@ function TabContent({ content }: TabContentProps) {
                         <div className="w-2 h-2 bg-[#003594] rounded-full flex-shrink-0 mt-2"></div>
                         <div>
                           <span className="font-['Poppins'] font-semibold text-[#101820]">
-                            {renderTextWithLinks(label)}:
+                            {renderRichContent(label)}:
                           </span>
                           <span className="font-['Poppins'] text-[#757575] ml-1">
-                            {renderTextWithLinks(description)}
+                            {renderRichContent(description)}
                           </span>
                         </div>
                       </li>
@@ -166,7 +214,7 @@ function TabContent({ content }: TabContentProps) {
                   <li key={lineIndex} className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-[#003594] rounded-full flex-shrink-0 mt-2"></div>
                     <span className="font-['Poppins'] text-[#757575]">
-                      {renderTextWithLinks(cleanLine)}
+                      {renderRichContent(cleanLine)}
                     </span>
                   </li>
                 );
@@ -177,7 +225,7 @@ function TabContent({ content }: TabContentProps) {
           // Regular paragraph
           return (
             <p key={index} className="font-['Poppins'] text-[#757575] leading-relaxed">
-              {renderTextWithLinks(paragraph)}
+              {renderRichContent(paragraph)}
             </p>
           );
         }
@@ -213,49 +261,71 @@ export default function ProjectDetailPageWithTabs({ project }: ProjectPageProps)
     }
   };
 
-  // Define available tabs based on what content exists
-  const tabs = [
-    { 
-      id: 'overview', 
-      label: 'Overview', 
-      content: project.tab_overview_content || project.tab_main_content || project.long_description,
-      icon: 'book-open'
-    },
-    ...(project.tab_documentation_content || project.installation_guide || project.api_documentation ? [{ 
-      id: 'documentation', 
-      label: 'Documentation', 
-      content: project.tab_documentation_content,
-      icon: 'code'
-    }] : []),
-    ...(project.tab_downloads_content || project.usage_examples ? [{ 
-      id: 'downloads', 
-      label: 'Downloads & Usage', 
-      content: project.tab_downloads_content,
-      icon: 'arrow-upright'
-    }] : []),
-    ...(project.tab_community_content || project.community_guidelines ? [{ 
-      id: 'community', 
-      label: 'Community', 
-      content: project.tab_community_content,
-      icon: 'users'
-    }] : []),
-    ...(project.tab_contribute_content || project.contribution_guide ? [{ 
-      id: 'contribute', 
-      label: 'Contribute', 
-      content: project.tab_contribute_content,
-      icon: 'briefcase-figma'
-    }] : []),
-    ...(project.tab_support_content || project.troubleshooting ? [{ 
-      id: 'support', 
-      label: 'Support', 
-      content: project.tab_support_content,
-      icon: 'megaphone'
-    }] : []),
-    // Legacy tabs for backward compatibility
-    ...(project.tab_translation_content ? [{ id: 'translation', label: 'Translation Efforts', content: project.tab_translation_content, icon: 'globe' }] : []),
-    ...(project.tab_sponsors_content ? [{ id: 'sponsors', label: 'Sponsors', content: project.tab_sponsors_content, icon: 'handshake' }] : []),
-    ...(project.tab_data_content ? [{ id: 'data', label: 'Data 2025', content: project.tab_data_content, icon: 'chart-projector' }] : []),
-  ];
+  // Define available tabs - use custom tabs if available, otherwise fall back to default structure
+  const tabs = project.tabs && project.tabs.length > 0 
+    ? project.tabs
+        .sort((a, b) => a.order - b.order)
+        .map(tab => ({
+          id: tab.id,
+          label: tab.name,
+          content: tab.content,
+          icon: getTabIcon(tab.name)
+        }))
+    : [
+        { 
+          id: 'overview', 
+          label: 'Overview', 
+          content: project.project_overview || project.long_description,
+          icon: 'book-open'
+        },
+        ...(project.tab_documentation_content || project.installation_guide ? [{ 
+          id: 'documentation', 
+          label: 'Documentation', 
+          content: project.tab_documentation_content,
+          icon: 'code'
+        }] : []),
+        ...(project.tab_downloads_content ? [{ 
+          id: 'downloads', 
+          label: 'Downloads & Usage', 
+          content: project.tab_downloads_content,
+          icon: 'arrow-upright'
+        }] : []),
+        ...(project.tab_community_content ? [{ 
+          id: 'community', 
+          label: 'Community', 
+          content: project.tab_community_content,
+          icon: 'users'
+        }] : []),
+        ...(project.tab_contribute_content ? [{ 
+          id: 'contribute', 
+          label: 'Contribute', 
+          content: project.tab_contribute_content,
+          icon: 'briefcase-figma'
+        }] : []),
+        ...(project.tab_support_content ? [{ 
+          id: 'support', 
+          label: 'Support', 
+          content: project.tab_support_content,
+          icon: 'megaphone'
+        }] : []),
+        // Legacy tabs for backward compatibility
+        ...(project.tab_translation_content ? [{ id: 'translation', label: 'Translation Efforts', content: project.tab_translation_content, icon: 'globe' }] : []),
+        ...(project.tab_sponsors_content ? [{ id: 'sponsors', label: 'Sponsors', content: project.tab_sponsors_content, icon: 'handshake' }] : []),
+        ...(project.tab_data_content ? [{ id: 'data', label: 'Data 2025', content: project.tab_data_content, icon: 'chart-projector' }] : []),
+      ];
+
+  // Helper function to get appropriate icon for tab names
+  function getTabIcon(tabName: string): string {
+    const name = tabName.toLowerCase();
+    if (name.includes('main') || name.includes('overview')) return 'book-open';
+    if (name.includes('feature')) return 'check-shield';
+    if (name.includes('integration')) return 'users';
+    if (name.includes('installation') || name.includes('download')) return 'arrow-upright';
+    if (name.includes('news') || name.includes('update')) return 'megaphone';
+    if (name.includes('support')) return 'handshake';
+    if (name.includes('executive') || name.includes('data')) return 'chart-projector';
+    return 'book-open';
+  }
 
   const currentTabContent = tabs.find(tab => tab.id === activeTab)?.content || project.long_description || '';
 
@@ -287,12 +357,16 @@ export default function ProjectDetailPageWithTabs({ project }: ProjectPageProps)
             {/* Project Info */}
             <div className="flex-1 flex flex-col gap-6 lg:gap-8">
               <div className="flex flex-wrap gap-3">
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${getProjectTypeColor(project.project_type)}`}>
-                  {project.project_type.charAt(0).toUpperCase() + project.project_type.slice(1)} Project
-                </span>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDifficultyColor(project.difficulty_level)}`}>
-                  {project.difficulty_level.charAt(0).toUpperCase() + project.difficulty_level.slice(1)}
-                </span>
+                {project.project_type && (
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getProjectTypeColor(project.project_type)}`}>
+                    {project.project_type.charAt(0).toUpperCase() + project.project_type.slice(1)} Project
+                  </span>
+                )}
+                {project.difficulty_level && (
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDifficultyColor(project.difficulty_level)}`}>
+                    {project.difficulty_level.charAt(0).toUpperCase() + project.difficulty_level.slice(1)}
+                  </span>
+                )}
                 <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
                   {project.category}
                 </span>

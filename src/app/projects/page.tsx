@@ -14,7 +14,8 @@ import ProjectInventorySection from '@/components/ProjectInventorySection';
 import FinalCTASection from '@/components/FinalCTASection';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { getProjects, Project } from '@/lib/projects';
+import { getProjects } from '@/lib/projects';
+import { Project } from '@/lib/types';
 
 interface ProjectCardProps {
   project: Project;
@@ -46,9 +47,11 @@ function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
       <div className="flex flex-wrap gap-2 mb-4">
-        <span className={`px-3 py-1 rounded-full text-sm font-medium ${getProjectTypeColor(project.project_type)}`}>
-          {project.project_type.charAt(0).toUpperCase() + project.project_type.slice(1)}
-        </span>
+        {project.project_type && (
+          <span className={`px-3 py-1 rounded-full text-sm font-medium ${getProjectTypeColor(project.project_type)}`}>
+            {project.project_type.charAt(0).toUpperCase() + project.project_type.slice(1)}
+          </span>
+        )}
         <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
           {getCategoryFromType(project.category)}
         </span>

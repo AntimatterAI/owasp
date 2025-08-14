@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getProjects, Project, type ProjectsResponse } from '@/lib/projects';
+import { getProjects, type ProjectsResponse } from '@/lib/projects';
+import { Project } from '@/lib/types';
 
 interface ButtonProps {
   text?: string;

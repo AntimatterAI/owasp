@@ -7,7 +7,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
 import ResponsiveContainer from '@/components/ResponsiveContainer';
-import { getProjects, Project } from '@/lib/projects';
+import { getProjects } from '@/lib/projects';
+import { Project } from '@/lib/types';
 
 interface AIProjectCardProps {
   project: Project;
