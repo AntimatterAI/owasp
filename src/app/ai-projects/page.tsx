@@ -166,10 +166,10 @@ export default function AIProjectsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="#projects">
-                <Button text="Explore Projects" type="Ghost White" size="56" />
+                <Button text="Explore Projects" variant="ghost-white" size="56" />
               </Link>
               <Link href="/projects">
-                <Button text="All OWASP Projects" type="Ghost White" size="56" />
+                <Button text="All OWASP Projects" variant="ghost-white" size="56" />
               </Link>
             </div>
           </div>
@@ -327,10 +327,10 @@ export default function AIProjectsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/join-community">
-                <Button text="Join Community" type="Ghost White" size="56" />
+                <Button text="Join Community" variant="ghost-white" size="56" />
               </Link>
               <Link href="/projects">
-                <Button text="Explore All Projects" type="Ghost White" size="56" />
+                <Button text="Explore All Projects" variant="ghost-white" size="56" />
               </Link>
             </div>
           </div>
