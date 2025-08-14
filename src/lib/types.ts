@@ -172,19 +172,105 @@ export interface SecurityAdvisory {
 export interface Chapter {
   id: string
   created_at: string
+  updated_at?: string
   name: string
   slug: string
   city: string
   country: string
+  country_flag?: string
   region: 'Africa' | 'Asia' | 'Europe' | 'North America' | 'South America' | 'Central America' | 'Oceania'
   description?: string
-  meeting_info?: string
+  tagline?: string
+  hero_description?: string
+  hero_highlight_title?: string
+  hero_highlight_description?: string
+  
+  // Rich content sections
+  about_content?: string
+  mission_points?: string[]
+  focus_areas?: ChapterFocusArea[]
+  tech_ecosystem?: ChapterTechCompany[]
+  leadership_team?: ChapterLeader[]
+  events?: ChapterEvent[]
+  past_events?: ChapterEvent[]
+  
+  // Contact and social
   contact_email?: string
   website_url?: string
   meetup_url?: string
   linkedin_url?: string
   twitter_url?: string
+  facebook_url?: string
+  youtube_url?: string
+  
+  // Meeting information
+  meeting_info?: string
+  meeting_schedule?: string
+  next_event?: ChapterEvent
+  
+  // Administrative
   is_active: boolean
+  content_status?: 'draft' | 'published' | 'archived'
+  
+  // Economic/Impact data
+  economic_impact?: ChapterEconomicImpact
+  
+  // Supporters and partnerships
+  supporters?: ChapterSupporter[]
+  partnerships?: ChapterPartnership[]
+}
+
+export interface ChapterFocusArea {
+  icon: string
+  title: string
+  description: string
+}
+
+export interface ChapterTechCompany {
+  name: string
+  sector: string
+  description: string
+  impact: string
+}
+
+export interface ChapterLeader {
+  name: string
+  role?: string
+  bio?: string
+  contact?: string
+  image?: string
+}
+
+export interface ChapterEvent {
+  title: string
+  date: string
+  time?: string
+  description?: string
+  speaker?: string
+  speaker_bio?: string
+  event_type: 'upcoming' | 'recent' | 'past'
+  registration_url?: string
+  video_url?: string
+}
+
+export interface ChapterEconomicImpact {
+  people_protected?: string
+  economy_secured?: string
+  companies_served?: string
+  regional_influence?: string[]
+}
+
+export interface ChapterSupporter {
+  name: string
+  type: 'venue' | 'sponsor' | 'partner'
+  description?: string
+  logo?: string
+}
+
+export interface ChapterPartnership {
+  organization: string
+  type: string
+  description: string
 }
 
 export type EventFormData = Omit<Event, 'id' | 'created_at'>
