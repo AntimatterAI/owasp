@@ -83,7 +83,7 @@ const AIProjectCard = ({ project }: AIProjectCardProps) => {
 
         <div className="flex space-x-3">
           <Link href={`/projects/${project.slug}`} className="flex-1">
-            <Button text="View Details" type="Primary" size="48" />
+            <Button text="View Details" variant="primary" size="48" />
           </Link>
           <Link 
             href={project.website_url || '#'} 
@@ -91,7 +91,7 @@ const AIProjectCard = ({ project }: AIProjectCardProps) => {
             rel="noopener noreferrer"
             className="flex-1"
           >
-            <Button text="Visit Project" type="Ghost Dark" size="48" />
+            <Button text="Visit Project" variant="ghost-dark" size="48" />
           </Link>
         </div>
       </div>
