@@ -350,37 +350,10 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
         last_updated, version, downloads, contributors, features,
         requirements, getting_started, tags, license, language,
         maintainers, difficulty_level,
-        
-        -- Enhanced content fields
-        project_overview, key_features, installation_guide, usage_examples,
-        api_documentation, security_considerations, best_practices, 
-        troubleshooting, changelog, roadmap, community_guidelines, 
-        contribution_guide,
-        
-        -- Tab content fields
-        tab_main_content, tab_translation_content, tab_sponsors_content, tab_data_content,
-        tab_overview_content, tab_documentation_content, tab_downloads_content,
-        tab_community_content, tab_contribute_content, tab_support_content,
-        
-        -- Rich media content
-        screenshots, videos, tutorials, case_studies, integrations,
-        third_party_tools,
-        
-        -- Metrics and statistics
-        download_count, active_installations, security_advisories, release_notes,
-        
-        -- SEO and metadata
-        meta_title, meta_description, meta_keywords, canonical_url,
-        
-        -- Project relationships
-        related_projects, dependencies, dependents, industry_usage,
-        compliance_standards, threat_categories,
-        
-        -- Content management
-        content_version, content_last_updated, content_reviewer, content_status,
-        
-        -- Legacy fields
-        project_links, project_leaders, social_links
+        project_overview, key_features, installation_guide,
+        tab_main_content, tab_overview_content,
+        screenshots, meta_title, meta_description, related_projects,
+        content_status, project_links, project_leaders, social_links
       `)
       .eq('slug', slug)
       .eq('status', 'active')
