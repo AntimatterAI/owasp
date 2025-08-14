@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { getProjectBySlug, Project } from '@/lib/projects';
+import { getProjectById, Project } from '@/lib/projects';
 
 interface ProjectEditPageProps {
   params: {
@@ -22,7 +22,7 @@ export default function ProjectEditPage({ params }: ProjectEditPageProps) {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const projectData = await getProjectBySlug(params.id);
+        const projectData = await getProjectById(params.id);
         setProject(projectData);
       } catch (error) {
         console.error('Error fetching project:', error);

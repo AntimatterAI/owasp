@@ -332,6 +332,45 @@ export async function getProjects(options?: {
   }
 }
 
+export async function getProjectById(id: string): Promise<Project | null> {
+  try {
+    // Check if Supabase environment variables are available
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      console.warn('Supabase environment variables not configured, returning mock data');
+      return mockProjects.find(p => p.id === id) || null;
+    }
+
+    const supabase = createClientComponentClient();
+    const { data, error } = await supabase
+      .from('projects')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (error) {
+      if (error.code === 'PGRST116') {
+        // No rows returned
+        console.log(`No project found with id: ${id}`);
+        return null;
+      }
+      console.error('Error fetching project by id:', error);
+      console.error('ID searched:', id);
+      console.error('Error details:', JSON.stringify(error, null, 2));
+      // Return mock data as fallback instead of throwing
+      console.warn('Falling back to mock data due to database error');
+      return mockProjects.find(p => p.id === id) || null;
+    }
+
+    return data as unknown as Project;
+  } catch (error) {
+    console.error('Error in getProjectById:', error);
+    console.error('Error details:', JSON.stringify(error, null, 2));
+    // Return mock data as fallback instead of throwing
+    console.warn('Falling back to mock data due to database error');
+    return mockProjects.find(p => p.id === id) || null;
+  }
+}
+
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
   try {
     // Check if Supabase environment variables are available
